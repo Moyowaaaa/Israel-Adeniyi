@@ -2,6 +2,7 @@
 import CustomMouseVue from '@/components/CustomMouse.vue';
 import HeroSection from '@/components/HeroSection.vue';
 import Navbar from '@/components/Navbar.vue';
+import SelectedWorksSection from '@/components/SelectedWorksSection.vue';
 import TitleSection from '@/components/TitleSection.vue';
 import Main from '../layouts/Main.vue'
 
@@ -10,11 +11,11 @@ import Main from '../layouts/Main.vue'
 
 <template>
   <div class="app">
-
-  
-    <Navbar />
+    <Main>
+    <!-- <Navbar /> -->
     <TitleSection />
-    <!-- <HeroSection /> -->
-
+    <HeroSection />
+    <SelectedWorksSection/>
+</Main>
   </div>
 </template>

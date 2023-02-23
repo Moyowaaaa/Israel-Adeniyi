@@ -14,7 +14,7 @@
     <div class="link">RESUME</div>
 </div>
 
-<button class="navbar--button">
+<button class="navbar--button ">
     get in touch
 </button>
         </div>
@@ -60,7 +60,7 @@
 
                 <div class="fullscreenNav-container__subcontainer__contacts contacts">
 
-                    <h1 class=" nav">adeniyioba2000@gmail.com</h1>
+                    <h1 class="nav social">adeniyioba2000@gmail.com</h1>
 
                    
             <h1 class="nav social">TWITTER</h1>
@@ -107,17 +107,22 @@ gsap.registerPlugin(ScrollTrigger)
 let menuOpen = ref<boolean>(false)
 var menuTl = gsap.timeline()
 var menuBodyTl = gsap.timeline({paused:true})
+
+
+onMounted(() => {
+    var titleSection = document.querySelector('#titleSection')
+
+
 let navTl = gsap.timeline({
     scrollTrigger:{
-        trigger:'#titleSection',
-        start: '300px center',
+        trigger:titleSection,
+        start: '350px center',
     end: () => window.innerHeight/45 + 'top',
         scrub:0.1
     }
    })
 
 
-onMounted(() => {
     Splitting();
 
 
@@ -192,7 +197,7 @@ const openMenu = () => {
 
 .navbar{
     
-    padding: 2rem 7rem 1rem;
+    padding: 2rem 11.8rem 1rem;
     cursor: pointer;
  
     color:#f8f8f8;
@@ -283,7 +288,8 @@ z-index:30
     height: 100%;  
     display: flex;
     padding: 3rem 5rem;
-  
+ 
+    justify-content: center;
     flex-direction: column;
 
     &__subcontainer{
