@@ -1,7 +1,7 @@
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "abstract/mixins";
+@import "base/typography";
+
 
 
 @font-face {
@@ -82,7 +82,15 @@
 
 }
 
-section::before {    
+body, html {
+   
+    margin:0;
+    padding:0;
+    margin-top:-10px;
+    
+}
+
+html::before {    
     content: "";
     background-image:url('../images/Noise.png');
     background-size: cover;

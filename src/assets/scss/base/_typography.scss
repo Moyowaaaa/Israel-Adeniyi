@@ -1,0 +1,28 @@
+.nav {
+    @include typography(500, 1.75rem,null,'thunder-mediuml')
+}
+
+.nav-menu-logo{
+    @include typography(500, 3rem,null,'thunder-mediuml')
+}
+
+.nav-menu-link{
+    @include typography(800, 10rem,null,'thunder-boldl')
+}
+
+
+.main-header{
+    @include typography(800, 2.7rem,null,'thunder-boldl')
+}
+
+
+.section-title {
+    @include typography(700, 5.75rem, 0.5rem,'thunder-boldl')
+}
+
+.section-text-normal{
+    @include typography(700, 2.75rem, 4rem,'neutra')
+}
+.section-text-bold{
+    @include typography(700, 2.75rem, 4rem,'neutra-bold')
+}

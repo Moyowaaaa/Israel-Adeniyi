@@ -1,34 +1,333 @@
 <template>
-    <div class="flex py-6 w-full px-[7rem]  ">
-
-        <div class=" w-full flex font-[thunder-mediuml] text-white items-center justify-between text-lg">
+    <div>
+        <div class="navbar">
+        <div class="navbar--container nav">
             <div class="link">ADENIYI</div>
 
 
-            <div class="flex gap-6">
-                <div class="link">WORKS</div>
+<div class="navbar--container__links">
+    <div class="link">WORKS</div>
 
-                <div class="link">ABOUT</div>
-
-
-                <div class="link">RESUME</div>
-            </div>
+    <div class="link">ABOUT</div>
 
 
-            <div>
-                <button class="px-4 py-2 border-2 border-white">
-        get in touch
-    </button>
-            </div>
+    <div class="link">RESUME</div>
+</div>
 
+<button class="navbar--button">
+    get in touch
+</button>
         </div>
+
+        <div id="navi" class="" @click="openMenu">
+        <svg viewBox="0 0 12 10" class="hamburger" height="40px" width="40px">
+            <path d="M10,2 L2,2" class="bar-1"></path>
+            <path d="M2,5 L10,5" class="bar-2"></path>
+            <path d="M10,8 L2,8" class="bar-3"></path>
+
+        </svg>
+        </div> 
+
+   
     </div>
+
+    <div class="fullscreenNav">
+
+        
+        <div class="fullscreenNav-container">
+            <div class="fullscreenNav__logo nav-menu-logo" >
+            ADENIYI
+        </div>
+
+  
+
+
+        <div class="fullscreenNav-container__subcontainer">
+            <div class="fullscreenNav-container__subcontainer__links links">
+                <div class="nav-menu-link link1 ">
+                    WORKS
+                </div>
+
+                <div class="nav-menu-link link2">
+                    ABOUT
+                </div>
+
+                <div class="nav-menu-link link3">
+                    RESUME
+                </div>
+
+                </div>
+
+                <div class="fullscreenNav-container__subcontainer__contacts contacts">
+
+                    <h1 class=" nav">adeniyioba2000@gmail.com</h1>
+
+                   
+            <h1 class="nav social">TWITTER</h1>
+            <h1 class="nav social">LINKEDIN</h1>
+            <h1 class="nav social">BEHANCE</h1>
+
+                </div>
+
+            </div>  
+
+
+    
+        </div>
+
+       
+    </div>
+
+    </div>
+   
 </template>
 
 <script setup lang="ts">
+import "splitting/dist/splitting.css";
+import "splitting/dist/splitting-cells.css";
+import Splitting from "splitting";
+
+import { gsap } from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+import { onMounted,onUnmounted,ref } from 'vue';
+gsap.registerPlugin(ScrollTrigger)
+
+
+
+
+// const wrapElements = (elems:any, wrapType:any, wrapClass:any) => {
+//     elems.forEach((char:any) => {
+//         const wrapEl = document.createElement(wrapType);
+//         wrapEl.classList = wrapClass;
+//         char.parentNode.appendChild(wrapEl);
+//         wrapEl.appendChild(char);
+//     });
+// }
+
+let menuOpen = ref<boolean>(false)
+var menuTl = gsap.timeline()
+var menuBodyTl = gsap.timeline({paused:true})
+let navTl = gsap.timeline({
+    scrollTrigger:{
+        trigger:'#titleSection',
+        start: '300px center',
+    end: () => window.innerHeight/45 + 'top',
+        scrub:0.1
+    }
+   })
+
+
+onMounted(() => {
+    Splitting();
+
+
+navTl.to('#navi',{
+    y:-20,
+    opacity:1,
+    ease:"power3.inOut",
+    duration:1.2
+})
+
+
+menuTl.to('.bar-1', {
+        duration:0.5,
+        attr:{d: "M8,2 L2,8"},
+	x:1,
+	ease: "power3.inOut"
+    }, 'start')
+
+    menuTl.to('.bar-2',{
+	autoAlpha: 0,
+    duration:0.5
+}, 'start')
+
+    menuTl.to('.bar-3',{
+	attr:{d: "M8,8 L2,2"},
+    duration:0.5,
+	x:1,
+	ease: "power3.inOut"
+}, 'start')
+
+menuTl.reverse()
+
+
+menuBodyTl.to('.fullscreenNav', {
+    duration:0.2,
+	display: "flex",
+	ease: 'Expo.easeInOut',
+ 
+})
+
+menuBodyTl.from(['.links','.link1','.link2','.link3'], {
+    opacity:0,
+    duration:1.2,
+    stagger: 0.2,   
+    y:200,
+    ease:"power3.inOut"
+}, "<0.1")
+
+
+menuBodyTl.fromTo('.nav-menu-logo',  {y: 0, opacity: 0, }, { opacity:1,duration:0.8, clipPath: "polygon(0 100%, 100% 20%, 80% 0, 0 0)"}, "<0.1");;
+menuBodyTl.from('.contacts',{opacity:0,duration:.8,ease:"power3.inOut"}, "<0.5")
+
+
+
+menuBodyTl.reverse()
+
+
+
+})
+
+
+const openMenu = () => {
+    menuTl.reversed(!menuTl.reversed())
+    menuBodyTl.reversed(!menuBodyTl.reversed())
+}
+
+
 
 </script>
 
-<style scoped>
+<style scoped lang="scss">
+
+.navbar{
+    
+    padding: 2rem 7rem 1rem;
+    cursor: pointer;
+ 
+    color:#f8f8f8;
+  
+
+    &--container {
+        width: 100%;
+  
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        &__links{
+        gap:4rem;
+        display:flex
+    }
+    
+    }
+
+    &--button{
+        width: auto;
+        padding: 1rem 2rem;
+        border:2px solid white;
+        color:white;
+        background-color: transparent;
+    }
+
+    
+
+ 
+}
+
+.link{
+    display: inline-block;
+    background-image: linear-gradient( #F89623,#F89623);
+    background-position: right -100% bottom 0;
+    background-size: 200% 2px;
+    background-repeat: no-repeat;
+    transition:
+    background-size 0.3s,
+    background-position 0s 0.3s ;
+    width: auto;
+
+ 
+  }
+
+.link:hover{
+    background-position: 100% 100%; 
+    background-size: 100% 2px;
+  
+    }
+
+  .hamburger path{
+    fill: none;
+    stroke: white;
+    stroke-linecap: round;
+}
+
+#navi {
+position: fixed;
+right:4rem;
+top:2rem;
+opacity:0;
+z-index:30
+
+}
+
+.fullscreenNav{
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    overflow: hidden;
+    top:0;
+    background-color: #000000;
+    display: none;
+    color:white;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    &__logo{}
+
+}
+
+.fullscreenNav-container{
+    width: 100%;
+    margin:auto;
+    height: 100%;  
+    display: flex;
+    padding: 3rem 5rem;
+  
+    flex-direction: column;
+
+    &__subcontainer{
+     
+        width: 70%;
+        margin: 0 auto;
+        padding: 3rem 0;
+        display: flex;
+     
+    }
+    &__subcontainer__links{
+        width:60%;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem ;
+    }
+
+    &__subcontainer__contacts{
+        display: flex;
+        flex-direction: column;
+        gap:0.2rem;
+        padding: 2rem 3rem;
+        justify-content: start;
+    }
+
+    &__contact{
+        width: 10rem;
+        border: 2px solid red;
+    }
+
+    
+
+}
+.fullscreenNav__logo {}
+
+.social{
+    text-decoration: underline;
+}
+
+
+
+
+
+
+
 
 </style>

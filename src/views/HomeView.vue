@@ -11,10 +11,10 @@ import Main from '../layouts/Main.vue'
 <template>
   <div class="app">
 
-    <Main>
+  
     <Navbar />
     <TitleSection />
-    <HeroSection />
-    </Main>
+    <!-- <HeroSection /> -->
+
   </div>
 </template>

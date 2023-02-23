@@ -17,6 +17,8 @@ const smoothScroll = ()=>{
   infinite: false,
 })
 
+
+
 function raf(time:any) {
   lenis.raf(time)
   requestAnimationFrame(raf)

@@ -1,5 +1,5 @@
 <template>
-    <div class="w-full lg:max-w-[112rem]  flex flex-col lg:justify-center mx-auto">
+    <div>
         <slot />
     </div>
 </template>
