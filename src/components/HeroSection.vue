@@ -1,114 +1,132 @@
 <template>
-    <section class="heroSection" id="heroSection">
-        <div class="sub">
-            <div class="heroSection--contentcontainer">
-          <div class="title-container">
-           <h1 class="section-title">About Me.</h1>
-          </div>
-
-          <div class="hero-container">
-            <p class="section-text-normal content__text" data-splitting data-effect1>
-                I am a User experience designer driven by  passion in creating digital experiences that are both aesthetically pleasing and intuitive to use. I have a deep understanding of design principles and techniques, and I stay up-to-date with the latest design trends and technologies. With a strong background in user research and testing, I focus on designing interfaces that meet the needs and expectations of users.
-
-            </p>
-            <p class="section-text-bold resume">
-                View Resume
-            </p>
-
-          </div>
+  <section class="heroSection" id="heroSection">
+    <div class="sub">
+      <div class="heroSection--contentcontainer">
+        <div class="title-container">
+          <h1 class="section-title title" data-splitting data-effect1>
+            About Me.
+          </h1>
         </div>
+
+        <div class="hero-container">
+          <p class="section-text-normal hero-text" data-splitting data-effect2>
+            I am a User experience designer driven by passion in creating
+            digital experiences that are both aesthetically pleasing and
+            intuitive to use. I have a deep understanding of design principles
+            and techniques, and I stay up-to-date with the latest design trends
+            and technologies. With a strong background in user research and
+            testing, I focus on designing interfaces that meet the needs and
+            expectations of users.
+          </p>
+          <p class="section-text-bold resume">View Resume</p>
         </div>
-      
-        <!-- <div class="Marquee-container">
+      </div>
+    </div>
+
+    <!-- <div class="Marquee-container">
             <MarqueeVue />
         </div> -->
-    </section>
+  </section>
 </template>
 
 <script setup lang="ts">
-import Splitting from 'splitting';
-import { onMounted } from 'vue';
-import  MarqueeVue from './Marquee.vue';
-import gsap from 'gsap';
+import Splitting from "splitting";
+import { onMounted } from "vue";
+import MarqueeVue from "./Marquee.vue";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+gsap.registerPlugin(ScrollTrigger)
 
 onMounted(() => {
-    Splitting()
-    
-    console.log(Splitting)
-    const fx16Titles = [...document.querySelectorAll('.content__text[data-splitting][data-effect1]')];
+  Splitting();
 
-console.log({...fx16Titles})
-fx16Titles.forEach(text => {
-    gsap.fromTo(text, {
-        transformOrigin: '0% 50%',
-            rotate: 3,
-            opacity:0.2
-        }, {
-            opacity:1,
-            rotate: 0,
-            ease:"power3.inOut",
-            scrollTrigger: {
-                trigger: text,
-                start: 'top bottom',
-                end: 'top top',
-                markers:true,
-                scrub: true,
-            }
-    });
-})
-
-})
+  console.log(Splitting);
+  const titleText = [
+    ...document.querySelectorAll(".title[data-splitting][data-effect1]"),
+  ];
+  const heroText = [
+    ...document.querySelectorAll(".hero-text[data-splitting][data-effect2]"),
+  ];
 
 
+  heroText.forEach((text) => {
+    // gsap.fromTo(text, {
+    //         transformOrigin: '0% 50%',
+    //         rotate: 3
+    //     }, {
+    //         ease: 'none',
+    //         rotate: 0,
+    //         scrollTrigger: {
+    //             trigger: text,
+    //             start: 'top bottom',
+    //             end: 'top top',
+    //             scrub: true,
+    //         }
+    //     });
 
+    gsap.fromTo(
+      text.querySelectorAll(".word"),
+      {
+        "will-change": "opacity",
+        opacity: 0.2,
+      },
+      {
+        ease: "none",
+        opacity: 1,
+        stagger: 0.05,
+        scrollTrigger: {
+          trigger: text,
+          start: "top bottom-=20%",
+          end: "center top+=20%",
+          scrub: true,
+        },
+      }
+    );
+  });
+});
 </script>
 
 <style lang="scss" scoped>
-.heroSection{
-    max-width: 100rem;
-    overflow-x: hidden;
-    height: 100vh;
+.heroSection {
+  max-width: 100rem;
+  overflow-x: hidden;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  //  padding: 0 11.8rem;
+
+  &--contentcontainer {
+    width: 100%;
+    // border:2px solid;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin:0 auto;
-   
-
-    &--contentcontainer{
-        width: 100%;
-        // border:2px solid;
-        display:flex;
-        justify-content: space-between;
-        
-       
-    }
-   
+    justify-content: space-between;
+  }
 }
 
-.title-container, .hero-container{
-    width: 41.666667%;
-    color:#F8F8F8
+.title-container,
+.hero-container {
+  width: 41.666667%;
+  color: #f8f8f8;
 }
 
-.resume{
-    color:#F89623
+.resume {
+  color: #f89623;
 }
 
-.sub{
-    max-width: 100%;
- 
-    padding: 0 11.8rem;
+.sub {
+  max-width: 100%;
+
+  padding: 0 11.8rem;
 }
 
 .Marquee-container {
-    width: 100%;
-    border:2px solid blue;
-    position: relative;
-    top: 10rem;
+  width: 100%;
+  border: 2px solid blue;
+  position: relative;
+  top: 10rem;
 }
-
-
-
 
 </style>

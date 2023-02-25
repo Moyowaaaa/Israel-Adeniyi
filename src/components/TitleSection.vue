@@ -5,7 +5,7 @@
     <section class="titleSection" id="titleSection">
         <div class="titleSection--mainContainer">
             <div class="titleSection--mainContainer__titlecontainer">
-                <h1 class="main-header header">USER EXPERIENCE</h1>
+                <h1 class="main-header header content__title" data-splitting data-effect-5>USER EXPERIENCE</h1>
                 <h1 class="main-header sub-header">designer based</h1>
                 <h1  class="main-header sub-header"> in Lagos</h1>
             </div>
@@ -54,6 +54,9 @@ import Splitting from 'splitting';
 
 onMounted(() => {
     Splitting()
+    
+    const fx19Titles = [...document.querySelectorAll('.content__title[data-splitting][data-effect19]')];
+
 })
 
 
@@ -91,7 +94,7 @@ onMounted(() => {
       
         display: flex;
         align-items: center;
-        justify-content: end;
+        justify-content: flex-end;
         object-fit: contain;
      
     }

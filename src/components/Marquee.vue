@@ -28,7 +28,7 @@ const marqueArray = ["Creative.","Passionate.", "Problem-solving."]
     max-height: 50rem;
     display: flex;
     flex-direction: column;
-    justify-content: start;
+    justify-content: flex-start;
     color: white;
 }
 

@@ -21,8 +21,11 @@
 }
 
 .section-text-normal{
-    @include typography(500, 1rem, null,'neutra')
+    @include typography(500, 1.25rem, null,'neutra')
 }
 .section-text-bold{
     @include typography(700, 1.375rem, null,'neutra-bold')
+}
+.footer-alt{
+    @include typography(500, 7rem, 0.2rem,'thunder-medium')
 }

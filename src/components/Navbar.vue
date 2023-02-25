@@ -254,6 +254,7 @@ const openMenu = () => {
     fill: none;
     stroke: white;
     stroke-linecap: round;
+   
 }
 
 #navi {
@@ -261,7 +262,7 @@ position: fixed;
 right:4rem;
 top:2rem;
 opacity:0;
-z-index:30
+z-index:50
 
 }
 
@@ -277,6 +278,7 @@ z-index:30
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    z-index: 30;
 
     &__logo{}
 
@@ -312,7 +314,7 @@ z-index:30
         flex-direction: column;
         gap:0.2rem;
         padding: 2rem 3rem;
-        justify-content: start;
+        justify-content: flex-start;
     }
 
     &__contact{
