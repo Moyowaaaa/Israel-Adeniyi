@@ -74,6 +74,7 @@ onMounted(() => {
     justify-content: center;
     margin:0 auto;
     padding: 0 11.8rem;
+    // font-size: calc(100vw / 1368 * 10);
 
 
     &--mainContainer{
@@ -81,7 +82,7 @@ onMounted(() => {
         width:100%;
         display: flex;
         justify-content: space-between;
-        align-items: center;
+        align-items:flex-start;
 
         &__titlecontainer{
         width: 70%;

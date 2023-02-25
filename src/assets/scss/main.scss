@@ -2,9 +2,9 @@
 @import "abstract/mixins";
 @import "base/typography";
 
-// html{
-//     font-size: calc(100vw / 1368 * 10);
-// }
+html{
+    font-size: calc(150vw / 1368 * 10);
+}
 
 
 @font-face {

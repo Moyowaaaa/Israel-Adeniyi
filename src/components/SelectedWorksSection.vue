@@ -8,7 +8,20 @@
 
 
           <div class="selectedWorks--container__works-container">
-         
+         <div class="work-container">
+            <img src="../assets/images/helpingHand.svg" />
+            <div class="work-container--desc project-desc-text">
+                <h1>Helping hand Case study</h1>
+                <img src="../assets/images/linkArrow.svg" />
+            </div>
+         </div>
+         <div class="work-container">
+            <img src="../assets/images/Nft.svg" />
+            <div class="work-container--desc project-desc-text">
+                <h1>NFT UI Relume Challenge</h1>
+                <img src="../assets/images/linkArrow.svg" />
+            </div>
+         </div>
            
 
             </div>  
@@ -53,6 +66,7 @@
         display:flex;
         gap:3rem;
         justify-content: justify-between;
+       
       }
     }
 
@@ -61,17 +75,33 @@
 }
 
 .work-container{
-    height:25rem;
+    height:22rem;
     width: 50%;;
-    border:2px solid teal;
+    
     object-fit: cover;
 
-    &--image{
-      
+    img{
+        width: 100%;
+  height: 100%;
+//   object-fit: contain;
+object-fit: fit;
     }
     &--desc{
-        height: 20%;
-        border:2px solid red
+        width: 100%;
+      
+        margin-top: 0.2rem; 
+        padding: 2px 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center ;
+
+        img{
+            object-fit: fit;
+            width:30px
+        }
+       
+
+        
     }
 
 }

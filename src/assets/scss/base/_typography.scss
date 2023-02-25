@@ -20,12 +20,29 @@
     @include typography(700, 5.75rem, 0.5rem,'thunder-boldl')
 }
 
+
 .section-text-normal{
     @include typography(500, 1.25rem, null,'neutra')
 }
 .section-text-bold{
     @include typography(700, 1.375rem, null,'neutra-bold')
 }
+
+.project-desc-text{
+    @include typography(500, 1.2rem, 0,'thunder-mediuml')
+}
 .footer-alt{
     @include typography(500, 7rem, 0.2rem,'thunder-medium')
 }
+.footer-text{
+    @include typography(400, 1.5rem, 0.2rem,'thunder-mediuml')
+}
+.footer-text-smaller{
+    @include typography(400, 1rem, 0.2rem,'neutra-bold')
+}
+
+
+.footer-text-normal{
+    @include typography(500, 0.8rem, null,'neutra')
+}
+

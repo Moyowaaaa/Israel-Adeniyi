@@ -23,9 +23,10 @@
       </div>
     </div>
 
-    <!-- <div class="Marquee-container">
+
+    <div class="Marquee-container">
             <MarqueeVue />
-        </div> -->
+        </div>
   </section>
 </template>
 
@@ -124,9 +125,9 @@ onMounted(() => {
 
 .Marquee-container {
   width: 100%;
-  border: 2px solid blue;
+
   position: relative;
-  top: 10rem;
+  top: 6rem;
 }
 
 </style>
