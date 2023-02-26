@@ -126,6 +126,7 @@ html::before {
 
   ::-webkit-scrollbar {
     width: 6px;
+    display: none;
     height: 6px;
     background: linear-gradient(180deg, #FDFCFB -31.14%, #FDFCFB -31.13%, #E2D1C3 100%);
 }

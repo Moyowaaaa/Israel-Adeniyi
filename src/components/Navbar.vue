@@ -14,7 +14,7 @@
     <div class="link">RESUME</div>
 </div>
 
-<button class="navbar--button ">
+<button class="navbar--button">
     get in touch
 </button>
         </div>
@@ -60,7 +60,10 @@
 
                 <div class="fullscreenNav-container__subcontainer__contacts contacts">
 
-                    <h1 class="nav social">adeniyioba2000@gmail.com</h1>
+                    <a href="mailto:minneade@gmail.com" target="_blank">
+                        <h1 class="nav social">adeniyioba2000@gmail.com</h1>
+                    </a>
+                 
 
                    
             <h1 class="nav social">TWITTER</h1>
@@ -201,6 +204,8 @@ const openMenu = () => {
     cursor: pointer;
  
     color:#f8f8f8;
+
+ 
   
 
     &--container {
@@ -223,6 +228,8 @@ const openMenu = () => {
         border:2px solid white;
         color:white;
         background-color: transparent;
+        font-size: 1.25rem;
+        font-family: 'thunder-mediuml';
     }
 
     
@@ -331,7 +338,9 @@ z-index:50
     text-decoration: underline;
 }
 
-
+a{
+        color:#f8f8f8; 
+    }
 
 
 

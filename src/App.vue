@@ -15,6 +15,7 @@ const smoothScroll = ()=>{
   smoothTouch: false,
   touchMultiplier: 2,
   infinite: false,
+
 })
 
 

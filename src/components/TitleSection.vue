@@ -4,7 +4,7 @@
  
     <section class="titleSection" id="titleSection">
         <div class="titleSection--mainContainer">
-            <div class="titleSection--mainContainer__titlecontainer">
+            <div class="titleSection--mainContainer__titlecontainer" id="titleContainer">
                 <h1 class="main-header header content__title" data-splitting data-effect-5>USER EXPERIENCE</h1>
                 <h1 class="main-header sub-header">designer based</h1>
                 <h1  class="main-header sub-header"> in Lagos</h1>
@@ -56,6 +56,10 @@ onMounted(() => {
     Splitting()
     
     const fx19Titles = [...document.querySelectorAll('.content__title[data-splitting][data-effect19]')];
+
+    const tl = gsap.timeline()
+    tl.fromTo('#titleContainer',{ opacity:0 },
+      { y: 0, duration:1.2, opacity: 1, clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)" })
 
 })
 

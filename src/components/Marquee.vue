@@ -1,12 +1,12 @@
 <template>
     <section class="marquee">
-        <Vue3Marquee class="marquee-container" >
-            <div class="marquee-word" v-for="(text, index) in marqueArray">
+        <Vue3Marquee class="marquee-container" :pauseOnHover="true">
+            <div class="marquee-word" v-for="(text) in marqueArray">
             <h1 class="word">{{ text }}</h1>
             </div>
 
 
-            <div class="marquee-word" v-for="(text, index) in marqueArray">
+            <div class="marquee-word" v-for="(text) in marqueArray">
             <h1 class="word">{{ text }}</h1>
             </div>
 
@@ -26,40 +26,54 @@ import { onMounted } from 'vue';
 const marqueArray = ["Creative.","Passionate.", "Problem-solving."]
 
 
-onMounted(() => {
-//     const tl=gsap.timeline({
-//         scrollTrigger:{
-//             trigger:'.marquee-container',
+// onMounted(() => {
+// //     const tl=gsap.timeline({
+// //         scrollTrigger:{
+// //             trigger:'.marquee-container',
             
-//             markers:true,
-//             scrub:true
-//         }
+// //             markers:true,
+// //             scrub:true
+// //         }
+// //     })
+// // })
+
+
+// let sections = gsap.utils.toArray('.marquee-word')
+//      gsap.registerPlugin(ScrollTrigger)
+//      ScrollTrigger.matchMedia({
+//           '(min-width:600px)': function () {
+//                gsap.timeline({
+//                     scrollTrigger: {
+//                          trigger: '.marquee',
+//                          scrub: -1,
+//                          start: 'center +=600',
+//                          end: 'bottom +=300',
+//                         //  toggleActions: 'play pause resume restart',
+//                     },
+//                }).to('.marquee', {
+//                     xPercent: - 10 * (sections.length - 2),
+//                     duration: 20,
+//                     ease: "power3.inOut",
+//                })
+//           },
+//      })
+
 //     })
-// })
+//     onMounted(() => {
+//   const worksContainer = document.querySelector('.selectedWorks--container__works-container');
+//   const works = document.querySelectorAll('.marquee-container');
 
-
-let sections = gsap.utils.toArray('.marquee-word')
-     gsap.registerPlugin(ScrollTrigger)
-     ScrollTrigger.matchMedia({
-          '(min-width:600px)': function () {
-               gsap.timeline({
-                    scrollTrigger: {
-                         trigger: '.marquee',
-                         scrub: -1,
-                         start: 'center +=600',
-                         end: 'bottom +=300',
-                         toggleActions: 'play pause resume restart',
-                    },
-               }).to('.marquee', {
-                    xPercent: -10 * (sections.length - 2),
-                    duration: 20,
-                    ease: "power3.inOut",
-               })
-          },
-     })
-
-    })
-
+//   gsap.to(works, {
+//     xPercent: -100,
+//     ease: 'none',
+//     scrollTrigger: {
+//       trigger: '.marquee',
+//       start: 'top center',
+//       end: 'bottom center',
+//       scrub: true,
+//     },
+//   });
+// });
 
 
 </script>
