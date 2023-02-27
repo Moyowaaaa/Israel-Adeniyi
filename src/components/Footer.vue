@@ -1,8 +1,10 @@
 <template>
     <section class="footerSection">
         <div class="footerSection--topcontainer">
+            <div class="footerSection--topcontainer__sub-container" id="subContainer">
             <h1 class="footer-alt alte">Get in touch</h1>
             <img src="../assets/images/inTouch.svg"/>
+            </div>  
         </div>
 
         <div class="footerSection--bottomcontainer">
@@ -79,12 +81,28 @@
 
 <script setup lang="ts">
 import { ref,onMounted } from 'vue';
-
+import gsap from 'gsap';
+import ScrollTrigger from 'gsap';
+gsap.registerPlugin(ScrollTrigger)
 
 let currentYear = ref<number | null>()
+
+
 onMounted(() => {
     const date = new Date();
    currentYear.value = date.getFullYear()
+
+   const tl = gsap.timeline({
+    scrollTrigger:{
+        trigger:'#subContainer',
+        start: 'top center',
+            end:'top +=150',
+    markers:true,
+        scrub:true
+    }
+   })
+
+   tl.fromTo('#subContainer', {opacity:0},{ y: 0, opacity: 1,duration:2, clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)" }, "<0.1");
 })
 </script>
 
@@ -112,6 +130,15 @@ onMounted(() => {
         flex-direction: column;
         align-items: center;
         justify-content: center;
+
+        &__sub-container{
+            width: 100%;
+  
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
     }
 
     &--bottomcontainer{

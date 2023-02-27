@@ -202,7 +202,7 @@ const openMenu = () => {
     
     padding: 2rem 11.8rem 1rem;
     cursor: pointer;
- 
+
     color:#f8f8f8;
 
  
