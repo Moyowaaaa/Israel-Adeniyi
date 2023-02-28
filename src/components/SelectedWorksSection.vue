@@ -111,20 +111,29 @@ gsap.from('.NFT', {
 
 
           <div class="selectedWorks--container__works-container" id="works-container">
+           
          <div class="work-container helping">
+            <a href="https://www.behance.net/gallery/143565927/Helping-hand-Case-Study" target="_blank">
             <img src="../assets/images/helpingHand.svg" />
             <div class="work-container--desc project-desc-text">
                 <h1>Helping hand Case study</h1>
                 <img src="../assets/images/linkArrow.svg" />
             </div>
+        </a>
          </div>
+       
+
+       
          <div class="work-container NFT">
+            <a href="https://www.behance.net/gallery/143565927/Helping-hand-Case-Study" target="_blank">
             <img src="../assets/images/Nft.svg" />
             <div class="work-container--desc project-desc-text">
                 <h1>NFT UI Relume Challenge</h1>
                 <img src="../assets/images/linkArrow.svg" />
             </div>
+        </a>
          </div>
+        
            
 
             </div>  
@@ -221,5 +230,11 @@ object-fit: fit;
         border:2px solid white;
         color:white;
         background-color: transparent;
+}
+
+a{
+    width: auto;
+    height: auto;
+    color:white
 }
 </style>

@@ -97,7 +97,7 @@ onMounted(() => {
         trigger:'#subContainer',
         start: 'top center',
             end:'top +=150',
-    markers:true,
+
         scrub:true
     }
    })

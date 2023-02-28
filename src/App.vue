@@ -1,8 +1,14 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import Lenis from '@studio-freight/lenis'
-import { onMounted } from 'vue';
+import { onMounted,ref,inject } from 'vue';
 import CustomMouse from './components/CustomMouse.vue';
+import Preloader from './components/Preloader.vue';
+
+
+const loading = ref<boolean | null>(true)
+
+
 
 const smoothScroll = ()=>{
   const lenis = new Lenis({
@@ -36,11 +42,13 @@ onMounted(() => {
 
 
 
+
+
 </script>
 
 <template>
- 
-
+  <!-- <Preloader /> -->
+  <Preloader/>
   <RouterView />
 </template>
 
