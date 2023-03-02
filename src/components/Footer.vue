@@ -10,24 +10,32 @@
         <div class="footerSection--bottomcontainer">
           <div class="linkcontainer">
             <div class="linkcontainer--container footer-text">
+
+
+                <a href="https://twitter.com/Adeniyi_nFt?s=09" target="_blank">
                 <div class="link">
                     <p>Twitter </p> 
                     <img src="../assets/images/linkArrow.svg" />
                 </div>
+            </a>
 
-
+            <a href="https://www.linkedin.com/in/israel-adeniyi-a11b56220" target="_blank">
                 <div class="link">
                     <p>Linkedin </p> 
                     <img src="../assets/images/linkArrow.svg" />
                 </div>
+                </a>
               
             </div>
 
             <div class="linkcontainer--container footer-text">
+
+                <a href="https://www.behance.net/israeladeniyi8"  target="_blank">
                 <div class="link">
                     <p>Behance </p> 
                     <img src="../assets/images/linkArrow.svg" />
                 </div>
+                </a>
 
 
                 <!-- <div class="mail">
@@ -193,4 +201,12 @@ onMounted(() => {
 
     }
 }
+
+a{
+        color:#f8f8f8; 
+        // text-
+    }
+
+
+
 </style>

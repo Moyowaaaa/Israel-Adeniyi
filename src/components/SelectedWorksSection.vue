@@ -237,4 +237,8 @@ a{
     height: auto;
     color:white
 }
+
+.NFT{
+    margin-top: 3rem;
+}
 </style>

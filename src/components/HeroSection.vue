@@ -24,47 +24,36 @@
     </div>
 
 
-    <div class="Marquee-container">
-            <MarqueeVue />
-        </div>
+   
+
+    
   </section>
 </template>
 
 <script setup lang="ts">
 import Splitting from "splitting";
-import { onMounted } from "vue";
+import { onMounted,ref } from "vue";
 import MarqueeVue from "./Marquee.vue";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
 gsap.registerPlugin(ScrollTrigger)
 
+const marqueeDirection = ref(1);
+
+
 onMounted(() => {
+  const marquee:any = document.querySelector('.marquee');
+
   Splitting();
 
   console.log(Splitting);
-  const titleText = [
-    ...document.querySelectorAll(".title[data-splitting][data-effect1]"),
-  ];
+
   const heroText = [
     ...document.querySelectorAll(".hero-text[data-splitting][data-effect2]"),
   ];
 
 
   heroText.forEach((text) => {
-    // gsap.fromTo(text, {
-    //         transformOrigin: '0% 50%',
-    //         rotate: 3
-    //     }, {
-    //         ease: 'none',
-    //         rotate: 0,
-    //         scrollTrigger: {
-    //             trigger: text,
-    //             start: 'top bottom',
-    //             end: 'top top',
-    //             scrub: true,
-    //         }
-    //     });
-
     gsap.fromTo(
       text.querySelectorAll(".word"),
       {
@@ -84,6 +73,31 @@ onMounted(() => {
       }
     );
   });
+
+
+//   gsap.to(".marquee p", {
+//   x: "-100%",
+//   duration: 10,
+//   ease: "linear",
+//   repeat: -1,
+//   modifiers: {
+//     x: gsap.utils.unitize((_, index) => `${marqueeDirection.value * 100 * index}%`),
+//   },
+// });
+
+// ScrollTrigger.create({
+//   trigger: ".marquee",
+//   start: "top top",
+//   end: "bottom bottom",
+//   onEnter: () => {
+//     marqueeDirection.value = 1;
+//   },
+//   onLeaveBack: () => {
+//     marqueeDirection.value = -1;
+//   },
+// });
+
+
 });
 </script>
 
@@ -128,6 +142,37 @@ onMounted(() => {
 
   position: relative;
   top: 6rem;
+}
+
+.marquee {
+  white-space: nowrap;
+  overflow: hidden;
+  animation: marquee 40s linear infinite;
+  color:white
+}
+
+.marquee p {
+  display: inline-block;
+  padding-left: 100%;
+  animation: marquee-text 40s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes marquee-text {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
 
 </style>

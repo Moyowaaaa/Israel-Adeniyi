@@ -138,15 +138,7 @@ loaderTl
       duration: 0.8,
       opacity: 0,
     })
-    .to('.preloader', {
-        y:"-100%",
-        duration:1.8,
-        ease:"power3.inOut",
-        opacity:0,
-        // zIndex:'0',
-        // display:'none'
-        
-    })
+    
     // .fromTo(
     //   ".reveal",
     //   { y: 0, opacity: 0 },
@@ -158,23 +150,23 @@ loaderTl
     //   },
     //   "<0.1"
     // )
-    // .to(
-    //   ".reveal",
-    //   {
-    //     delay: 0.1,
-    //     duration: 1,
-    //     y: -100,
-    //     ease: "power3.inOut",
-    //     opacity: 0,
-    //   },
-    //   "-=0.25"
-    // );
+    .to(
+      ".reveal",
+      {
+        delay: 0.1,
+        duration: 1,
+        y: -100,
+        ease: "power3.inOut",
+        opacity: 0,
+      },
+      "-=0.25"
+    );
 
 
 
   loaderTl.eventCallback("onComplete", () => {
     loaderTl.kill();
-    gsap.set(".preloader", { display: 'none' });
+    gsap.set(".preloader", { zIndex:-1 });
 
   });
 });
@@ -190,6 +182,7 @@ loaderTl
   color:white;
   height: 100vh;
   width:100%;
+  position: absolute;
 
   &__container {
     position: fixed;

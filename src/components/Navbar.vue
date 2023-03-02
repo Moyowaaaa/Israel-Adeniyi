@@ -60,15 +60,25 @@
 
                 <div class="fullscreenNav-container__subcontainer__contacts contacts">
 
-                    <a href="mailto:minneade@gmail.com" target="_blank">
+                    <a href="mailto:adeniyioba2000@gmail.com" target="_blank">
                         <h1 class="nav social">adeniyioba2000@gmail.com</h1>
                     </a>
                  
 
-                   
-            <h1 class="nav social">TWITTER</h1>
-            <h1 class="nav social">LINKEDIN</h1>
-            <h1 class="nav social">BEHANCE</h1>
+                   <a href="https://twitter.com/Adeniyi_nFt?s=09" target="_blank">
+                    <h1 class="nav social">TWITTER</h1>
+                   </a>
+           
+
+            <a href="https://www.linkedin.com/in/israel-adeniyi-a11b56220" target="_blank">
+                <h1 class="nav social">LINKEDIN</h1>
+            </a>
+         
+
+            <a href="https://www.behance.net/israeladeniyi8"  target="_blank">
+                <h1 class="nav social">BEHANCE</h1>
+            </a>
+  
 
                 </div>
 
@@ -191,6 +201,24 @@ const openMenu = () => {
     menuTl.reversed(!menuTl.reversed())
     menuBodyTl.reversed(!menuBodyTl.reversed())
 }
+
+const handleScroll = () => {
+    if (window.scrollY < 2) {
+      
+        menuTl.reverse()
+        menuBodyTl.reverse()
+        
+    }
+
+}
+
+onMounted(() => {
+  window.addEventListener('scroll', handleScroll);
+})
+
+onUnmounted(() => {
+  window.removeEventListener('scroll', handleScroll);
+})
 
 
 
