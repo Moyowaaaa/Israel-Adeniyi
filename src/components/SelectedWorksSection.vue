@@ -9,19 +9,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 
 onMounted(() => {
-//   const worksContainer = document.querySelector('.selectedWorks--container__works-container');
-//   const works = document.querySelectorAll('.work-container');
 
-//   gsap.to(works, {
-//     xPercent: -100,
-//     ease: 'none',
-//     scrollTrigger: {
-//       trigger: '.selectedWorks',
-//       start: 'top center',
-//       end: 'bottom center',
-//       scrub: true,
-//     },
-//   });
 Splitting()
 
 const fx11Titles = [...document.querySelectorAll('.content__title[data-splitting][data-effect8]')];
