@@ -1,6 +1,6 @@
 <template>
     <div>
-<NavbarVue />
+<!-- <NavbarVue /> -->
  
     <section class="titleSection" id="titleSection">
         <div class="titleSection--mainContainer">

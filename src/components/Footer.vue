@@ -56,7 +56,9 @@
 
 
                 <div class="link">
-                    <p>Moyowa </p> 
+                    <a href="https://github.com/Moyowaaaa"  target="_blank">
+                    <p class="link">Moyowa </p>
+                    </a>     
                     <div class="sphere"></div>
                     <p class="footer-text-smaller">Development and Motion</p>
                 </div>
@@ -116,7 +118,7 @@ onMounted(() => {
 
 <style scoped lang="scss">
 .footerSection{
-    height: auto;
+    height: auto; 
     display: flex;
     flex-direction: column;
     // box-sizing: border-box;

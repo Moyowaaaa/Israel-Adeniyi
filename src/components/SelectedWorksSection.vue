@@ -17,6 +17,7 @@ const fx11Titles = [...document.querySelectorAll('.content__title[data-splitting
 const lettersAndSymbols = ['a', 's','!', '@', '#', '$', '%', '^', '&', '*', '-', '_', '+', '=', ';', ':', '<', '>', ','];
 
 
+
 const wrapElements = (elems:any, wrapType:any, wrapClass:any) => {
     elems.forEach((char:any) => {
         const wrapEl = document.createElement(wrapType);

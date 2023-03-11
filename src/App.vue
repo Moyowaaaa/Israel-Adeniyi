@@ -48,7 +48,7 @@ onMounted(() => {
 
 <template>
   <!-- <Preloader /> -->
-  <Preloader v-if="loading"/>
+  <!-- <Preloader v-if="loading"/> -->
   <RouterView />
 </template>
 

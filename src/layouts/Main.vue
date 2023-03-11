@@ -1,6 +1,6 @@
 <template>
     <div class="layout">
-
+        <NavbarVue/>
         <div class="layout__child">
             <slot />
         </div>
@@ -11,6 +11,7 @@
 
 <script setup lang="ts">
 import Footer from '@/components/Footer.vue';
+import NavbarVue from '@/components/Navbar.vue';
 </script>
 
 <style scoped lang="scss">
