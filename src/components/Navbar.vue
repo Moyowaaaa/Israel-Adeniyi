@@ -174,7 +174,9 @@ onMounted(() => {
 
 
 <div class="navbar--container__links">
+    <a href="/works">
     <div class="link">WORKS</div>
+    </a>
 
     <div class="link">ABOUT</div>
 
@@ -278,20 +280,22 @@ onMounted(() => {
     cursor: pointer;
 
     color:#f8f8f8;
+   z-index: 30;
 
  
   
 
     &--container {
         width: 100%;
-  
+        border: 2px solid blueviolet;
         display: flex;
         align-items: center;
         justify-content: space-between;
 
         &__links{
         gap:4rem;
-        display:flex
+        display:flex;
+        border: 2px solid blue;
     }
     
     }

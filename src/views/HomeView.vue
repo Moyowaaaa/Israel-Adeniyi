@@ -24,5 +24,7 @@ import Main from '../layouts/Main.vue'
     <HeroSection />
     <SelectedWorksSection/>
 </Main>
+
+<CircularText />
   </div>
 </template>

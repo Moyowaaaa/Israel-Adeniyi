@@ -11,7 +11,14 @@
             </div>
 
             <div class="titleSection--mainContainer__imagecontainer">
-                <img src="../assets/images/circularText.svg" class="circular"/>
+                <div class="explore-container">
+                    <img src="../assets/images/explore.svg"/>
+                </div>
+               
+                <div class="finger-container">
+                    <img src="../assets/images/finger.svg"/>
+                </div>
+                 
 
                
         <!-- <div class="finger">
@@ -94,13 +101,15 @@ onMounted(() => {
     }
 
     &__imagecontainer{
-        width: 30%;
-        height: 100%;
+       width: 30%;
+       height: 100%;
+       display: flex;
+       flex-direction: column;
+      position: absolute;
+      right:1rem;
+      top:10rem;
       
-        display: flex;
-        align-items: center;
-        justify-content: flex-end;
-        object-fit: contain;
+       padding-top: 5rem;
      
     }
     }
@@ -121,60 +130,45 @@ onMounted(() => {
     line-height: -2rem;
 }
 
-.circular-container{
-    position: relative;
+
+.explore-container{
+    width: 100%;
     
-   width:100%
+    padding:1.5rem ;
+    display: flex;
+    justify-content: center;
+
+    img{
+        height: 95%;
+      
+        width: 12rem;
+        margin: 0 auto;
+        animation: rotate 15s linear infinite;
+        animation-direction: reverse;
+    }
 }
 
+.finger-container{
 
-text {
+    display: flex;
+    justify-content: center;
+    top: 10%;
+  left: 50%;
+  transform: translate(5%, -250%);
+  
 
-fill: white;
-font-family: "Lato", sans-serif;
-font-size: 16px;
-font-weight: 500;
-text-transform: uppercase;
-font-variant-ligatures: none;
-letter-spacing: 6px;
-animation: rotate 25s linear infinite;
-transform-origin: 250px 250px;
-}
-
-svg{
-//   position: absolute;
-  top:60px;
-  right:25vh;
-  width:40vh;
-max-width: 70vmin;
+    img{
+        height: 80%;
+        width: 2.5rem;
+    }
 }
 
 @keyframes rotate {
-to {
-  transform: rotate(360deg);
+  to {
+    transform: rotate(360deg);
+    
+  }
 }
-}
-
-.textcircle {
-transition: transform 1s cubic-bezier(0.65, 0, 0.35, 1);
-transform-origin: 250px 250px;
-} 
-
-
-
-.finger {
-    width: 100%;
-    margin-right:-21rem;
-    display:flex;
-    justify-content: center;
-}
-
-.finger-image{
-    width: 3rem;
-}
-
-
-
 
 
 
