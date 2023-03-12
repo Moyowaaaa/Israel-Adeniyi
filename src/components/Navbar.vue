@@ -5,6 +5,8 @@ import Splitting from "splitting";
 import { gsap } from 'gsap';
 import ScrollTrigger from 'gsap/ScrollTrigger';
 import { onMounted,onUnmounted,ref,watchEffect } from 'vue';
+import { useRouter } from 'vue-router';
+
 gsap.registerPlugin(ScrollTrigger)
 
 
@@ -20,6 +22,8 @@ gsap.registerPlugin(ScrollTrigger)
 //     });
 // }
 
+const router = useRouter()
+
 let menuOpen = ref<boolean>(false)
 var menuTl = gsap.timeline()
 var menuBodyTl = gsap.timeline({paused:true})
@@ -30,10 +34,7 @@ onMounted(() => {
 
     var navbarTrigger = document.querySelector('.layout__child')
 
-   watchEffect(() => {
-     const navbarTrigger = window.scrollY > 50
-     console.log(navbarTrigger)
-    }) 
+  
   
 
 let navTl = gsap.timeline({
@@ -68,8 +69,7 @@ menuTl.to('.bar-1', {
 	autoAlpha: 0,
     duration:0.5
 }, 'start')
-
-    menuTl.to('.bar-3',{
+.to('.bar-3',{
 	attr:{d: "M8,8 L2,2"},
     duration:0.5,
 	x:1,
@@ -85,18 +85,15 @@ menuBodyTl.to('.fullscreenNav', {
 	ease: 'Expo.easeInOut',
  
 })
-
-menuBodyTl.from(['.links','.link1','.link2','.link3'], {
+.from(['.links','.link1','.link2','.link3'], {
     opacity:0,
     duration:1.2,
     stagger: 0.2,   
     y:200,
     ease:"power3.inOut"
 }, "<0.1")
-
-
-menuBodyTl.fromTo('.nav-menu-logo',  {y: 0, opacity: 0, }, { opacity:1,duration:0.8, clipPath: "polygon(0 100%, 100% 20%, 80% 0, 0 0)"}, "<0.1");;
-menuBodyTl.from('.contacts',{opacity:0,duration:.8,ease:"power3.inOut"}, "<0.5")
+.fromTo('.nav-menu-logo',  {y: 0, opacity: 0, }, { opacity:1,duration:0.8, clipPath: "polygon(0 100%, 100% 20%, 80% 0, 0 0)"}, "<0.1")
+.from('.contacts',{opacity:0,duration:.8,ease:"power3.inOut"}, "<0.5")
 
 
 
@@ -158,6 +155,35 @@ onMounted(() => {
 })
 
 
+const navigateToWorks  = () => {
+    menuTl.reverse()
+    menuBodyTl.reverse()
+    setTimeout(() => {
+        router.push('/works')
+        
+        if(window.scrollY >  10) {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            console.log('lal')
+        }
+    },2000)
+}
+
+
+
+
+const navigateToAbout = () => {
+    menuTl.reverse()
+    menuBodyTl.reverse()
+    setTimeout(() => {
+        router.push('/')
+    document.querySelector('#heroSection')?.scrollIntoView({
+            behavior: 'smooth'
+       });
+    },2000)
+}
+
+
+
 </script>
 
 <template>
@@ -174,9 +200,9 @@ onMounted(() => {
 
 
 <div class="navbar--container__links">
-    <a href="/works">
-    <div class="link">WORKS</div>
-    </a>
+    
+    <div class="link" @click="navigateToWorks">WORKS</div>
+
 
     <div class="link">ABOUT</div>
 
@@ -216,14 +242,14 @@ onMounted(() => {
 
         <div class="fullscreenNav-container__subcontainer">
             <div class="fullscreenNav-container__subcontainer__links links">
-                <router-link to="/works">
-                    <div class="nav-menu-link link1 " id="link1" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave" data-splitting>
+                <!-- <router-link to="/works"> -->
+                    <div class="nav-menu-link link1 " id="link1" @mouseenter="onMouseEnter" @mouseleave="onMouseLeave" data-splitting  @click="navigateToWorks">
                     WORKS
                 </div>
-                </router-link>
+                <!-- </router-link> -->
                 
 
-                <div class="nav-menu-link link2">
+                <div class="nav-menu-link link2" @click="navigateToAbout">
                     ABOUT
                 </div>
 
@@ -287,7 +313,7 @@ onMounted(() => {
 
     &--container {
         width: 100%;
-        border: 2px solid blueviolet;
+      
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -295,7 +321,7 @@ onMounted(() => {
         &__links{
         gap:4rem;
         display:flex;
-        border: 2px solid blue;
+        
     }
     
     }

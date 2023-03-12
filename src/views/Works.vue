@@ -1,7 +1,14 @@
 <template>
   <div class="app">
+  
+    <div class="page-overlay section-title" v-if="loading">
+    WORKS
+   </div>
+
+
+      <Main  id="workSection">
    
-      <Main>
+
         <section class="workSection">
             <div class="workSection--container">
                 <h1 class="section-title title content__title" >
@@ -53,7 +60,53 @@
 <script setup lang="ts">
 import NavbarVue from '@/components/Navbar.vue';
 import Main from '@/layouts/Main.vue';
+import { gsap } from 'gsap';
+import ScrollTrigger from 'gsap/ScrollTrigger';
+import { onMounted,onUnmounted,ref,watchEffect } from 'vue';
+gsap.registerPlugin(ScrollTrigger)
 
+
+
+let loading = ref<boolean>(true)
+
+
+onMounted(() => {
+    const preloadTl = gsap.timeline() 
+
+    preloadTl.from('.page-overlay', {
+        duration:1.2,
+        opacity:0,
+        y:"100%",
+        ease:"power3.inOut"
+    })
+    preloadTl.to('.page-overlay',{
+        duration:1.2,
+        ease:"power3.inOut",
+        y:"-100%",
+        opacity:0,
+        display:"none"
+    })
+
+   
+    preloadTl.from('#workSection', {
+        // y:"100%",
+        ease:"power3.inOut",
+        delay:0.2,
+        opacity:0,
+        duration:1.2,
+    },"<0.5")
+
+    
+    
+    setTimeout(() => {
+        loading.value = false
+
+      
+
+        
+     
+    },2400)
+})
 </script>
 
 <style scoped lang="scss">
@@ -127,6 +180,20 @@ a{
     width: auto;
     height: auto;
     color:white
+}
+
+.page-overlay{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    background:black;
+    align-items: center;
+    justify-content: center;
+    color: whitesmoke;
+    position: absolute;
+    top:0;
+    overflow: hidden;
+    z-index:100;
 }
 
 
