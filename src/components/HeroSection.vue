@@ -3,13 +3,15 @@
     <div class="sub">
       <div class="heroSection--contentcontainer">
         <div class="title-container">
-          <h1 class="section-title title" data-splitting data-effect1>
+          <h1 class="section-title title" data-splitting="" data-effect1>
             About Me.
           </h1>
         </div>
 
+        
+
         <div class="hero-container">
-          <p class="section-text-normal hero-text" data-splitting data-effect2>
+          <p class="section-text-normal hero-text" data-splitting="" data-effect2>
             I am a User experience designer driven by passion in creating
             digital experiences that are both aesthetically pleasing and
             intuitive to use. I have a deep understanding of design principles
@@ -31,29 +33,25 @@
 </template>
 
 <script setup lang="ts">
+
 import Splitting from "splitting";
-import { onMounted,ref } from "vue";
-import MarqueeVue from "./Marquee.vue";
+import { onMounted, onUnmounted } from "vue";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger)
+gsap.registerPlugin(ScrollTrigger);
 
-const marqueeDirection = ref(1);
 
 
 onMounted(() => {
-  const marquee:any = document.querySelector('.marquee');
-
   Splitting();
-
-  console.log(Splitting);
-
   const heroText = [
-    ...document.querySelectorAll(".hero-text[data-splitting][data-effect2]"),
+    ...document.querySelectorAll(".hero-text[data-splitting][data-effect2]:not(.splitting-done)"),
   ];
 
-
   heroText.forEach((text) => {
+    Splitting({ target: text });
+    text.classList.add("splitting-done");
+
     gsap.fromTo(
       text.querySelectorAll(".word"),
       {
@@ -73,32 +71,15 @@ onMounted(() => {
       }
     );
   });
-
-
-//   gsap.to(".marquee p", {
-//   x: "-100%",
-//   duration: 10,
-//   ease: "linear",
-//   repeat: -1,
-//   modifiers: {
-//     x: gsap.utils.unitize((_, index) => `${marqueeDirection.value * 100 * index}%`),
-//   },
-// });
-
-// ScrollTrigger.create({
-//   trigger: ".marquee",
-//   start: "top top",
-//   end: "bottom bottom",
-//   onEnter: () => {
-//     marqueeDirection.value = 1;
-//   },
-//   onLeaveBack: () => {
-//     marqueeDirection.value = -1;
-//   },
-// });
-
-
 });
+
+// onUnmounted(() => {
+//   // no need to do anything here
+// });
+
+
+
+
 </script>
 
 <style lang="scss" scoped>

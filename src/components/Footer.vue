@@ -1,5 +1,5 @@
 <template>
-    <section class="footerSection">
+    <section class="footerSection" id="footer">
         <div class="footerSection--topcontainer">
             <div class="footerSection--topcontainer__sub-container" id="subContainer">
             <h1 class="footer-alt alte">Get in touch</h1>
@@ -60,7 +60,7 @@
                     <p class="link">Moyowa </p>
                     </a>     
                     <div class="sphere"></div>
-                    <p class="footer-text-smaller">Development and Motion</p>
+                    <p class="footer-text-smaller">Development</p>
                 </div>
               
             </div>

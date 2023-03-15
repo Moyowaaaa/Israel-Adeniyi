@@ -18,13 +18,10 @@ import Main from '../layouts/Main.vue'
 <template>
   <div class="app">
     
-    <Main class="main">
-    <!-- <Navbar /> -->
+  <Main>
     <TitleSection />
-    <HeroSection />
-    <SelectedWorksSection/>
-</Main>
-
-<CircularText />
+  <HeroSection />
+  <SelectedWorksSection />
+  </Main>
   </div>
 </template>

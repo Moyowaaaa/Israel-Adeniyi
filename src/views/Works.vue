@@ -18,7 +18,9 @@
 
           <div class="workSection--container__works-container" id="works-container">
 
-            <div class="work-container helping">
+
+            <div class="left-column">
+                  <div class="work-container helping">
             <a href="https://www.behance.net/gallery/143565927/Helping-hand-Case-Study" target="_blank">
             <img src="../assets/images/helpingHand.svg" />
             <div class="work-container--desc project-desc-text">
@@ -27,9 +29,11 @@
             </div>
         </a>
          </div>
+            </div>
 
 
-          <div class="work-container NFT">
+            <div class="right-column">
+                <div class="work-container NFT">
             <a href="https://www.behance.net/gallery/143565927/Helping-hand-Case-Study" target="_blank">
             <img src="../assets/images/Nft.svg" />
             <div class="work-container--desc project-desc-text">
@@ -38,7 +42,9 @@
             </div>
         </a>
          </div>
-        
+            </div>
+
+       
 
 
 
@@ -100,12 +106,38 @@ onMounted(() => {
     
     setTimeout(() => {
         loading.value = false
-
-      
-
-        
-     
     },2400)
+
+    gsap.to('.helping', {
+    y:-50,
+    duration:12,
+    ease:"power3.inOut",
+    
+    scrollTrigger:{
+        trigger:'.workSection',
+        start: 'top +=500',
+      end: 'bottom center',
+      scrub: true,
+      
+   
+    }
+})
+
+gsap.to('.NFT', {
+    y:50,
+    duration:1.2,
+    ease:"power3.inOut",
+
+    scrollTrigger:{
+        trigger:'.workSection',
+        start: 'top center',
+      end: 'bottom center',
+      scrub: true,
+      
+    }
+})
+
+
 })
 </script>
 
@@ -145,7 +177,7 @@ onMounted(() => {
 
 .work-container{
     height:22rem;
-    width: 50%;;
+    width: 100%;;
     
     object-fit: cover;
 
@@ -194,6 +226,19 @@ a{
     top:0;
     overflow: hidden;
     z-index:100;
+}
+
+.left-column{
+   
+    width: 50%;
+    height: auto;
+}
+
+.right-column{
+   
+    width: 50%;
+    height: auto;
+
 }
 
 

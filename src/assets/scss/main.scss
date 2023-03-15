@@ -79,19 +79,14 @@ html{
     font-display: swap; 
 }
 
-.app {
+html {
     background-color:black;
-    height:auto
-
 }
 
-body, html {
-   
-    margin:0;
-    padding:0;
-    margin-top:-10px;
-    
+body{
+    margin: -8px !important;
 }
+
 
 html::before {    
     content: "";
@@ -104,6 +99,10 @@ html::before {
     left: 0px;
     opacity: 0.15;
 }
+
+a, div, button,section {
+    z-index: 1;
+  }
 
 
 .link {

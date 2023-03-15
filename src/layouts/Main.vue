@@ -18,6 +18,8 @@ import NavbarVue from '@/components/Navbar.vue';
 .layout {
 	// min-height:100vh;
     width: 100%;
+   
+    box-sizing: border-box;
   
   
 }

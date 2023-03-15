@@ -1,49 +1,55 @@
+
 <template>
     <div>
 <!-- <NavbarVue /> -->
  
     <section class="titleSection" id="titleSection">
+
+        <div class="slide-container">
+        <div class="slide slide1"></div>
+        <div class="slide slide2"></div>
+        <div class="slide slide3"></div>
+        <div class="slide slide4"></div>
+        <div class="slide slide5"></div>
+        <div class="slide slide6"></div>
+        <div class="slide slide7"></div>
+        <div class="slide slide8"></div>
+        <div class="slide slide9"></div>
+        <div class="slide slide10"></div>
+        <div class="slide slide11"></div>
+        <div class="slide slide12"></div>
+        <div class="slide slide13"></div>
+        <div class="slide slide14"></div>
+        <div class="slide slide15"></div>
+
+
+        </div>
+        
+        
         <div class="titleSection--mainContainer">
+            
             <div class="titleSection--mainContainer__titlecontainer" id="titleContainer">
                 <h1 class="main-header header content__title" data-splitting data-effect-5>USER EXPERIENCE</h1>
                 <h1 class="main-header sub-header">designer based</h1>
                 <h1  class="main-header sub-header"> in Lagos</h1>
             </div>
 
-            <div class="titleSection--mainContainer__imagecontainer">
-                <div class="explore-container">
-                    <img src="../assets/images/explore.svg"/>
+            <div class="titleSection--mainContainer__imagecontainer"  >
+
+                <div class="hover-container" @mouseenter="holdToExplore" @mouseleave="removeHoldToExplore">
+                    <div class="explore-container" >
+                    <img src="../assets/images/explore.svg" />
                 </div>
                
                 <div class="finger-container">
-                    <img src="../assets/images/finger.svg"/>
+                    <img src="../assets/images/finger.svg" />
                 </div>
+                </div>
+             
                  
 
                
-        <!-- <div class="finger">
-            <img src="../assets/images/finger.svg" class="finger-image"/>
-        </div>
-        <div class="circular-container">
-            <div class="circular">
-            <svg xmlns="http://www.w3.org/2000/svg" xml:lang="en" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 500 500">
-    <defs>
-        <path id="textcircle" d="M250,400
-               a150,150 0 0,1 0,-300a150,150 0 0,1 0,300Z" transform="rotate(12,250,250)" />
-    </defs>
-    <g class="textcircle">
-        <text textLength="940">
-            <textPath 
-                xlink:href="#textcircle" 
-                aria-label="CSS & SVG are awesome" 
-                textLength="940">
-                   HOLD TO EXPLORE  HOLD TO EXPLORE      
-            </textPath>
-        </text>
-    </g>
-</svg>
-        </div>
-        </div> -->
+    
       
         
             </div> 
@@ -58,26 +64,69 @@ import { onMounted } from 'vue';
 import NavbarVue from './Navbar.vue';
 import gsap from 'gsap';
 import Splitting from 'splitting';
+import exploreGif from '../assets/images/educationn.png'
+
+Splitting()
+
+
+
 
 onMounted(() => {
-    Splitting()
     
-    const fx19Titles = [...document.querySelectorAll('.content__title[data-splitting][data-effect19]')];
+        const fx19Titles = [...document.querySelectorAll('.content__title[data-splitting][data-effect19]')];
 
     const tl = gsap.timeline()
     tl.fromTo('#titleContainer',{ opacity:0 },
       { y: 0, duration:1.2, opacity: 1, clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)" })
-
 })
+const hoverTl = gsap.timeline()
+
+
+const holdToExplore = () => {
+   
+    gsap.set('.slide-container', {
+        opacity:1,
+        duration:0.4
+       
+    })
+    
+
+    gsap.set(['.navbar','#titleContainer'], {
+        display:"none"
+    })
+}
+
+const removeHoldToExplore = () => {
+    gsap.set('.slide-container', {
+        opacity:0
+    })
+    gsap.set('.navbar', {
+        display:"flex"
+    })
+    gsap.set('#titleContainer', {
+        display:"block"
+    })
+}
+
+
+
+// onMounted(() => {
+//     Splitting()
+    
+
+
+
+
 
 
 
 </script>
 
 <style scoped lang="scss">
+
 .titleSection{
     max-width: 100rem;
-    
+
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -94,10 +143,12 @@ onMounted(() => {
         display: flex;
         justify-content: space-between;
         align-items:flex-start;
-
+        
         &__titlecontainer{
         width: 70%;
-      
+        position: absolute;
+        left:11.5rem;
+        top:10rem
     }
 
     &__imagecontainer{
@@ -110,6 +161,8 @@ onMounted(() => {
       top:10rem;
       
        padding-top: 5rem;
+       cursor: pointer;
+
      
     }
     }
@@ -137,6 +190,8 @@ onMounted(() => {
     padding:1.5rem ;
     display: flex;
     justify-content: center;
+    
+
 
     img{
         height: 95%;
@@ -145,6 +200,7 @@ onMounted(() => {
         margin: 0 auto;
         animation: rotate 15s linear infinite;
         animation-direction: reverse;
+       
     }
 }
 
@@ -169,6 +225,133 @@ onMounted(() => {
     
   }
 }
+
+
+.slide-container{
+    // display: none;
+    z-index: -200;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    background:transparent;
+    opacity: 0;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+}
+
+body{
+    overflow:hidden
+}
+
+
+
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    animation: singleSlide 5s ease-in-out;
+    animation-iteration-count: infinite;
+    background-size:cover;
+    background-repeat:no-repeat;
+    background-position:center
+
+}
+
+
+.slide1{
+    background-image: url('../assets/images/oba.png');
+}
+.slide2{
+    background-image: url('../assets/images/nft.png');
+    animation-delay: .2s;
+}
+.slide3{
+    background-image: url('../assets/images/joyPlayer.png');
+    animation-delay: .3s;
+}
+.slide4{
+    background-image: url('../assets/images/helping.png');
+    animation-delay: .4s;
+}
+.slide5{
+    background-image: url('../assets/images/oba.png');
+    animation-delay: .5s;
+}
+
+.slide6{
+    background-image: url('../assets/images/oba.png');
+    animation-delay: .6s;
+}
+.slide7{
+    background-image: url('../assets/images/pixel.png');
+    animation-delay: .7s;
+}
+.slide8{
+    background-image: url('../assets/images/nft.png');
+    animation-delay: .8s;
+}
+.slide9{
+    background-image: url('../assets/images/helping.png');
+    animation-delay: .9s;
+}
+.slide10{
+    background-image: url('../assets/images/oba.png');
+    animation-delay: 1s;
+}
+
+.slide11{
+    background-image: url('../assets/images/nft.png');
+    animation-delay: 1.1s;
+
+}
+.slide12{
+    background-image: url('../assets/images/pixel.png');
+    animation-delay: 1.2s;
+}
+.slide13{
+    background-image: url('../assets/images/joyPlayer.png');
+    animation-delay: 1.3s;
+}
+.slide14{
+    background-image: url('../assets/images/helping.png');
+    animation-delay: 1.4s;
+}
+.slide15{
+    background-image: url('../assets/images/oba.png');
+    animation-delay: 1.5s;
+}
+
+@keyframes singleSlide {
+    0% {
+    opacity: 1;
+    transform: scale(1);
+}
+
+5% {
+    opacity: 1;
+    transform: scale(1.02);
+}
+6% {
+    opacity: 0;
+    transform: scale(1.02);
+}
+95% {
+    opacity: 0;
+    transform: scale(1);
+}
+
+}
+
+
+
 
 
 

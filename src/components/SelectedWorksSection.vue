@@ -1,20 +1,34 @@
-
+ 
 <script setup lang="ts">
 import gsap from 'gsap';
 import ScrollTrigger  from 'gsap';
 import Splitting from 'splitting';
 import { onMounted } from 'vue';
+import { useRouter } from 'vue-router';
+
 gsap.registerPlugin(ScrollTrigger)
+
+
+const router = useRouter()
+
+window.addEventListener('beforeunload', () => {
+    Splitting()
+})
+
+router.afterEach((to, from) => {
+  console.log(`Navigated to ${to.path} from ${from.path}`);
+  Splitting()
+});
+
 
 
 
 onMounted(() => {
 
-Splitting()
-
 const fx11Titles = [...document.querySelectorAll('.content__title[data-splitting][data-effect8]')];
 
 const lettersAndSymbols = ['a', 's','!', '@', '#', '$', '%', '^', '&', '*', '-', '_', '+', '=', ';', ':', '<', '>', ','];
+
 
 
 
@@ -26,6 +40,8 @@ const wrapElements = (elems:any, wrapType:any, wrapClass:any) => {
         wrapEl.appendChild(char);
     });
 }
+
+
 
 
 fx11Titles.forEach(title => {
@@ -58,13 +74,15 @@ fx11Titles.forEach(title => {
 
 
 
+
 gsap.from('.helping', {
-    y:50,
+    y: "-5rem",
     duration:12,
     ease:"power3.inOut",
     
+    
     scrollTrigger:{
-        trigger:'.selectedWorks',
+        trigger: '.selectedWorks',
         start: 'top center',
       end: 'bottom center',
       scrub: true,
@@ -73,7 +91,7 @@ gsap.from('.helping', {
 })
 
 gsap.from('.NFT', {
-    y:-50,
+    y:"",
     duration:1.2,
     ease:"power3.inOut",
 
@@ -126,6 +144,8 @@ gsap.from('.NFT', {
            
 
             </div>  
+
+           
 
             <button class="button">
                 View All
@@ -227,7 +247,7 @@ a{
     color:white
 }
 
-.NFT{
+.helping{
     margin-top: 3rem;
 }
 </style>
