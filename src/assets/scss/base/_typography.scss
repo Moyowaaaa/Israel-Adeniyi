@@ -35,7 +35,7 @@
     @include typography(500, 7rem, 0.2rem,'thunder-medium')
 }
 .footer-text{
-    @include typography(400, 1.5rem, 0.2rem,'thunder-mediuml')
+    @include typography(400, 1.2rem, 0.2rem,'thunder-mediuml')
 }
 .footer-text-smaller{
     @include typography(400, 1rem, 0.2rem,'neutra-bold')

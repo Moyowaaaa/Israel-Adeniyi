@@ -5,72 +5,79 @@ import ScrollTrigger  from 'gsap';
 import Splitting from 'splitting';
 import { onMounted } from 'vue';
 import { useRouter } from 'vue-router';
-
+import SplitType from 'split-type'
 gsap.registerPlugin(ScrollTrigger)
+
 
 
 const router = useRouter()
 
-window.addEventListener('beforeunload', () => {
-    Splitting()
-})
+// window.addEventListener('beforeunload', () => {
+  
+// })
 
-router.afterEach((to, from) => {
-  console.log(`Navigated to ${to.path} from ${from.path}`);
-  Splitting()
-});
+// router.afterEach((to, from) => {
+//   console.log(`Navigated to ${to.path} from ${from.path}`);
+
+// });
+
+
 
 
 
 
 onMounted(() => {
 
-const fx11Titles = [...document.querySelectorAll('.content__title[data-splitting][data-effect8]')];
-
-const lettersAndSymbols = ['a', 's','!', '@', '#', '$', '%', '^', '&', '*', '-', '_', '+', '=', ';', ':', '<', '>', ','];
 
 
 
+// const fx11Titles = [...document.querySelectorAll('.content__title[data-splitting][data-effect8]')];
 
-const wrapElements = (elems:any, wrapType:any, wrapClass:any) => {
-    elems.forEach((char:any) => {
-        const wrapEl = document.createElement(wrapType);
-        wrapEl.classList = wrapClass;
-        char.parentNode.appendChild(wrapEl);
-        wrapEl.appendChild(char);
-    });
-}
+// const lettersAndSymbols = ['a', 's','!', '@', '#', '$', '%', '^', '&', '*', '-', '_', '+', '=', ';', ':', '<', '>', ','];
 
 
+// const myText = new SplitType('#selectedTitle')
+
+// const wrapElements = (elems:any, wrapType:any, wrapClass:any) => {
+//     elems.forEach((char:any) => {
+//         const wrapEl = document.createElement(wrapType);
+//         wrapEl.classList = wrapClass;
+//         char.parentNode.appendChild(wrapEl);
+//         wrapEl.appendChild(char);
+//     });
+// }
 
 
-fx11Titles.forEach(title => {
+
+
+
+// (myText.words as any)?.forEach((title:any) => {
         
-        const chars = title.querySelectorAll('.char');
-        wrapElements(chars, 'span', 'char-wrap');
+//         const chars = title.querySelectorAll('.char');
+//         wrapElements(chars, 'span', 'char-wrap');
 
-        gsap.fromTo(chars, { 
-            'will-change': 'transform', 
-            transformOrigin: '0% 50%',
-            xPercent: 105,
-            opacity:0
-        }, 
-        {
-            duration: 1,
-            ease: 'expo',
-            xPercent: 0,
-            stagger: 0.042,
-            opacity:1,
-            scrollTrigger: {
-                trigger: title,
-                start: 'top bottom',
-                end: 'top top+=10%',
-                toggleActions: "play resume resume reset",
-                scrub:0.7
-            }
-        });
+//         gsap.fromTo(chars, { 
+//             'will-change': 'transform', 
+//             transformOrigin: '0% 50%',
+//             xPercent: 105,
+//             opacity:0
+//         }, 
+//         {
+//             duration: 1,
+//             ease: 'expo',
+//             xPercent: 0,
+//             stagger: 0.042,
+//             opacity:1,
+//             scrollTrigger: {
+//                 trigger: title,
+//                 start: 'top bottom',
+//                 end: 'top top+=10%',
+//                 toggleActions: "play resume resume reset",
+//                 scrub:0.7
+//             }
+//         });
 
-    });
+//     });
 
 
 
@@ -106,13 +113,21 @@ gsap.from('.NFT', {
 
 });
 
+const navigateToWorks = async() => {
+   await router.push('/works')
+  if (window.scrollY > 0) {
+   window.scrollTo(0,0)
+   }
+
+}
+
 </script>
 
 <template>
     <section class="selectedWorks">
 
         <div class="selectedWorks--container">
-            <h1 class="section-title title content__title" data-splitting data-effect8>
+            <h1 class="section-title title content__title" data-splitting data-effect8 id="selectedTitle">
             Selected Works
           </h1>
 
@@ -147,7 +162,7 @@ gsap.from('.NFT', {
 
            
 
-            <button class="button">
+            <button class="button" @click="navigateToWorks">
                 View All
             </button>
 
@@ -162,6 +177,8 @@ gsap.from('.NFT', {
 
 
 <style scoped lang="scss">
+@import '../assets/scss/abstract/mixins';
+
 .selectedWorks{
     height: auto;
     padding: 2rem 11.8rem;
@@ -239,6 +256,15 @@ object-fit: fit;
         border:2px solid white;
         color:white;
         background-color: transparent;
+        cursor: pointer;
+        @include magic-border(2px, #F89623, 0.3s, 0);
+
+
+        &:hover{
+            border:none;
+            color:#F89623
+        }
+        // @include magic-border(2px, blue, 0.3s, 0);
 }
 
 a{

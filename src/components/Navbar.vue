@@ -10,7 +10,7 @@ import { useRouter } from 'vue-router';
 
 gsap.registerPlugin(ScrollTrigger)
 
-Splitting();
+
 
 const onClick = () => {
     console.log('you clicked')
@@ -107,7 +107,9 @@ const navigateToFooter = () => {
 
 const navigateToWorks = async() => {
    await router.push('/works')
+  if (window.scrollY > 0) {
    window.scrollTo(0,0)
+   }
 
 }
 
@@ -147,7 +149,11 @@ const navigateToAbout = async() => {
     <div class="link" @click="navigateToAbout">ABOUT</div>
 
 
+    <a href="https://drive.google.com/file/d/1qaEKj067bS9Sfx66SyHU7bXM6z2O1TzE/view" target="_blank">
 <div class="link">RESUME</div>
+</a>
+
+
                 </div>
 
                 <button class="navbar--button" @click="navigateToFooter">
@@ -194,9 +200,12 @@ const navigateToAbout = async() => {
             ABOUT
         </div>
 
-        <div class="nav-menu-link link3">
+        <a href="https://drive.google.com/file/d/1qaEKj067bS9Sfx66SyHU7bXM6z2O1TzE/view" target="_blank">
+            <div class="nav-menu-link link3">
             RESUME
         </div>
+        </a>
+
 
         </div>
 
@@ -390,7 +399,7 @@ display: none;
 .fullscreenNav__logo {}
 
 .social{
-    text-decoration: underline;
+
 }
 
 a{

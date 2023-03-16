@@ -1,7 +1,6 @@
 
 <template>
     <div>
-<!-- <NavbarVue /> -->
  
     <section class="titleSection" id="titleSection">
 
@@ -29,7 +28,7 @@
         <div class="titleSection--mainContainer">
             
             <div class="titleSection--mainContainer__titlecontainer" id="titleContainer">
-                <h1 class="main-header header content__title" data-splitting data-effect-5>USER EXPERIENCE</h1>
+                <h1 class="main-header header content__title" data-splitting data-effect-5 id="mainTitle">USER EXPERIENCE</h1>
                 <h1 class="main-header sub-header">designer based</h1>
                 <h1  class="main-header sub-header"> in Lagos</h1>
             </div>
@@ -45,13 +44,7 @@
                     <img src="../assets/images/finger.svg" />
                 </div>
                 </div>
-             
-                 
-
-               
-    
-      
-        
+ 
             </div> 
         </div>
     </section>
@@ -65,22 +58,17 @@ import NavbarVue from './Navbar.vue';
 import gsap from 'gsap';
 import Splitting from 'splitting';
 import exploreGif from '../assets/images/educationn.png'
-
-Splitting()
-
+import SplitType from 'split-type'
 
 
 
 onMounted(() => {
-    
-        const fx19Titles = [...document.querySelectorAll('.content__title[data-splitting][data-effect19]')];
 
-    const tl = gsap.timeline()
-    tl.fromTo('#titleContainer',{ opacity:0 },
-      { y: 0, duration:1.2, opacity: 1, clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)" })
+  
 })
 const hoverTl = gsap.timeline()
 
+// gsap.to(myText.char)
 
 const holdToExplore = () => {
    
@@ -91,20 +79,43 @@ const holdToExplore = () => {
     })
     
 
-    gsap.set(['.navbar','#titleContainer'], {
-        display:"none"
+    // gsap.set(['#titleContainer'], {
+    //     display:"none"
+    // })
+
+    gsap.to('#titleContainer', {
+        duration:1,
+        opacity:0,
+        ease:"power3.inOut"
     })
+
+    gsap.to(['.navbar--container__links','.navbar--button'], {
+        duration:1,
+        opacity:0,
+        ease:"power3.inOut"
+    })
+
 }
 
 const removeHoldToExplore = () => {
     gsap.set('.slide-container', {
         opacity:0
     })
-    gsap.set('.navbar', {
+    gsap.set('.navbar--container ', {
         display:"flex"
     })
-    gsap.set('#titleContainer', {
-        display:"block"
+    // gsap.set('#titleContainer', {
+    //     display:"block"
+    // })
+    gsap.to('#titleContainer', {
+        duration:1,
+        opacity:1,
+        ease:"power3.inOut"
+    })
+    gsap.to(['.navbar--container__links','.navbar--button'], {
+        duration:1,
+        opacity:1,
+        ease:"power3.inOut"
     })
 }
 
@@ -162,6 +173,7 @@ const removeHoldToExplore = () => {
       
        padding-top: 5rem;
        cursor: pointer;
+       
 
      
     }
@@ -190,7 +202,7 @@ const removeHoldToExplore = () => {
     padding:1.5rem ;
     display: flex;
     justify-content: center;
-    
+
 
 
     img{
@@ -200,10 +212,17 @@ const removeHoldToExplore = () => {
         margin: 0 auto;
         animation: rotate 15s linear infinite;
         animation-direction: reverse;
-       
+        
+      
     }
 }
-
+.hover-container{
+    &:hover{
+            transform: scale(1.2);
+            transition: all 1s cubic-bezier(0.075, 0.82, 0.165, 1);
+        }
+    
+}
 .finger-container{
 
     display: flex;
@@ -230,13 +249,13 @@ const removeHoldToExplore = () => {
 .slide-container{
     // display: none;
     z-index: -200;
-    opacity: 0;
+
     position: absolute;
     top: 0;
     left: 0;
     height: 100vh;
     width: 100%;
-    background:transparent;
+    // background:transparent;
     opacity: 0;
     background-size: cover;
     background-position: center;
@@ -274,7 +293,7 @@ body{
     animation-delay: .2s;
 }
 .slide3{
-    background-image: url('../assets/images/joyPlayer.png');
+    background-image: url('../assets/images/rebank.png');
     animation-delay: .3s;
 }
 .slide4{
@@ -287,7 +306,7 @@ body{
 }
 
 .slide6{
-    background-image: url('../assets/images/oba.png');
+    background-image: url('../assets/images/payment.png');
     animation-delay: .6s;
 }
 .slide7{
@@ -317,7 +336,7 @@ body{
     animation-delay: 1.2s;
 }
 .slide13{
-    background-image: url('../assets/images/joyPlayer.png');
+    background-image: url('../assets/images/payment.png');
     animation-delay: 1.3s;
 }
 .slide14{

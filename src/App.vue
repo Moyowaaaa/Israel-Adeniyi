@@ -49,6 +49,7 @@ onMounted(() => {
 <template>
   <!-- <Preloader /> -->
   <!-- <Preloader v-if="loading"/> -->
+  <CustomMouse />
   <RouterView />
 </template>
 
