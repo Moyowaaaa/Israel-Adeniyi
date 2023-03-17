@@ -143,6 +143,8 @@ onMounted(() => {
   max-width: 100%;
 
   padding: 0 11.8rem;
+
+
 }
 
 .Marquee-container {
@@ -181,6 +183,17 @@ onMounted(() => {
   100% {
     transform: translateX(-100%);
   }
+}
+
+@media screen and (max-width:485px) {
+  .sub {
+  max-width: 100%;
+
+  padding: 0 4.5rem;
+
+
+}
+
 }
 
 </style>

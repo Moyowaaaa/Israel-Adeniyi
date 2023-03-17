@@ -188,7 +188,7 @@ const navigateToWorks = async() => {
     box-sizing: border-box;
 
     @media screen and (max-width:485px) {
-        padding: 0 5rem;
+        padding: 0 4.5rem;
   }
 
     &--container{
@@ -289,7 +289,7 @@ height: 50rem;
 
         @media screen and (max-width:485px) {
             position: relative;
-    top:100rem;
+    top:105rem;
     width: 25rem;
     padding: 2rem 2rem;
     font-size: 3.25rem;
