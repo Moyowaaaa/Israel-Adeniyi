@@ -104,12 +104,35 @@ onMounted(() => {
     display: flex;
     justify-content: space-between;
   }
+
+  @media screen and (max-width:485px) {
+    max-width: auto;
+    border:2px solid red;
+    height: 80rem;
+    max-height: 90vh;
+    align-items: start;
+    justify-content: flex-start;
+
+
+
+    &--contentcontainer {
+      flex-direction: column;
+    }
+    }
+
+
+  
 }
 
-.title-container,
-.hero-container {
+.title-container, .hero-container {
   width: 41.666667%;
   color: #f8f8f8;
+
+  @media screen and (max-width:485px) {
+    width: 100%;
+    border:2px soid salmon
+    
+  }
 }
 
 .resume {

@@ -46,3 +46,12 @@
     @include typography(500, 0.8rem, null,'neutra')
 }
 
+@media screen and (max-width:485px) {
+
+.section-title {
+    @include typography(700, 6.75rem, 0.5rem,'thunder-boldl')
+}
+
+
+}
+

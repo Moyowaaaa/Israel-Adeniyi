@@ -145,6 +145,13 @@ const removeHoldToExplore = () => {
     justify-content: center;
     margin:0 auto;
     padding: 0 11.8rem;
+
+    
+    @media screen and (max-width:485px) {
+        padding: 0 1.8rem;
+        max-height: 100vh;
+        border:2px solid red
+}
     // font-size: calc(100vw / 1368 * 10);
 
 

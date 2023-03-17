@@ -186,7 +186,10 @@ const navigateToWorks = async() => {
     min-height: 100vh;
     
     box-sizing: border-box;
-    
+
+    @media screen and (max-width:485px) {
+        padding: 0 5rem;
+  }
 
     &--container{
        
@@ -201,6 +204,14 @@ const navigateToWorks = async() => {
         display:flex;
         gap:3rem;
         justify-content: justify-between;
+
+        
+
+        @media screen and (max-width:485px) {
+            display: flex;
+            flex-direction: column;  
+            justify-content: flex-start;
+}
        
       }
     }
@@ -234,9 +245,19 @@ object-fit: fit;
             object-fit: fit;
             width:30px
         }
+
+
+        @media screen and (max-width:485px) {
+            font-size: 3rem;
+        }
        
 
         
+    }
+
+    @media screen and (max-width:485px) {
+width: 100%;
+height: 50rem;
     }
 
 }
@@ -265,6 +286,15 @@ object-fit: fit;
             color:#F89623
         }
         // @include magic-border(2px, blue, 0.3s, 0);
+
+        @media screen and (max-width:485px) {
+            position: relative;
+    top:100rem;
+    width: 25rem;
+    padding: 2rem 2rem;
+    font-size: 3.25rem;
+  }
+
 }
 
 a{

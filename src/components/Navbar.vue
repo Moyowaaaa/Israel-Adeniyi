@@ -269,6 +269,11 @@ const navigateToAbout = async() => {
         &__links{
         gap:4rem;
         display:flex;
+
+
+        @media screen and (max-width:485px) {
+            display: none;  
+}
         
     }
     
@@ -288,8 +293,14 @@ const navigateToAbout = async() => {
             border: 2px solid #F89623 ;
             color: #F89623
         }
+
+        @media screen and (max-width:485px) {
+            display: none;  
+}
     }
 
+
+  
     
 
  

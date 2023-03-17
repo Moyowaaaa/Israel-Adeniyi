@@ -4,7 +4,16 @@
 
 html{
     font-size: calc(150vw / 1368 * 10);
+
+    
+    @media screen and (max-width:485px) {
+        font-size: calc(100vw / 600 * 10);
 }
+
+}
+
+
+
 
 
 @font-face {
