@@ -147,11 +147,7 @@ const removeHoldToExplore = () => {
     padding: 0 11.8rem;
 
     
-    @media screen and (max-width:485px) {
-        padding: 0 1.8rem;
-        max-height: 100vh;
-        border:2px solid red
-}
+  
     // font-size: calc(100vw / 1368 * 10);
 
 
@@ -166,7 +162,17 @@ const removeHoldToExplore = () => {
         width: 70%;
         position: absolute;
         left:11.5rem;
-        top:10rem
+        top:10rem;
+
+        @media screen and (max-width:485px) {
+            width: 100%;
+       
+            position: relative;
+            left:0;
+            top:0
+        }
+
+       
     }
 
     &__imagecontainer{
@@ -185,6 +191,12 @@ const removeHoldToExplore = () => {
      
     }
     }
+
+    @media screen and (max-width:485px) {
+        padding: 0 1.8rem;
+        max-height: 100vh;
+     
+}
    
 }
 
@@ -200,6 +212,18 @@ const removeHoldToExplore = () => {
     color:#F8F8F8;
     width: 40rem;
     line-height: -2rem;
+}
+
+
+@media screen and (max-width:485px) {
+    .header ,.sub-header {
+        width: 100%;
+    
+        line-height:normal;
+    }
+    .header{
+        font-size: 14.5rem;
+    }
 }
 
 

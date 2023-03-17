@@ -1,6 +1,6 @@
 <template>
     <div class="layout">
-        <!-- <NavbarVue/> -->
+        <NavbarVue/>
         <div class="layout__child">
             <slot />
         </div>

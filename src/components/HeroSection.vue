@@ -20,7 +20,9 @@
             testing, I focus on designing interfaces that meet the needs and
             expectations of users.
           </p>
+          <a href="https://drive.google.com/file/d/1qaEKj067bS9Sfx66SyHU7bXM6z2O1TzE/view" target="_blank">
           <p class="section-text-bold resume">View Resume</p>
+          </a>
         </div>
       </div>
     </div>
@@ -107,8 +109,9 @@ onMounted(() => {
 
   @media screen and (max-width:485px) {
     max-width: auto;
-    border:2px solid red;
-    height: 80rem;
+
+    height: auto;
+    padding: 4rem 0;
     max-height: 90vh;
     align-items: start;
     justify-content: flex-start;
@@ -194,6 +197,18 @@ onMounted(() => {
 
 }
 
+.hero-text{
+  // text-align: justify;
+  width:100%;
+  font-size: 3.5rem;
+}
+
+.title{
+  font-size: 15rem;
+}
+.resume {
+  font-size:3.5rem
+}
 }
 
 </style>

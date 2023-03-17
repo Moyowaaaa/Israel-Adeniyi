@@ -289,7 +289,8 @@ height: 50rem;
 
         @media screen and (max-width:485px) {
             position: relative;
-    top:105rem;
+    // top:125rem;
+    display: none;
     width: 25rem;
     padding: 2rem 2rem;
     font-size: 3.25rem;

@@ -132,7 +132,7 @@ const navigateToAbout = async() => {
     <div class="navbar">
         <div class="navbar--container nav">
             <router-link to="/">
-                <div class="link">
+                <div class="link nav-logo">
                    ADENIYI
                 </div>
             </router-link>
@@ -294,9 +294,7 @@ const navigateToAbout = async() => {
             color: #F89623
         }
 
-        @media screen and (max-width:485px) {
-            display: none;  
-}
+   
     }
 
 
@@ -418,5 +416,39 @@ a{
     }
 
 
+    @media screen and (max-width:485px) {
+        .navbar{
+            padding: 5rem 4.5rem 1rem;
+            position: fixed;
+            &--button{
+                display: none;
+            }
+            
+        }
+        #navi {
+            padding-top: 5rem;
+        }
+        .nav{
+            font-size: 6rem;
+        }
+
+        .fullscreenNav{
+            margin-left: -3rem;
+            }
+
+            .fullscreenNav-container{
+                align-items:flex-start;
+    justify-content:flex-start;
+    padding: 3rem 1rem;
+
+                &__subcontainer__contacts{
+                    display: none;
+                }
+            }
+            .nav-menu-link{
+                font-size:10.5rem
+            }
+        
+}
 
 </style>

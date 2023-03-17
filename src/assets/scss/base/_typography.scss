@@ -52,6 +52,12 @@
     @include typography(700, 6.75rem, 0.5rem,'thunder-boldl')
 }
 
+// .section-text-normal{
+//     @include typography(500, 3.5rem, null,'neutra')
+// }
 
+.nav-menu-link{
+    @include typography(800, 15rem !important,null,'thunder-boldl')
+}
 }
 
