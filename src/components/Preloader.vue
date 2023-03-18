@@ -17,6 +17,10 @@
         
       </div>
 
+
+      <p class="load" v-if="!isLoaded"> loading Assets</p>
+      <p class="load" v-if="isLoaded"> Assets loaded</p>
+
       <div class="warning">
         Exploring will cause flashing images
       </div>
@@ -34,11 +38,50 @@
 
 <script setup lang="ts">
 
-
 import Splitting from 'splitting';
-import { onMounted,ref,provide } from 'vue';
+import { onMounted,ref,provide,watchEffect } from 'vue';
 import { gsap } from "gsap";
 import ScrollTrigger  from 'gsap';
+import thunderMediumFont from '../assets/fonts/Thunder-MediumLC.ttf'
+import neutrafont from '../assets/fonts/NeutraText-Book.otf'
+import neutaBold from '../assets/fonts/NeutraText-Bold.otf'
+import thunderHeavyFont from '../assets/fonts/Thunder-BlackLC.ttf'
+const isLoaded = ref<boolean>(false)
+
+onMounted(() => {
+  const promises:any[] = []
+  new Promise((resolve,reject) => {
+    const thunderMd = new FontFace('thunderHv',`url(${thunderMediumFont})` )  
+    const thunderHv = new FontFace('thunderHv',`url(${thunderHeavyFont})` )
+    const neutraBd = new FontFace('neutraBd',`url(${neutaBold})`)
+    const neutra = new FontFace('neutraBd',`url(${neutrafont})`)
+
+    const allFonts = [thunderHv,thunderMd,neutraBd,neutra]
+    console.log(allFonts)
+
+    allFonts.forEach((font) => {
+      font.load().then(resolve,reject)
+    })
+  })
+  Promise.all(promises).then(() => {
+    isLoaded.value = true
+   
+  })
+})
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
 
 gsap.registerPlugin(ScrollTrigger)
 
@@ -104,7 +147,6 @@ const webContent = document.querySelector('.app')
 
 
 
-
     const loaderTl = gsap.timeline();
 
 loaderTl.from('.preloader', {
@@ -141,7 +183,9 @@ loaderTl
       duration: 0.8,
       opacity: 0,
     })
-    .to('.preloader__container',  {
+
+    if(isLoaded) {
+      loaderTl.to('.preloader__container',  {
       y:'-100%',
       ease:"power3.inOut",
       duration:1
@@ -157,11 +201,16 @@ loaderTl
       ease:"power3.inOut",
       duration:2
     },"<0.5")
-
-    .to('.preloader',{
+     .to('.preloader',{
       opacity:0,
       display:"none"
     })
+    loaderTl.eventCallback("onComplete", () => {
+      loaderTl.kill();
+      gsap.set(".preloader", { zIndex:-1,display:"none",opacity:"0" });
+    })
+  }
+})
     // .fromTo(
     //   ".reveal",
     //   { y: 0, opacity: 0 },
@@ -177,13 +226,13 @@ loaderTl
 
 
 
-  loaderTl.eventCallback("onComplete", () => {
+  // loaderTl.eventCallback("onComplete", () => {
     // loaderTl.kill();
     // gsap.set(".preloader", { zIndex:-1,display:"none",opacity:"0" });
-  });
+  // });
 
 
-});
+// });
 </script>
 
 <style scoped lang="scss">
@@ -263,6 +312,15 @@ loaderTl
   width: 100%;
   font-size: 1.2rem;
   opacity: 0;
+  font-family: 'thunder-mediuml';
+}
+
+.load{
+  color:black;
+  font-size: 1rem;
+  z-index:2;
+  right: 2rem;
+  position:absolute;
   font-family: 'thunder-mediuml';
 }
 

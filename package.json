@@ -21,7 +21,7 @@
     "vue3-marquee": "^3.1.2"
   },
   "devDependencies": {
-    "@types/node": "^18.11.9",
+    "@types/node": "^18.15.3",
     "@types/splitting": "^1.0.0",
     "@vitejs/plugin-vue": "^3.2.0",
     "@vitejs/plugin-vue-jsx": "^2.1.1",
