@@ -39,7 +39,7 @@
 
 
                 <div class="mail">
-                    <p>Email address: </p>   <a href="mailto:adeniyioba2000@gmail.com" target="_blank">
+                    <p>Email address: </p>   <a href="mailto:adeniyioba2000@gmail.com">
                         <p class="mail--link link social">adeniyioba2000@gmail.com</p>
 
                     </a>
@@ -143,7 +143,7 @@ onMounted(() => {
         start: 'top center',
             end:'top +=150',
 
-        scrub:true
+        scrub:1.2
     }
    })
 
@@ -194,6 +194,7 @@ onMounted(() => {
         display:flex;
         flex-direction: column;
         justify-content: space-between;
+       
 
         &__copyright{
             align-self: center;

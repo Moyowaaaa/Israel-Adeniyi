@@ -62,10 +62,6 @@ import SplitType from 'split-type'
 
 
 
-onMounted(() => {
-
-  
-})
 const hoverTl = gsap.timeline()
 
 // gsap.to(myText.char)
@@ -77,19 +73,13 @@ const holdToExplore = () => {
         duration:0.4
        
     })
-    
-
-    // gsap.set(['#titleContainer'], {
-    //     display:"none"
-    // })
-
     gsap.to('#titleContainer', {
         duration:1,
         opacity:0,
         ease:"power3.inOut"
     })
 
-    gsap.to(['.navbar--container__links','.navbar--button'], {
+    gsap.to(['.menulinks','.navbar--button'], {
         duration:1,
         opacity:0,
         ease:"power3.inOut"
@@ -112,12 +102,14 @@ const removeHoldToExplore = () => {
         opacity:1,
         ease:"power3.inOut"
     })
-    gsap.to(['.navbar--container__links','.navbar--button'], {
+    gsap.to(['.menulinks','.navbar--button'], {
         duration:1,
         opacity:1,
         ease:"power3.inOut"
     })
 }
+
+
 
 
 
@@ -243,9 +235,13 @@ const removeHoldToExplore = () => {
         margin: 0 auto;
         animation: rotate 15s linear infinite;
         animation-direction: reverse;
+
+       
         
       
     }
+
+    
 }
 .hover-container{
     &:hover{

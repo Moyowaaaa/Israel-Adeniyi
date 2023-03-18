@@ -75,10 +75,16 @@ gsap.registerPlugin(ScrollTrigger)
 
 let loading = ref<boolean>(true)
 
+watchEffect(() => {
+    if(window.scrollY > 1) {
+        window.scrollTo(0,0)
+    }
+})
+
 
 onMounted(() => {
+    window.scrollTo(0,0)
     const preloadTl = gsap.timeline() 
-
     preloadTl.from('.page-overlay', {
         duration:1.2,
         opacity:0,

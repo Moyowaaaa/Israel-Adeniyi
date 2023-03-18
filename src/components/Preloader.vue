@@ -18,8 +18,8 @@
       </div>
 
 
-      <p class="load" v-if="!assetsLoaded"> loading Assets</p>
-      <p class="load" v-if="assetsLoaded"> Assets loaded</p>
+      <p class="load" v-if="!assetsLoaded"> Loading assets :/</p>
+      <p class="load" v-if="assetsLoaded"> Assets loaded :)</p>
 
       <div class="warning">
         Exploring will cause flashing images
@@ -46,10 +46,15 @@ import thunderMediumFont from '../assets/fonts/Thunder-MediumLC.ttf'
 import neutrafont from '../assets/fonts/NeutraText-Book.otf'
 import neutaBold from '../assets/fonts/NeutraText-Bold.otf'
 import thunderHeavyFont from '../assets/fonts/Thunder-BlackLC.ttf'
+import helpingHand from '../assets/images/helpingHand.svg'
+import nft from '../assets/images/Nft.svg'
+
+
 gsap.registerPlugin(ScrollTrigger)
 
 
 
+ 
 
   
 
@@ -76,10 +81,26 @@ const load = () => {
 };
 const isLoaded = ref<boolean>(false)
 
-const assetsLoaded = ref<boolean | null>(null)
+const assetsLoaded = ref<boolean | null>(false)
+
+const loaderTl = gsap.timeline();
 
 onMounted(() => {
+
+  // -------check assets before closing preloader
+  
+  const mainImageAssets = ref([
+    helpingHand,nft
+  ])
   const promises:any[] = []
+  mainImageAssets.value.forEach(asset => {
+    const img = new Image()
+        img.src = asset
+        promises.push(new Promise((resolve, reject) => {
+          img.onload = resolve
+          img.onerror = reject
+        }))        
+  })
   new Promise((resolve,reject) => {
     const thunderMd = new FontFace('thunderHv',`url(${thunderMediumFont})` )  
     const thunderHv = new FontFace('thunderHv',`url(${thunderHeavyFont})` )
@@ -95,6 +116,8 @@ onMounted(() => {
   Promise.all(promises).then(() => {
     isLoaded.value = true
   })
+
+ 
 
 
   const preloaderText = [...document.querySelectorAll('.content__title[data-splitting][data-effect3]')];
@@ -135,7 +158,7 @@ preloaderText.forEach((text) => {
 
         });
     })
-    const loaderTl = gsap.timeline();
+  
 
 loaderTl.from('.preloader', {
       opacity:0,
@@ -172,7 +195,13 @@ loaderTl
       opacity: 0,
     })
 
-    if(isLoaded) {
+   
+})
+
+watchEffect(() => {
+  assetsLoaded.value = isLoaded.value
+  if(assetsLoaded.value === true) {
+      console.log("lol")
       loaderTl.to('.preloader__container',  {
       y:'-100%',
       ease:"power3.inOut",
@@ -198,12 +227,12 @@ loaderTl
       gsap.set(".preloader", { zIndex:-1,display:"none",opacity:"0" });
     })
   }
+
 })
 
-watchEffect(() => {
-  console.log(isLoaded.value)
-  assetsLoaded.value = isLoaded.value
-})
+
+
+
     // .fromTo(
     //   ".reveal",
     //   { y: 0, opacity: 0 },

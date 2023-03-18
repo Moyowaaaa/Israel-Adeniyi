@@ -2,11 +2,14 @@
     <div class="navbar">
         <div class="navbar--container">
             <div class="navbar--container__linkscontainer nav">
-                <div class="link">
+                <router-link to="/">
+                    <div class="link">
                    ADENIYI
                 </div>
+                </router-link>
+                
 
-                <div class="navbar--container__sublinkscontainer">
+                <div class="navbar--container__sublinkscontainer  menulinks">
                     <div class="link" @click="navigateToWorks">WORKS</div>
                     <div class="link" @click="navigateToAbout">ABOUT</div>
 
@@ -23,21 +26,25 @@
 
             </div>
 
-            <div class="hamburger-container" id="navi">
-                <svg viewBox="0 0 12 10" class="hamburger" height="40px" width="40px">
+            <div id="navi" class="" @click="openMenu">
+        <svg viewBox="0 0 12 10" class="hamburger" height="40px" width="40px">
             <path d="M10,2 L2,2" class="bar-1"></path>
             <path d="M2,5 L10,5" class="bar-2"></path>
             <path d="M10,8 L2,8" class="bar-3"></path>
 
         </svg>
-            </div>
+        </div> 
+
 
         </div>
 
-        <div class="fullScreenNav" @click="openMenu">
-            <div class="fullScreenNav--logocontainer">
+        <div class="fullScreenNav" >
+           
+            <div class="fullScreenNav--logocontainer" @click="navigateToHome" id="logo">
                 <h1 class="nav-menu-logo">ADENIYI</h1>
+                
             </div>
+       
 
             <div class="fullScreenNav--container">
 
@@ -57,13 +64,17 @@
             <div class="nav-menu-link link3">
             RESUME
         </div>
+
         <!-- </a> -->
+        <div class="fullscreenButton " @click="navigateToContactme">Get in touch</div>
+
                     </div>
 
+                    
 
                     <div class="fullscreen-social-container contacts">
 
-<a href="mailto:adeniyioba2000@gmail.com" target="_blank">
+<a href="mailto:adeniyioba2000@gmail.com" >
     <h1 class="nav social">adeniyioba2000@gmail.com</h1>
 </a>
 
@@ -90,7 +101,7 @@
         </div>
 
         <div class="transition-out">
-            {{ where }}
+          
         </div>
         
 
@@ -111,6 +122,12 @@ import { useRouter } from 'vue-router';
 const router = useRouter()
 
 
+const navigateToHome = async() => {
+    await menuTl.reverse()
+    await router.push('/')
+    // console.log('hola')
+    document.querySelector('#titleSection')?.scrollIntoView()
+}
 
 const navigateToFooter = () => {
     document.querySelector('#footer')?.scrollIntoView({
@@ -134,6 +151,16 @@ const navigateToAbout = async() => {
             behavior: 'smooth'
        });
 }
+
+
+
+let navigateToContactme =  async() => {
+ await menuTl.reverse()
+ await menuBodyTl.reverse()
+ await document.querySelector('#footer')?.scrollIntoView({
+            behavior: 'smooth'
+       });
+}
 const where = ref<string | null>('where')
 
 
@@ -153,27 +180,60 @@ onMounted(() => {
     }
    })
 
-
-
-
-
-navTl.to('#navi',{
+   navTl.to('#navi',{
     y:-20,
     opacity:1,
     ease:"power3.inOut",
     duration:1.2,
-    display:"flex",
+    display:"flex"
 })
 
 
+menuTl.to('.bar-1', {
+        duration:0.5,
+        attr:{d: "M8,2 L2,8"},
+	x:1,
+	ease: "power3.inOut"
+    }, 'start')
+
+    menuTl.to('.bar-2',{
+	autoAlpha: 0,
+    duration:0.5
+}, 'start')
+.to('.bar-3',{
+	attr:{d: "M8,8 L2,2"},
+    duration:0.5,
+	x:1,
+	ease: "power3.inOut"
+}, 'start')
+
+menuTl.reverse()
+
+
+menuBodyTl.to('.fullScreenNav', {
+    duration:0.2,
+	display: "flex",
+	ease: 'Expo.easeInOut',
+ 
+})
+.from(['.links','.link1','.link2','.link3','.fullscreenButton'], {
+    opacity:0,
+    duration:1.2,
+    stagger: 0.2,   
+    y:200,
+    ease:"power3.inOut"
+}, "<0.1")
+.fromTo('.nav-menu-logo',  {y: 0, opacity: 0, }, { opacity:1,duration:0.8, clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)"}, "<0.1")
+menuBodyTl.from('.contacts',{opacity:0,duration:.8,ease:"power3.inOut"})
+
+menuBodyTl.reverse()
 
 })
 
 const openMenu = () => {
     menuTl.reversed(!menuTl.reversed())
-    // menuBodyTl.reversed(!menuBodyTl.reversed())
+    menuBodyTl.reversed(!menuBodyTl.reversed())
 }
-
 
 onMounted(() => {
     const navLinks = [...document.querySelectorAll('.nav-menu-link')]
@@ -272,11 +332,14 @@ onMounted(() => {
 
    
 }
+.fullscreenButton{
+
+    display:none
+}
 
 .transition-out{
     height: 100vh;
     width: 105%;
-    background-color: red;
     position: fixed;
     top:0;
     z-index:90;
@@ -301,7 +364,7 @@ a{
 }
 
 .fullScreenNav{
-    position: absolute;
+    position: fixed;
     height: 100vh;
     width: 100%;
     top:0;
@@ -309,13 +372,17 @@ a{
     background-color: black;
     padding-left:5rem;
     display: none;
+    cursor: pointer;
+
+
+   
+
+   
 
     &--container{
         position: absolute;
         height:100vh;
         width:100%;
-       
-        // background-color: red;
         top:0;
         left:0;
         display: flex;
@@ -349,7 +416,7 @@ a{
     gap:0.8rem;
     flex-direction: column;
     height: 100%;
-    border: 2px solid red;
+   
     margin-bottom: 1.2rem;
    
 }
@@ -385,9 +452,19 @@ font-size:7rem;
 }
 
 #navi {
-    opacity: 0;
+position: fixed;
+right:4rem;
+top:2rem;
+opacity:0;
+z-index:50;
+cursor: pointer;
+display: none;
+
 }
 
+#logo {
+    z-index: 60;
+}
 
 
 
@@ -413,8 +490,30 @@ font-size:7rem;
         .nav-menu-logo{
     font-size: 5rem;;
 }
+.fullscreen-social-container{
+        display:none
+    }
+    .fullscreen-links-container{
+        width:70%;
+        gap:2.5rem;
+        margin:0 auto;
     }
 
+    .fullscreenButton{
+        border-radius: 2rem;
+    display:flex;
+    font-size:5rem;
+    justify-content: center;
+    align-items: center;
+    margin-top:20rem;
+    border:2px solid white;
+    padding:3rem 2rem;
+    font-family:neutra
+    }
+    
+    }
+
+   
 
 
 </style>

@@ -317,7 +317,7 @@ border: 2px solid red;
         color:white;
         background-color: transparent;
         cursor: pointer;
-        @include magic-border(2px, #F89623, 0.3s, 0);
+        @include magic-border(2px, #F89623, 0.15s, 0);
 
 
         &:hover{
@@ -346,4 +346,7 @@ a{
 .helping{
     margin-top: 3rem;
 }
+
+
+
 </style>
