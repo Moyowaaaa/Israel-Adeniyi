@@ -18,8 +18,8 @@
       </div>
 
 
-      <p class="load" v-if="!isLoaded"> loading Assets</p>
-      <p class="load" v-if="isLoaded"> Assets loaded</p>
+      <p class="load" v-if="!assetsLoaded"> loading Assets</p>
+      <p class="load" v-if="assetsLoaded"> Assets loaded</p>
 
       <div class="warning">
         Exploring will cause flashing images
@@ -46,28 +46,7 @@ import thunderMediumFont from '../assets/fonts/Thunder-MediumLC.ttf'
 import neutrafont from '../assets/fonts/NeutraText-Book.otf'
 import neutaBold from '../assets/fonts/NeutraText-Bold.otf'
 import thunderHeavyFont from '../assets/fonts/Thunder-BlackLC.ttf'
-const isLoaded = ref<boolean>(false)
-
-onMounted(() => {
-  const promises:any[] = []
-  new Promise((resolve,reject) => {
-    const thunderMd = new FontFace('thunderHv',`url(${thunderMediumFont})` )  
-    const thunderHv = new FontFace('thunderHv',`url(${thunderHeavyFont})` )
-    const neutraBd = new FontFace('neutraBd',`url(${neutaBold})`)
-    const neutra = new FontFace('neutraBd',`url(${neutrafont})`)
-
-    const allFonts = [thunderHv,thunderMd,neutraBd,neutra]
-    console.log(allFonts)
-
-    allFonts.forEach((font) => {
-      font.load().then(resolve,reject)
-    })
-  })
-  Promise.all(promises).then(() => {
-    isLoaded.value = true
-   
-  })
-})
+gsap.registerPlugin(ScrollTrigger)
 
 
 
@@ -83,13 +62,9 @@ onMounted(() => {
 
 
 
-gsap.registerPlugin(ScrollTrigger)
+
 
 const loadingPercentage = ref<number | any>(0);
-
-const props = defineProps(['loading'])
-
-console.log(props.loading)
 
 const load = () => {
   const id = setInterval(function () {
@@ -99,8 +74,29 @@ const load = () => {
     clearInterval(id);
   }, 1000);
 };
+const isLoaded = ref<boolean>(false)
+
+const assetsLoaded = ref<boolean | null>(null)
 
 onMounted(() => {
+  const promises:any[] = []
+  new Promise((resolve,reject) => {
+    const thunderMd = new FontFace('thunderHv',`url(${thunderMediumFont})` )  
+    const thunderHv = new FontFace('thunderHv',`url(${thunderHeavyFont})` )
+    const neutraBd = new FontFace('neutraBd',`url(${neutaBold})`)
+    const neutra = new FontFace('neutraBd',`url(${neutrafont})`)
+    
+
+    thunderHv.load().then(resolve, reject);
+    thunderMd.load().then(resolve, reject);
+    neutraBd.load().then(resolve, reject);
+    neutra.load().then(resolve, reject);
+  })
+  Promise.all(promises).then(() => {
+    isLoaded.value = true
+  })
+
+
   const preloaderText = [...document.querySelectorAll('.content__title[data-splitting][data-effect3]')];
 
 const lettersAndSymbols = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '!', '@', '#', '$', '%', '^', '&', '*', '-', '_', '+', '=', ';', ':', '<', '>', ','];
@@ -139,14 +135,6 @@ preloaderText.forEach((text) => {
 
         });
     })
-
-
-const webContent = document.querySelector('.app')
-
-
-
-
-
     const loaderTl = gsap.timeline();
 
 loaderTl.from('.preloader', {
@@ -210,6 +198,11 @@ loaderTl
       gsap.set(".preloader", { zIndex:-1,display:"none",opacity:"0" });
     })
   }
+})
+
+watchEffect(() => {
+  console.log(isLoaded.value)
+  assetsLoaded.value = isLoaded.value
 })
     // .fromTo(
     //   ".reveal",
