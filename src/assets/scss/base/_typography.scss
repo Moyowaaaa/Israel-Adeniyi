@@ -1,5 +1,5 @@
 .nav {
-    @include typography(500, 1.75rem,null,'thunder-mediuml')
+    @include typography(500, 1.75rem,0,'thunder-mediuml')
 }
 
 .nav-menu-logo{
@@ -7,7 +7,7 @@
 }
 
 .nav-menu-link{
-    @include typography(800, 8rem,null,'thunder-boldl')
+    @include typography(800, 1rem,null,'neutra-bold')
 }
 
 

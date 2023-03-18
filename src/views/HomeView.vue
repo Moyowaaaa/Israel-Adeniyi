@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import CustomMouseVue from '@/components/CustomMouse.vue';
+
 import HeroSection from '@/components/HeroSection.vue';
 import Navbar from '@/components/Navbar.vue';
 import Preloader from '@/components/Preloader.vue';
@@ -19,6 +19,7 @@ import Main from '../layouts/Main.vue'
   <div class="app">
     
   <Main>
+    <Preloader />
     <TitleSection />
   <HeroSection />
   <SelectedWorksSection />

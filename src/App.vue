@@ -2,7 +2,7 @@
 import { RouterLink, RouterView } from 'vue-router'
 import Lenis from '@studio-freight/lenis'
 import { onMounted,ref,inject } from 'vue';
-import CustomMouse from './components/CustomMouse.vue';
+
 import Preloader from './components/Preloader.vue';
 
 
@@ -49,7 +49,7 @@ onMounted(() => {
 <template>
   <!-- <Preloader /> -->
   <!-- <Preloader v-if="loading"/> -->
-  <CustomMouse />
+
   <RouterView />
 </template>
 

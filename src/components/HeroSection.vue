@@ -35,53 +35,13 @@
 </template>
 
 <script setup lang="ts">
-
 import Splitting from "splitting";
-import { onMounted, onUnmounted } from "vue";
+import { onMounted,onUnmounted } from "vue";
+import MarqueeVue from "./Marquee.vue";
 import gsap from "gsap";
 import ScrollTrigger from "gsap/ScrollTrigger";
-gsap.registerPlugin(ScrollTrigger);
+gsap.registerPlugin(ScrollTrigger)
 
-
-
-onMounted(() => {
-
-  // const heroText = [
-  //   ...document.querySelectorAll(".hero-text[data-splitting][data-effect2]:not(.splitting-done)"),
-  // ];
-
-  // heroText.forEach((text) => {
-  //   Splitting({ target: text });
-  //   text.classList.add("splitting-done");
-
-  //   gsap.fromTo(
-  //     text.querySelectorAll(".word"),
-  //     {
-  //       "will-change": "opacity",
-  //       opacity: 0.2,
-  //     },
-  //     {
-  //       ease: "none",
-  //       opacity: 1,
-  //       stagger: 0.05,
-  //       scrollTrigger: {
-  //         trigger: text,
-  //         start: "top bottom-=20%",
-  //         end: "center top+=20%",
-  //         scrub: true,
-  //       },
-  //     }
-  //   );
-  // });
-});
-
-
-
-
-
-// onUnmounted(() => {
-//   // no need to do anything here
-// });
 
 
 

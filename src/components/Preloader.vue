@@ -14,10 +14,20 @@
 
         <div class="text-reveal-container">
         <div class="text-reveal-container__text reveal  content__title" data-splitting data-effect3>ISRAEL</div>
+        
       </div>
+
+      <div class="warning">
+        Exploring will cause flashing images
+      </div>
+      
         
         
         </div>  
+
+        <div class="transition-out">
+          
+        </div>
 
     </div>
 </template>
@@ -48,31 +58,18 @@ const load = () => {
 };
 
 onMounted(() => {
-    Splitting()
-
-const fx11Titles = [...document.querySelectorAll('.content__title[data-splitting][data-effect3]')];
+  const preloaderText = [...document.querySelectorAll('.content__title[data-splitting][data-effect3]')];
 
 const lettersAndSymbols = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '!', '@', '#', '$', '%', '^', '&', '*', '-', '_', '+', '=', ';', ':', '<', '>', ','];
 
-const wrapElements = (elems:any, wrapType:any, wrapClass:any) => {
-    elems.forEach((char:any) => {
-        const wrapEl = document.createElement(wrapType);
-        wrapEl.classList = wrapClass;
-        char.parentNode.appendChild(wrapEl);
-        wrapEl.appendChild(char);
+console.log(preloaderText)
+
+preloaderText.forEach((text) => {
+    Splitting({
+        target: text,
+        by: "chars",
     });
-}
-
-
-
-fx11Titles.forEach(title => {
-
-    
-        
-        const chars = title.querySelectorAll('.char');
-
-        
-
+    const chars = text.querySelectorAll('.char');
         chars.forEach((char, position) => {
             let initialHTML = char.innerHTML;
             
@@ -89,7 +86,7 @@ fx11Titles.forEach(title => {
                 delay: (position+8)*0.18,
                 onComplete: ():any => gsap.set(char, {innerHTML: initialHTML, delay: 0.03}),
                 scrollTrigger: {
-                    trigger: title,
+                    trigger: text,
                     start: 'top bottom',
                     end: 'bottom center',
                     toggleActions: "play resume resume reset",
@@ -98,10 +95,13 @@ fx11Titles.forEach(title => {
             });
 
         });
-        
-    
-        
-    });
+    })
+
+
+const webContent = document.querySelector('.app')
+
+
+
 
 
 
@@ -132,13 +132,36 @@ loaderTl
       },
       "<0.1"
     )
-
+    .to('.warning', {
+      opacity:1,
+      ease:"power3.inOut"
+    })
     .to(".blackText", {
       delay: 0.6,
       duration: 0.8,
       opacity: 0,
     })
-    
+    .to('.preloader__container',  {
+      y:'-100%',
+      ease:"power3.inOut",
+      duration:1
+    })
+    .fromTo('.transition-out', {
+      display:"flex",
+      position:"fixed",
+      backgroundColor:"black",
+      height:"130vh",
+      width:"100%"
+    }, {
+      y:'-100%',
+      ease:"power3.inOut",
+      duration:2
+    },"<0.5")
+
+    .to('.preloader',{
+      opacity:0,
+      display:"none"
+    })
     // .fromTo(
     //   ".reveal",
     //   { y: 0, opacity: 0 },
@@ -150,25 +173,16 @@ loaderTl
     //   },
     //   "<0.1"
     // )
-    .to(
-      ".reveal",
-      {
-        delay: 0.1,
-        duration: 1,
-        y: -100,
-        ease: "power3.inOut",
-        opacity: 0,
-      },
-      "-=0.25"
-    );
+    
 
 
 
   loaderTl.eventCallback("onComplete", () => {
-    loaderTl.kill();
-    gsap.set(".preloader", { zIndex:-1 });
-
+    // loaderTl.kill();
+    // gsap.set(".preloader", { zIndex:-1,display:"none",opacity:"0" });
   });
+
+
 });
 </script>
 
@@ -183,9 +197,11 @@ loaderTl
   height: 100vh;
   width:100%;
   position: absolute;
+  z-index: 2000;
 
   &__container {
     position: fixed;
+    // display: none;
     top: 0;
     right: 0;
     bottom: 0;
@@ -216,6 +232,14 @@ loaderTl
     font-family: 'thunder-mediuml';
   }
 
+  @media screen and (max-width:485px) {
+    .preloader {
+      &__textcontainer {
+        font-size:12rem
+      }
+    }
+  }
+
 }
 
 .text-reveal-container {
@@ -230,6 +254,26 @@ loaderTl
   font-size: 8rem;
     font-family: 'thunder-mediuml';
 
+}
+.warning{
+  position:absolute;
+  bottom: 1rem;
+  color: black;
+  text-align: center;
+  width: 100%;
+  font-size: 1.2rem;
+  opacity: 0;
+  font-family: 'thunder-mediuml';
+}
+
+@media screen and (max-width:485px) {
+  .content__title{
+    font-size:15rem
+  }
+  .warning{
+    display: none;
+    font-size: 3rem;
+  }
 }
 
 </style>

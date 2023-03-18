@@ -111,6 +111,30 @@ gsap.from('.NFT', {
     }
 })
 
+// let imageContainer = document.querySelectorAll('.work-container')
+// const image = document.querySelectorAll('.work-container img')
+
+// const tl = gsap.timeline({
+//     scrollTrigger:{
+//         trigger:imageContainer,
+//         toggleActions: "restart none none reset"
+//     }
+// })
+// tl.set(imageContainer, {autoAlpha: 1});
+
+//     tl.from(imageContainer, {
+//         xPercent: -100,
+//         duration:1.5,
+//         ease: "Power3.inOut"
+//     })
+//     .from(image, {
+//         xPercent: 100,
+//         scale: 1.3,
+//         delay: -1.5,
+//         ease: "Power2.out",
+//         duration:1.5
+//     })
+
 });
 
 const navigateToWorks = async() => {
@@ -135,25 +159,32 @@ const navigateToWorks = async() => {
           <div class="selectedWorks--container__works-container" id="works-container">
            
          <div class="work-container helping">
-            <a href="https://www.behance.net/gallery/143565927/Helping-hand-Case-Study" target="_blank">
-            <img src="../assets/images/helpingHand.svg" />
-            <div class="work-container--desc project-desc-text">
+            <!-- <a href="https://www.behance.net/gallery/143565927/Helping-hand-Case-Study" target="_blank"> -->
+            <div>
+                <img src="../assets/images/helpingHand.svg" />
+                <div class="view">
+                    View
+                </div>
+                </div>  
+            <!-- <div class="work-container--desc project-desc-text">
                 <h1>Helping hand Case study</h1>
                 <img src="../assets/images/linkArrow.svg" />
-            </div>
-        </a>
+            </div> -->
+        <!-- </a> -->
          </div>
        
 
        
          <div class="work-container NFT">
-            <a href="https://www.behance.net/gallery/143565927/Helping-hand-Case-Study" target="_blank">
+            <!-- <a href="https://www.behance.net/gallery/143565927/Helping-hand-Case-Study" target="_blank"> -->
+                <div>
             <img src="../assets/images/Nft.svg" />
-            <div class="work-container--desc project-desc-text">
+            </div>
+            <!-- <div class="work-container--desc project-desc-text">
                 <h1>NFT UI Relume Challenge</h1>
                 <img src="../assets/images/linkArrow.svg" />
-            </div>
-        </a>
+            </div> -->
+        <!-- </a> -->
          </div>
         
            
@@ -223,7 +254,7 @@ const navigateToWorks = async() => {
 .work-container{
     height:22rem;
     width: 50%;;
-    
+    // visibility: hidden;
     object-fit: cover;
 
     img{
@@ -243,7 +274,8 @@ object-fit: fit;
 
         img{
             object-fit: fit;
-            width:30px
+            width:30px;
+            transform-origin: left;
         }
 
 
@@ -258,8 +290,15 @@ object-fit: fit;
     @media screen and (max-width:485px) {
 width: 100%;
 height: 50rem;
+border: 2px solid red;
     }
 
+}
+
+.view{
+    position:absolute;
+    
+    
 }
 .title{
     text-align: center;

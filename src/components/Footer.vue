@@ -255,4 +255,10 @@ a{
     }
 
 
+
+@media screen and (max-width: 485px) {
+    .linkcontainer{
+        flex-direction: column;
+    }
+}
 </style>

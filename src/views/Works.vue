@@ -1,5 +1,5 @@
 <template>
-  <div class="app">
+  <div class="">
   
     <div class="page-overlay section-title" v-if="loading">
     WORKS
@@ -170,6 +170,7 @@ gsap.to('.NFT', {
         height: 5rem;
 
         display:flex;
+
         gap:3rem;
         justify-content: justify-between;
        
@@ -241,5 +242,16 @@ a{
 
 }
 
+@media screen and (max-width:485px) {
+    #works-container{
+        flex-direction: column;
+    }
+    .left-column, .right-column{
+        width: 100%; 
+    }
+    .work-container{
+        height: 40rem;
+    }
+}
 
 </style>
