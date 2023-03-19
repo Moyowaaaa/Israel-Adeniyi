@@ -88,7 +88,7 @@ const loaderTl = gsap.timeline();
 onMounted(() => {
 
   // -------check assets before closing preloader
-  
+
   const mainImageAssets = ref([
     helpingHand,nft
   ])
@@ -348,7 +348,9 @@ watchEffect(() => {
 
 @media screen and (max-width:485px) {
   .content__title{
-    font-size:15rem
+    font-size:20rem;
+    width: 100%;
+    text-align: center;
   }
   .warning{
     display: none;

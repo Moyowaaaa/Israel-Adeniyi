@@ -29,8 +29,11 @@
             
             <div class="titleSection--mainContainer__titlecontainer" id="titleContainer">
                 <h1 class="main-header header content__title" data-splitting data-effect-5 id="mainTitle">USER EXPERIENCE</h1>
+               <div class="header-sub-container">
                 <h1 class="main-header sub-header">designer based</h1>
                 <h1  class="main-header sub-header"> in Lagos</h1>
+               </div>
+               
             </div>
 
             <div class="titleSection--mainContainer__imagecontainer"  >
@@ -67,6 +70,10 @@ const hoverTl = gsap.timeline()
 // gsap.to(myText.char)
 
 const holdToExplore = () => {
+
+    gsap.set('.slide', {
+        animationPlayState:"running"
+    })
    
     gsap.set('.slide-container', {
         opacity:1,
@@ -88,6 +95,10 @@ const holdToExplore = () => {
 }
 
 const removeHoldToExplore = () => {
+    gsap.set('.slide', {
+        animationPlayState:"paused"
+    })
+   
     gsap.set('.slide-container', {
         opacity:0
     })
@@ -137,6 +148,7 @@ const removeHoldToExplore = () => {
     justify-content: center;
     margin:0 auto;
     padding: 0 11.8rem;
+   
 
     
   
@@ -158,7 +170,7 @@ const removeHoldToExplore = () => {
 
         @media screen and (max-width:485px) {
             width: 100%;
-       
+           
             position: relative;
             left:0;
             top:0
@@ -185,8 +197,10 @@ const removeHoldToExplore = () => {
     }
 
     @media screen and (max-width:485px) {
-        padding: 0 1.8rem;
+        padding: 0 5rem;
         max-height: 100vh;
+        border: 2px solid green;
+    
      
 }
    
@@ -194,27 +208,38 @@ const removeHoldToExplore = () => {
 
 .titleSection--mainContainer__imagecontainer img{
    height: 50%;
+  
 }
 
 .header{
     color:#F89623;
+    font-size: 8rem;
+    font-family: "thunder-boldl";
+    
+    // @include typography(null, 8rem,2rem,'thunder-boldl')
 
 }
 .sub-header{
     color:#F8F8F8;
     width: 40rem;
-    line-height: -2rem;
+    font-family: "thunder-boldl";
+
+    font-size: 8rem;
+    line-height: 2rem;
+}
+
+.header-sub-container{
+    margin-top:-5rem;
 }
 
 
 @media screen and (max-width:485px) {
-    .header ,.sub-header {
-        width: 100%;
     
-        line-height:normal;
-    }
     .header{
-        font-size: 14.5rem;
+        font-size: 16.5rem;
+        width: 50rem;
+   
+        font-family: "thunder-boldl";
     }
 }
 
@@ -230,11 +255,11 @@ const removeHoldToExplore = () => {
 
     img{
         height: 95%;
-      
         width: 12rem;
         margin: 0 auto;
         animation: rotate 15s linear infinite;
         animation-direction: reverse;
+    
 
        
         
@@ -303,8 +328,9 @@ body{
     left: 0;
     width: 100%;
     height: 100%;
-    animation: singleSlide 5s ease-in-out;
+    animation: singleAnimations 2.2s ease-in-out;
     animation-iteration-count: infinite;
+    animation-play-state: paused;
     background-size:cover;
     background-repeat:no-repeat;
     background-position:center
@@ -375,7 +401,7 @@ body{
     animation-delay: 1.5s;
 }
 
-@keyframes singleSlide {
+@keyframes singleAnimations {
     0% {
     opacity: 1;
     transform: scale(1);
@@ -396,6 +422,24 @@ body{
 
 }
 
+
+@media screen and (max-width:485px) {
+
+    .titleSection--mainContainer__imagecontainer{
+        position: absolute;
+        right:10rem;
+        top:20rem
+    }
+
+    .explore-container img {
+        width: 28rem;
+
+    }
+    
+.finger-container img{
+    width: 5rem;
+}
+}
 
 
 

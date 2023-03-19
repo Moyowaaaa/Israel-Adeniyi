@@ -71,7 +71,7 @@ gsap.registerPlugin(ScrollTrigger)
     max-width: auto;
 
     height: auto;
-    padding: 4rem 0;
+    padding: 5rem 2rem;
     max-height: 90vh;
     align-items: start;
     justify-content: flex-start;
@@ -93,7 +93,7 @@ gsap.registerPlugin(ScrollTrigger)
 
   @media screen and (max-width:485px) {
     width: 100%;
-    border:2px soid salmon
+    // border:2px soid salmon
     
   }
 }

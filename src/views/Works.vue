@@ -114,34 +114,34 @@ onMounted(() => {
         loading.value = false
     },2400)
 
-    gsap.to('.helping', {
-    y:-50,
-    duration:12,
-    ease:"power3.inOut",
+//     gsap.to('.helping', {
+//     y:-50,
+//     duration:12,
+//     ease:"power3.inOut",
     
-    scrollTrigger:{
-        trigger:'.workSection',
-        start: 'top +=500',
-      end: 'bottom center',
-      scrub: true,
+//     scrollTrigger:{
+//         trigger:'.workSection',
+//         start: 'top +=500',
+//       end: 'bottom center',
+//       scrub: true,
       
    
-    }
-})
+//     }
+// })
 
-gsap.to('.NFT', {
-    y:50,
-    duration:1.2,
-    ease:"power3.inOut",
+// gsap.to('.NFT', {
+//     y:50,
+//     duration:1.2,
+//     ease:"power3.inOut",
 
-    scrollTrigger:{
-        trigger:'.workSection',
-        start: 'top center',
-      end: 'bottom center',
-      scrub: true,
+//     scrollTrigger:{
+//         trigger:'.workSection',
+//         start: 'top center',
+//       end: 'bottom center',
+//       scrub: true,
       
-    }
-})
+//     }
+// })
 
 
 })
@@ -158,14 +158,14 @@ gsap.to('.NFT', {
     margin:0 auto;
     padding: 0 11.8rem;
     color:white !important;
+    border:2px solid red;
 
     &--container{
   display: flex;
         flex-direction: column;
         gap:4rem;
         height: 100%;
-
-         
+        border:2px solid blue;
 
     }
 
@@ -179,13 +179,15 @@ gsap.to('.NFT', {
 
         gap:3rem;
         justify-content: justify-between;
+
+        border:2px solid green;
        
       }
 
 .work-container{
     height:22rem;
     width: 100%;;
-    
+    border:2px solid purple;
     object-fit: cover;
 
     img{
@@ -239,24 +241,45 @@ a{
    
     width: 50%;
     height: auto;
+    border: 2px solid navy;
 }
 
 .right-column{
    
     width: 50%;
     height: auto;
+    border: 2px solid yellow;
 
 }
 
 @media screen and (max-width:485px) {
+
+    .workSection{
+        flex-direction: column;
+        padding: 0 5rem;
+        min-height: 100vh;
+        &--container{
+            flex-direction: column;
+        }
+    }
     #works-container{
+        
         flex-direction: column;
     }
     .left-column, .right-column{
         width: 100%; 
     }
     .work-container{
-        height: 40rem;
+        height: 60rem;
+        object-fit: none;
+
+        img{
+            object-fit: cover;
+        }
+    }
+
+    .title{
+        font-size: 10rem;
     }
 }
 

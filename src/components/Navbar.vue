@@ -3,7 +3,7 @@
         <div class="navbar--container">
             <div class="navbar--container__linkscontainer nav">
                 <router-link to="/">
-                    <div class="link">
+                    <div class="link" id="nav-logo">
                    ADENIYI
                 </div>
                 </router-link>
@@ -27,7 +27,7 @@
             </div>
 
             <div id="navi" class="" @click="openMenu">
-        <svg viewBox="0 0 12 10" class="hamburger" height="40px" width="40px">
+        <svg viewBox="0 0 12 10" class="hamburger">
             <path d="M10,2 L2,2" class="bar-1"></path>
             <path d="M2,5 L10,5" class="bar-2"></path>
             <path d="M10,8 L2,8" class="bar-3"></path>
@@ -62,7 +62,10 @@
 
         <!-- <a href="https://drive.google.com/file/d/1qaEKj067bS9Sfx66SyHU7bXM6z2O1TzE/view" target="_blank"> -->
             <div class="nav-menu-link link3">
-            RESUME
+                <a href="https://drive.google.com/file/d/1qaEKj067bS9Sfx66SyHU7bXM6z2O1TzE/view" target="_blank"> 
+                    RESUME
+                </a>
+        
         </div>
 
         <!-- </a> -->
@@ -155,8 +158,8 @@ const navigateToAbout = async() => {
 
 
 let navigateToContactme =  async() => {
- await menuTl.reverse()
  await menuBodyTl.reverse()
+ await menuTl.reverse()
  await document.querySelector('#footer')?.scrollIntoView({
             behavior: 'smooth'
        });
@@ -166,6 +169,8 @@ const where = ref<string | null>('where')
 
 var menuTl = gsap.timeline()
 var menuBodyTl = gsap.timeline({paused:true})
+
+console.log(window.innerHeight)
 
 onMounted(() => {
     var navbarTrigger = document.querySelector('.layout__child')
@@ -180,13 +185,22 @@ onMounted(() => {
     }
    })
 
-   navTl.to('#navi',{
+   if(window.innerWidth > 750){
+    navTl.to('#navi',{
     y:-20,
     opacity:1,
     ease:"power3.inOut",
     duration:1.2,
     display:"flex"
 })
+   }
+
+//    if(window.innerHeight < 800 && window.innerHeight) {
+//     console.log('a pc')
+//    }else {
+//     console.log('a phone')
+//    }
+ 
 
 
 menuTl.to('.bar-1', {
@@ -344,8 +358,6 @@ onMounted(() => {
     top:0;
     z-index:90;
     display: none;
-    color: white;
-    font-size:7rem
 }
 
 a{
@@ -440,6 +452,7 @@ a{
 
 .nav-menu-link {
 font-size:7rem;
+z-index: 35;
 
 }
 
@@ -466,10 +479,30 @@ display: none;
     z-index: 60;
 }
 
+.hamburger{
+    height: 40px;
+    width: 40px;
+}
+
 
 
 
 @media screen and (max-width:485px) {
+    #nav-logo{
+        padding-top:4.2rem;
+        position:fixed ;
+        
+    }
+    .hamburger{
+    height: 30px;
+    width: 30px;
+}
+
+    #navi {
+        opacity: 1;
+        display: flex;
+        top:3rem
+    }
         .navbar{
             
     &--container{
@@ -485,7 +518,8 @@ display: none;
         }
         }
         .nav{
-            font-size: 8rem;
+            font-size: 5rem;
+            
         }
         .nav-menu-logo{
     font-size: 5rem;;
@@ -502,7 +536,7 @@ display: none;
     .fullscreenButton{
         border-radius: 2rem;
     display:flex;
-    font-size:5rem;
+    font-size:3rem;
     justify-content: center;
     align-items: center;
     margin-top:20rem;

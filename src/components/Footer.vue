@@ -164,6 +164,7 @@ onMounted(() => {
     max-width: 100rem;
     margin:0 auto;
     
+    
 
     &--topcontainer{
         height: 25rem;

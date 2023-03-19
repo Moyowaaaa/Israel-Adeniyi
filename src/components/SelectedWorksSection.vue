@@ -191,6 +191,25 @@ const navigateToWorks = async() => {
 
             </div>  
 
+
+
+            <div class="phone-works-container">
+                <!-- <div class="phone-view">
+                    View all work
+                </div> -->
+
+                <div class="phone-work">
+
+                </div>
+                <div class="phone-work">
+
+</div>
+<div class="phone-work">
+
+</div>
+
+            </div>
+
            
 
             <button class="button" @click="navigateToWorks">
@@ -219,7 +238,9 @@ const navigateToWorks = async() => {
     box-sizing: border-box;
 
     @media screen and (max-width:485px) {
-        padding: 0 4.5rem;
+        padding: 0 6rem;
+        min-height: 100rem;
+        max-height: 100vh;
   }
 
     &--container{
@@ -237,14 +258,13 @@ const navigateToWorks = async() => {
         justify-content: justify-between;
 
         
-
         @media screen and (max-width:485px) {
-            display: flex;
-            flex-direction: column;  
-            justify-content: flex-start;
+            display: none;
 }
        
       }
+      
+   
     }
 
     
@@ -252,7 +272,7 @@ const navigateToWorks = async() => {
 }
 
 .work-container{
-    height:22rem;
+    height:122rem;
     width: 50%;;
     // visibility: hidden;
     object-fit: cover;
@@ -289,8 +309,8 @@ object-fit: fit;
 
     @media screen and (max-width:485px) {
 width: 100%;
-height: 50rem;
-border: 2px solid red;
+height: 100rem;
+// border: 2px solid red;
     }
 
 }
@@ -347,6 +367,35 @@ a{
     margin-top: 3rem;
 }
 
+
+.phone-works-container{
+
+    display: none;
+}
+
+
+
+@media screen and (max-width:485px) {
+    .phone-works-container{
+        width: 100%;;
+        display: flex;
+        flex-wrap: wrap;
+        height:90rem;
+        margin:0 auto;
+        border:2px solid blue;
+        overflow-x: scroll;
+       
+    }
+
+    .phone-work{
+        height:90%;
+        width: 100rem !important;
+        border: 2px solid red;
+    }
+   
+    
+   
+}
 
 
 </style>
