@@ -193,23 +193,7 @@ const navigateToWorks = async() => {
 
 
 
-            <div class="phone-works-container">
-                <!-- <div class="phone-view">
-                    View all work
-                </div> -->
-
-                <div class="phone-work">
-
-                </div>
-                <div class="phone-work">
-
-</div>
-<div class="phone-work">
-
-</div>
-
-            </div>
-
+         
            
 
             <button class="button" @click="navigateToWorks">
@@ -259,7 +243,7 @@ const navigateToWorks = async() => {
 
         
         @media screen and (max-width:485px) {
-            display: none;
+        flex-direction: column;
 }
        
       }
@@ -382,15 +366,15 @@ a{
         flex-wrap: wrap;
         height:90rem;
         margin:0 auto;
-        border:2px solid blue;
-        overflow-x: scroll;
+        
+        overflow-x: auto;
        
     }
 
     .phone-work{
         height:90%;
         width: 100rem !important;
-        border: 2px solid red;
+    
     }
    
     

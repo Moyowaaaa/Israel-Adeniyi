@@ -259,8 +259,52 @@ a{
 
 
 @media screen and (max-width: 485px) {
+    .footerSection{
+        margin-top: 10rem;
+        &--topcontainer{
+        height: 40vh;
+      
+        gap:5rem
+        }
+
+        &--bottomcontainer{
+            height: 40vh;
+            
+            padding: 4rem
+        }
+    }
+    .footer-text-normal{
+        font-size:3rem;
+        text-align: center;
+        padding: 4rem
+        ;
+        width: 100%;
+       
+
+    }
     .linkcontainer{
+        flex-direction: row;
+        flex-wrap: wrap;
+       
+        &--container{
+        display:  flex;
+        gap:0.5rem;
+       
+        width: max-content;
         flex-direction: column;
+    }
+    }
+
+    .footer-text{
+        font-size: 4rem;
+    }
+    .footer-text:nth-child(3){
+        font-size: 6rem;
+        display: none;
+    }
+    .linkcontainer--container:nth-child(3){
+        width: 100%;
+       
     }
 }
 </style>

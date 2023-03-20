@@ -543,6 +543,11 @@ display: none;
     border:2px solid white;
     padding:3rem 2rem;
     font-family:neutra
+
+    }
+    .fullscreenButton:active{
+        border: 2px solid #F89623 ;
+            color: #F89623
     }
     
     }
