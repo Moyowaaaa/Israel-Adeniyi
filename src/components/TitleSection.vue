@@ -330,7 +330,7 @@ body{
     height: 100%;
     animation: singleAnimations 2.2s ease-in-out;
     animation-iteration-count: infinite;
-    animation-play-state: paused;
+    // animation-play-state: paused
     background-size:cover;
     background-repeat:no-repeat;
     background-position:center

@@ -1,109 +1,105 @@
- 
+<template>
+    <div class="selectedWorkSection">
+        <div class="selectedWorkSection--top-container">
+            <h1>Selected Works</h1> 
+
+            <router-link to="/works">
+                <button class="btn"><h2>View All</h2></button>  
+            </router-link>
+           
+        </div>
+
+
+        <div class="selectedWorkSection--works-container">
+
+            <div class="workContainer" id="helping" data-filter="1">
+                <div class="mask">
+                    <img src="../assets/images/darkNoise.png" />
+                </div>
+                <div class="desc" id="helpinghanddesc">
+                    <h1>
+                        Helping Hand
+                    </h1>
+                    <p>View</p>
+                </div>
+            </div>
+
+            <div class="workContainer" id="NFT" data-filter="2">
+                <div class="mask">
+                    <img src="../assets/images/LightNoise.png" />
+                </div>
+                <div class="desc" id="NFTdesc">
+                    <h1>Super Rare NFT</h1>
+                    <p>View</p> 
+                </div>
+            </div>
+
+             <div class="workContainer" id="Edu" data-filter="3">
+                <div class="mask">
+                    <img src="../assets/images/darkNoise.png" />
+                </div>
+               
+                <div class="desc" id="Edudesc">
+                    <h1>E-learning Platform</h1>
+                    <p>View</p> 
+                </div>
+            </div>
+
+        </div>
+        
+
+
+
+    </div>
+</template>
+
 <script setup lang="ts">
 import gsap from 'gsap';
 import ScrollTrigger  from 'gsap';
-import Splitting from 'splitting';
 import { onMounted } from 'vue';
 import { useRouter } from 'vue-router';
-import SplitType from 'split-type'
 gsap.registerPlugin(ScrollTrigger)
 
-
-
 const router = useRouter()
-
-// window.addEventListener('beforeunload', () => {
-  
-// })
-
-// router.afterEach((to, from) => {
-//   console.log(`Navigated to ${to.path} from ${from.path}`);
-
-// });
-
-
-
-
 
 
 onMounted(() => {
 
 
+   
+
+  
+    gsap.set('#NFT', {
+        marginTop:"4rem"
+    })
+    gsap.set('#helping', {
+        marginTop:"8rem"
+    })
 
 
-// const fx11Titles = [...document.querySelectorAll('.content__title[data-splitting][data-effect8]')];
-
-// const lettersAndSymbols = ['a', 's','!', '@', '#', '$', '%', '^', '&', '*', '-', '_', '+', '=', ';', ':', '<', '>', ','];
-
-
-// const myText = new SplitType('#selectedTitle')
-
-// const wrapElements = (elems:any, wrapType:any, wrapClass:any) => {
-//     elems.forEach((char:any) => {
-//         const wrapEl = document.createElement(wrapType);
-//         wrapEl.classList = wrapClass;
-//         char.parentNode.appendChild(wrapEl);
-//         wrapEl.appendChild(char);
-//     });
-// }
-
-
-
-
-
-// (myText.words as any)?.forEach((title:any) => {
-        
-//         const chars = title.querySelectorAll('.char');
-//         wrapElements(chars, 'span', 'char-wrap');
-
-//         gsap.fromTo(chars, { 
-//             'will-change': 'transform', 
-//             transformOrigin: '0% 50%',
-//             xPercent: 105,
-//             opacity:0
-//         }, 
-//         {
-//             duration: 1,
-//             ease: 'expo',
-//             xPercent: 0,
-//             stagger: 0.042,
-//             opacity:1,
-//             scrollTrigger: {
-//                 trigger: title,
-//                 start: 'top bottom',
-//                 end: 'top top+=10%',
-//                 toggleActions: "play resume resume reset",
-//                 scrub:0.7
-//             }
-//         });
-
-//     });
-
-
-
-
-gsap.from('.helping', {
-    y: "-5rem",
+ gsap.to('#helping', {
+    y: "-6rem",
     duration:12,
     ease:"power3.inOut",
     
     
     scrollTrigger:{
-        trigger: '.selectedWorks',
+        trigger: '.selectedWorkSection',
         start: 'top center',
       end: 'bottom center',
       scrub: true,
+      markers:true
    
     }
 })
 
-gsap.from('.NFT', {
-    y:"",
+gsap.to('#NFT', {
+    y: "-2rem",
     duration:1.2,
     ease:"power3.inOut",
 
     scrollTrigger:{
-        trigger:'.selectedWorks',
+        trigger:'.selectedWorkSection',
         start: 'top center',
       end: 'bottom center',
       scrub: true,
@@ -111,274 +107,448 @@ gsap.from('.NFT', {
     }
 })
 
-// let imageContainer = document.querySelectorAll('.work-container')
-// const image = document.querySelectorAll('.work-container img')
+gsap.to('#Edu', {
+    y: "2rem",
+    duration:1.2,
+    ease:"power3.inOut",
 
-// const tl = gsap.timeline({
-//     scrollTrigger:{
-//         trigger:imageContainer,
-//         toggleActions: "restart none none reset"
-//     }
-// })
-// tl.set(imageContainer, {autoAlpha: 1});
+    scrollTrigger:{
+        trigger:'.selectedWorkSection',
+        start: 'top center',
+      end: 'bottom center',
+      scrub: true,
+      
+    }
+})
 
-//     tl.from(imageContainer, {
-//         xPercent: -100,
-//         duration:1.5,
-//         ease: "Power3.inOut"
-//     })
-//     .from(image, {
-//         xPercent: 100,
-//         scale: 1.3,
-//         delay: -1.5,
-//         ease: "Power2.out",
-//         duration:1.5
-//     })
+// ------HoverMethods ----- 
 
-});
 
-const navigateToWorks = async() => {
-   await router.push('/works')
-  if (window.scrollY > 0) {
-   window.scrollTo(0,0)
-   }
+
+const worksContainer = document.querySelectorAll('.workContainer')
+
+console.log(worksContainer)
+
+worksContainer.forEach((workContainer) => {
+    console.log(workContainer.children)
+
+    const workstl = gsap.timeline()
+
+    const mouseEnterAnimation = (work:Element) => {
+    workstl.to(work.children[0], {
+        duration:0.2,
+        opacity:0,
+        display:"none",
+        ease:"power3.inOut"
+    })
+    .fromTo(work.children[1],{
+        opacity:0,
+        display:"none",
+    },{
+        opacity:1,
+        display:'flex',
+        ease:"Expo.inOut",
+        y:"-0.2rem",
+        duration:1,
+    })
+    .to(work,{
+       
+    })
+    // .to(work.children[1],{
+    //     opacity:1,
+    //     display:'flex',
+    //     ease:"Expo.inOut",
+    // })
+
 
 }
+
+const mouseLeaveAnimation = (work:Element) => {
+     workstl.to(work.children[0], {
+        opacity:0.3,
+        display:"flex"
+    })
+    gsap.to(work.children[1],{
+        opacity:0,
+        display:"none",
+    })
+}
+
+
+
+    workContainer.addEventListener('mouseenter',() => {
+        console.log(workContainer.children[0])
+       mouseEnterAnimation(workContainer)
+    })
+    workContainer.addEventListener('mouseleave',() => {
+        mouseLeaveAnimation(workContainer)
+    })
+})
+
+
+
+// ----Helping hand--- 
+
+const mouseEnterAnimation = (work:Element) => {
+    // workstl.set(work.children[0], {
+    //     opacity:0,
+    //     display:"none"
+    // })
+
+    console.log('you hovered on',work)
+}
+
+const mouseLeaveAnimation = (work:Element) => {
+    // workstl.set(work.children[0], {
+    //     opacity:1,
+    //     display:"flex"
+    // })
+
+    console.log('you unhovered on',work)
+
+}
+
+
+
+// helpingHandContainer?.addEventListener('mouseenter', () => {
+//     mouseEnterAnimation(helpingHandContainer)
+// })
+
+// helpingHandContainer?.addEventListener('mouseleave', () => {
+//     mouseLeaveAnimation(helpingHandContainer)
+// })
+
+
+// NFTcontainer?.addEventListener('mouseenter', () => {
+//     mouseEnterAnimation(NFTcontainer)
+// })
+
+// NFTcontainer?.addEventListener('mouseleave', () => {
+//     mouseLeaveAnimation(NFTcontainer)
+// })
+
+// EduContainer?.addEventListener('mouseenter', () => {
+//     mouseEnterAnimation(EduContainer)
+// })
+
+// EduContainer?.addEventListener('mouseleave', () => {
+//     mouseLeaveAnimation(EduContainer)
+// })
+
+
+
+
+
+
+
+
+// gsap.to('#Edu', {
+//     duration:1.2,
+//     ease:"power3.inOut",
+
+//     scrollTrigger:{
+//         trigger:'.selectedWorkSection',
+//         start: 'top center',
+//       end: 'bottom center',
+//       scrub: true,
+      
+//     }
+// })
+})
 
 </script>
 
-<template>
-    <section class="selectedWorks">
-
-        <div class="selectedWorks--container">
-            <h1 class="section-title title content__title" data-splitting data-effect8 id="selectedTitle">
-            Selected Works
-          </h1>
-
-
-          <div class="selectedWorks--container__works-container" id="works-container">
-           
-         <div class="work-container helping">
-            <!-- <a href="https://www.behance.net/gallery/143565927/Helping-hand-Case-Study" target="_blank"> -->
-            <div>
-                <img src="../assets/images/helpingHand.svg" />
-                <div class="view">
-                    View
-                </div>
-                </div>  
-            <!-- <div class="work-container--desc project-desc-text">
-                <h1>Helping hand Case study</h1>
-                <img src="../assets/images/linkArrow.svg" />
-            </div> -->
-        <!-- </a> -->
-         </div>
-       
-
-       
-         <div class="work-container NFT">
-            <!-- <a href="https://www.behance.net/gallery/143565927/Helping-hand-Case-Study" target="_blank"> -->
-                <div>
-            <img src="../assets/images/Nft.svg" />
-            </div>
-            <!-- <div class="work-container--desc project-desc-text">
-                <h1>NFT UI Relume Challenge</h1>
-                <img src="../assets/images/linkArrow.svg" />
-            </div> -->
-        <!-- </a> -->
-         </div>
-        
-           
-
-            </div>  
-
-
-
-         
-           
-
-            <button class="button" @click="navigateToWorks">
-                View All
-            </button>
-
-
-            
-
-
-        </div>
-   
-    </section>
-</template>
-
-
 <style scoped lang="scss">
-@import '../assets/scss/abstract/mixins';
 
-.selectedWorks{
-    height: auto;
-    padding: 2rem 11.8rem;
-    color:#f8f8f8;
-    min-height: 100vh;
-    
+
+.selectedWorkSection{
+    height: max-content;
+    max-height: 100%;
+    height: 100%;
+  
+    padding: 0 11.5rem;
+    color:white;
     box-sizing: border-box;
 
-    @media screen and (max-width:485px) {
-        padding: 0 6rem;
-        min-height: 100rem;
-        max-height: 100vh;
-  }
-
-    &--container{
-       
+    &--top-container{
         display: flex;
-        flex-direction: column;
-        gap:4rem;
-        height: 100%;
-
-      &__works-container{
-        height: 5rem;
-     
-        display:flex;
-        gap:3rem;
-        justify-content: justify-between;
-
-        
-        @media screen and (max-width:485px) {
-        flex-direction: column;
-}
-       
-      }
-      
-   
-    }
-
-    
-
-}
-
-.work-container{
-    height:122rem;
-    width: 50%;;
-    // visibility: hidden;
-    object-fit: cover;
-
-    img{
         width: 100%;
-  height: 100%;
-//   object-fit: contain;
-object-fit: fit;
-    }
-    &--desc{
-        width: 100%;
-      
-        margin-top: 0.2rem; 
-        padding: 2px 0;
-        display: flex;
+        padding: 0 1rem;
         justify-content: space-between;
-        align-items: center ;
+        align-items: center;
+        // font-size:5rem;
+        font-family: 'thunder-boldl';
 
-        img{
-            object-fit: fit;
-            width:30px;
-            transform-origin: left;
+        h1{
+             font-size:5rem;
         }
 
+        h2{
+            font-family: 'thunder-lightl';
+        }
+    }
 
-        @media screen and (max-width:485px) {
-            font-size: 3rem;
+    &--works-container{
+        display: flex;
+        width: 100%;
+        padding:1rem;
+        padding-top: -2rem;
+        font-size:5rem;
+        justify-content: space-between;
+        font-family: 'thunder-boldl';
+    }
+    
+}
+
+.mask, .desc{
+    height: 35rem;
+            width: 20rem;
+
+}
+.workContainer{
+            height: 35rem;
+            width: 20rem;
+            cursor: pointer;
+            border: 2px solid red;;
+          
+        }
+
+        .workContainer:nth-child(1){
+            // margin-top:8rem;
+            background-image: url('../assets/images/helping.png');
+            background-size:cover;
+            background-repeat: no-repeat;
+            border: 2px solid green;;
+
+
+            #helpinghanddesc{
+            position:absolute;
+            display: flex;
+            flex-direction: column;
+            z-index: 500;
+            color: black;
+            margin-top: 25rem;
+            font-family: 'neutra';
+            font-size: 1.5rem;
+            margin-left:1rem;
+            display: none;
+            
+            
+
+            h1{
+                font-size: 2.5rem;
+            }
+            p{
+                margin-top: -1rem;
+            }
+            
+        }
+        .mask{
+            position:absolute;
+          
+            opacity: 0.2;
+
+            img{
+                border: 2px solid red;;
+                position: absolute;
+                height: 100%;
+                width: 100%;
+            }
+        }
         }
        
 
-        
-    }
+        .workContainer:nth-child(2){
+            // margin-top: 4rem;
+            background-image: url('../assets/images/nft.png');
+            background-size:cover;
+            background-repeat: no-repeat;
+            box-shadow: 2px 2px   whitesmoke;
 
-    @media screen and (max-width:485px) {
-width: 100%;
-height: 100rem;
-// border: 2px solid red;
-    }
+            border: 2px solid purple;
 
-}
-
-.view{
-    position:absolute;
-    
-    
-}
-.title{
-    text-align: center;
-}
-
-.button{
-    height:auto;
-    width:max-content;
-    margin: 0 auto;
-    position: relative;
-    top:20rem;
-    font-size: 1.25rem;
-        font-family: 'thunder-mediuml';
-    padding: 1rem 2rem;
-        border:2px solid white;
-        color:white;
-        background-color: transparent;
-        cursor: pointer;
-        @include magic-border(2px, #F89623, 0.15s, 0);
-
-
-        &:hover{
-            border:none;
-            color:#F89623
+            #NFTdesc{
+            position:absolute;
+            display: flex;
+            flex-direction: column;
+            z-index: 500;
+            color: white;
+            margin-top: 25rem;
+            font-family: 'neutra';
+            font-size: 1.5rem;
+            margin-left:1rem;
+            display: none;
+          
+            h1{
+                font-size: 2.5rem;
+            }
+            p{
+                margin-top: -1rem;
+            }
+            
+            
         }
-        // @include magic-border(2px, blue, 0.3s, 0);
 
-        @media screen and (max-width:485px) {
-            position: relative;
-    // top:125rem;
-    display: none;
-    width: 25rem;
-    padding: 2rem 2rem;
-    font-size: 3.25rem;
+
+            .mask{
+            position:absolute;
+        border: 2px solid red;
+            opacity:0.8 ;
+
+            img{
+                border: 2px solid green;;
+                position: absolute;
+                height: 100%;
+                width: 100%;
+            }
+            
+            
+        }
+        }
+
+        .workContainer:nth-child(3){
+          
+            background-image: url('../assets/images/rebank.png');
+            background-position-x:-9rem ;
+            background-size:cover;
+            background-repeat: no-repeat;
+            border: 2px solid teal;
+
+            #Edudesc{
+            position:absolute;
+            display: flex;
+            flex-direction: column;
+            z-index: 500;
+            color: black;
+            margin-top: 25rem;
+            font-family: 'neutra';
+            font-size: 1.5rem;
+            margin-left:1rem;
+            display: none;
+           
+            
+            h1{
+                font-size: 2.2rem;
+            }
+            p{
+                margin-top: -1rem;
+            }
+            
+        }
+
+
+
+            .mask{
+            position:absolute;
+            border:2px solid red;
+            opacity: 0.1;
+
+            img{
+                border: 2px solid blue;;
+                position: absolute;
+                height: 100%;
+                width: 100%;
+            }
+        }
+        }
+
+
+        .btn {
+  position: relative;
+  color: white;
+  padding: 0.2rem 2rem;
+  font-family: 'thunder-mediuml';
+  border: 3px solid white;
+  background-color: transparent;
+  cursor: pointer;
+  transition: color 350ms ease-in-out;
+}
+
+.btn::before,
+.btn::after {
+  content: "";
+  position: absolute;
+  top: -3px;
+  width: calc(100% + 6px);
+  height: calc(100% + 6px);
+  transform: scale(0);
+  transition: transform 350ms ease-in;
+}
+
+.btn::before {
+  border-left: 3px solid #F89623;
+  border-bottom: 3px solid #F89623;
+  left: -3px;
+  transform-origin: 0 100%;
+}
+
+.btn::after {
+  border-right: 3px solid #F89623;
+  border-top: 3px solid #F89623;
+  right: -3px;
+  transform-origin: 100% 0;
+}
+
+.btn:hover::after,
+.btn:hover::before {
+  transform: scale(1);
+}
+
+.btn:hover {
+  color: #F89623;
+  border: none;
+}
+
+
+        @media screen and (max-width: 485px) {
+  .selectedWorkSection {
+    padding: 5rem;
   }
 
-}
+  .selectedWorkSection--works-container {
+    display: flex;
+    overflow-x: auto;
+    gap:4rem;
+    flex-direction: column;
+  }
 
-a{
-    width: auto;
-    height: auto;
-    color:white
-}
-
-.helping{
-    margin-top: 3rem;
-}
-
-
-.phone-works-container{
-
-    display: none;
-}
+  .workContainer{
+            height: 35rem;
+            width: 100%;
+            border:2px solid purple
+        }
 
 
-
-@media screen and (max-width:485px) {
-    .phone-works-container{
-        width: 100%;;
-        display: flex;
-        flex-wrap: wrap;
-        height:90rem;
-        margin:0 auto;
+  .workContainer:nth-child(1){
         
-        overflow-x: auto;
-       
-    }
+            background-image: url('../assets/images/helping.png');
+            background-size:cover;
+            background-repeat: no-repeat;
 
-    .phone-work{
-        height:90%;
-        width: 100rem !important;
-    
-    }
-   
-    
-   
+
+           
+        }
+        
+
+       
+
+  .workContainer:nth-child(2){
+           
+            background-image: url('../assets/images/nft.png');
+            background-size:cover;
+            background-repeat: no-repeat;
+        }
+
+        .workContainer:nth-child(3){
+          
+            background-image: url('../assets/images/rebank.png');
+            // background-position-x:-9rem ;
+            background-position: center;
+            background-size:cover;
+            background-repeat: no-repeat;
+        }
+
+
 }
 
 
