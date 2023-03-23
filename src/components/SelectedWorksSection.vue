@@ -141,36 +141,12 @@ worksContainer.forEach((workContainer) => {
         display:"none",
         ease:"power3.inOut"
     })
-    .fromTo(work.children[1],{
-        opacity:0,
-        display:"none",
-    },{
-        opacity:1,
-        display:'flex',
-        ease:"Expo.inOut",
-        y:"-0.2rem",
-        duration:1,
-    })
-    .to(work,{
-       
-    })
-    // .to(work.children[1],{
-    //     opacity:1,
-    //     display:'flex',
-    //     ease:"Expo.inOut",
-    // })
-
-
 }
 
 const mouseLeaveAnimation = (work:Element) => {
      workstl.to(work.children[0], {
         opacity:0.3,
         display:"flex"
-    })
-    gsap.to(work.children[1],{
-        opacity:0,
-        display:"none",
     })
 }
 
