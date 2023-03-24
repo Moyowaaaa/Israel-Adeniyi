@@ -150,8 +150,6 @@ const mouseLeaveAnimation = (work:Element) => {
     })
 }
 
-
-
     workContainer.addEventListener('mouseenter',() => {
         console.log(workContainer.children[0])
        mouseEnterAnimation(workContainer)
@@ -368,7 +366,7 @@ const mouseLeaveAnimation = (work:Element) => {
 
             .mask{
             position:absolute;
-        border: 2px solid red;
+       
             opacity:0.8 ;
 
             img{
