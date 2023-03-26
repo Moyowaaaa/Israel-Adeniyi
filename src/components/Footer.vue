@@ -60,12 +60,13 @@
                 </div>
 
 
-                <div class="link">
-                    <a href="https://github.com/Moyowaaaa"  target="_blank">
+                <div >
+                    <a href="https://github.com/Moyowaaaa"  target="_blank" class="link">
                     <p class="footer-link social">Moyowa </p>
-                    </a>     
+                       
                     <div class="sphere"></div>
                     <p class="footer-text-smaller">Development</p>
+                </a>  
                 </div>
               
             </div>

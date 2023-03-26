@@ -1,7 +1,7 @@
 <template>
   <div class="">
   
-    <div class="page-overlay section-title" v-if="loading">
+    <div class="page-overlay section-title" id="overlayText" v-if="loading">
     WORKS
    </div>
 
@@ -257,7 +257,7 @@ a{
     .workSection{
         flex-direction: column;
         padding: 0 5rem;
-        min-height: 100vh;
+        height: 200rem;
         &--container{
             flex-direction: column;
         }
@@ -269,17 +269,28 @@ a{
     .left-column, .right-column{
         width: 100%; 
     }
+    .project-desc-text{
+        font-size: 5rem;
+        width:100%;
+        line-height: 8rem;
+    }
     .work-container{
-        height: 60rem;
+        height: 70rem;
         object-fit: none;
 
         img{
             object-fit: cover;
         }
     }
+    
 
     .title{
         font-size: 10rem;
+    }
+
+    .section-title{
+        // padding-top: rem;
+        font-size:15rem
     }
 }
 

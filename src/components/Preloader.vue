@@ -83,11 +83,16 @@ const isLoaded = ref<boolean>(false)
 
 const assetsLoaded = ref<boolean | null>(false)
 
-const loaderTl = gsap.timeline();
+const loaderTl = gsap.timeline({paused:true});
 
 onMounted(() => {
 
   // -------check assets before closing preloader
+
+  new Promise((resolve, reject) => {
+        const initialFont = new FontFace("avenirBold", `url(${thunderMediumFont})`);
+        initialFont.load().then(resolve, reject).then((loaderTl.play() as any))
+      });
 
   const mainImageAssets = ref([
     helpingHand,nft

@@ -124,10 +124,6 @@ const removeHoldToExplore = () => {
 
 
 
-// onMounted(() => {
-//     Splitting()
-    
-
 
 
 
@@ -197,7 +193,7 @@ const removeHoldToExplore = () => {
     }
 
     @media screen and (max-width:485px) {
-        padding: 0 5rem;
+        padding: 0 4rem;
         max-height: 100vh;
        
     

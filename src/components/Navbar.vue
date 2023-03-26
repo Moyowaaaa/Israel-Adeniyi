@@ -40,31 +40,34 @@
 
         <div class="fullScreenNav" >
            
-            <div class="fullScreenNav--logocontainer" @click="navigateToHome" id="logo">
+            <router-link to="/">
+            <div class="fullScreenNav--logocontainer"  id="logo">
+                
                 <h1 class="nav-menu-logo">ADENIYI</h1>
                 
             </div>
+            </router-link>
        
 
             <div class="fullScreenNav--container">
 
                 <div class="fullScreenNav--container__subContainer">
                     <div class="fullscreen-links-container menu-link" >
-                        <div class="nav-menu-link link1 " id="link1" @mouseenter="" @mouseleave="" data-splitting >
+                        <div class="nav-menu-link link1 " id="link1" @click="navigateToWorks" data-splitting >
             WORKS
         </div>
        
         
 
-        <div class="nav-menu-link link2" >
+        <div class="nav-menu-link link2" @click="navigateToAbout">
             ABOUT
         </div>
 
-        <!-- <a href="https://drive.google.com/file/d/1qaEKj067bS9Sfx66SyHU7bXM6z2O1TzE/view" target="_blank"> -->
-            <div class="nav-menu-link link3">
-                <a href="https://drive.google.com/file/d/1qaEKj067bS9Sfx66SyHU7bXM6z2O1TzE/view" target="_blank"> 
+        <a href="https://drive.google.com/file/d/1qaEKj067bS9Sfx66SyHU7bXM6z2O1TzE/view" target="_blank" id="resume"></a>
+            <div class="nav-menu-link link3" @click="openResume">
+                
                     RESUME
-                </a>
+                
         
         </div>
 
@@ -123,12 +126,12 @@ import { useRouter } from 'vue-router';
 
 
 const router = useRouter()
-
+const menuIsOpen = ref<boolean>(false)
 
 const navigateToHome = async() => {
     await menuTl.reverse()
     await router.push('/')
-    // console.log('hola')
+  
     document.querySelector('#titleSection')?.scrollIntoView()
 }
 
@@ -136,6 +139,12 @@ const navigateToFooter = () => {
     document.querySelector('#footer')?.scrollIntoView({
             behavior: 'smooth'
        });
+}
+
+
+
+const openResume = () => {
+(document.querySelector('#resume') as HTMLLinkElement)?.click()
 }
 
 
@@ -170,9 +179,11 @@ const where = ref<string | null>('where')
 var menuTl = gsap.timeline()
 var menuBodyTl = gsap.timeline({paused:true})
 
-console.log(window.innerHeight)
+
 
 onMounted(() => {
+
+  
     var navbarTrigger = document.querySelector('.layout__child')
 
    
@@ -247,41 +258,68 @@ menuBodyTl.reverse()
 const openMenu = () => {
     menuTl.reversed(!menuTl.reversed())
     menuBodyTl.reversed(!menuBodyTl.reversed())
+    menuIsOpen.value = !menuIsOpen.value
 }
 
 onMounted(() => {
     const navLinks = [...document.querySelectorAll('.nav-menu-link')]
 
     navLinks.forEach((navlink) => {
-        console.log(navlink.innerHTML)
+ 
+        navlink.addEventListener('mouseenter',() => {
+          
+            gsap.to(navlink, {
+                color:"orange",
+                ease:"power3.inOut",
+                duration:1.2,
 
-        const navigate = () => {
-
-            gsap.to('.transition-out', {
-        duration:1,
-        display:"flex",
-        ease:"power3.inOut",
-        delay:2.2,
-        y:"-100%"
-    })
-    router.push('/works')
-        }
-
-   
-
-        navlink.addEventListener('click', () => {
-            where.value = navlink.innerHTML
-            console.log(where.value)
-            navigate()
+            })
         })
+        navlink.addEventListener('mouseleave',() => {
+       
+            gsap.to(navlink, {
+                color:"white",
+                ease:"power3.inOut",
+                duration:1.2,
+           
+            })
+        })
+    })
+
+    const socialLinks = [...document.querySelectorAll('.social')]
+
+    socialLinks.forEach((socialLink) => {
 
 
+        socialLink.addEventListener('mouseenter',() => {
+            gsap.to(socialLink,{
+                color:"orange",
+                duration:1,
+                ease:"power3.inOut",
+               
+                textDecoration:"line-through"
+            })
+            })
+
+
+
+            socialLink.addEventListener('mouseleave',() => {
+                gsap.to(socialLink,{
+                color:"white",
+                duration:1,
+                ease:"power3.inOut",
+                textDecoration:"none"
+            })
+            })
+        })
     })
 
 
-  
+    watchEffect(() => {
+        console.log(menuIsOpen.value)
 
-})
+    })
+
 
 
 
@@ -491,6 +529,7 @@ display: none;
     #nav-logo{
         padding-top:4.2rem;
         position:fixed ;
+        z-index: 400;
         
     }
     .hamburger{

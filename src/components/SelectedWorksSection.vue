@@ -87,7 +87,7 @@ onMounted(() => {
 
 
  gsap.to('#helping', {
-    y: "-6rem",
+    y: "-8rem",
     duration:12,
     ease:"power3.inOut",
     
@@ -117,7 +117,7 @@ gsap.to('#NFT', {
 })
 
 gsap.to('#Edu', {
-    y: "2rem",
+    y: "4rem",
     duration:1.2,
     ease:"power3.inOut",
 
@@ -141,8 +141,8 @@ console.log(worksContainer)
 worksContainer.forEach((workContainer) => {
     console.log(workContainer.children)
 
-    const openProject = (work:any) => {
-        work.children[2]?.click()
+    const openProject = (work:Element) => {
+        (work.children[2] as HTMLLinkElement)?.click()
     }
     
     workContainer.addEventListener('click', () => openProject(workContainer))
@@ -185,6 +185,27 @@ const mouseLeaveAnimation = (work:Element) => {
         opacity:0.3,
         display:"flex"
     })
+
+    
+
+    setTimeout(() => {
+        gsap.set(work.children[1].lastChild, {
+        textDecoration:"none",
+        ease:"power3.inOut",
+        // duration:0.2,
+    })
+    gsap.set(work.children[1], {
+        opacity:0,
+        display:"none",
+        ease:"power3.inOut",
+        
+    })
+    gsap.set(work.children[0], {
+        opacity:0.3,
+        display:"flex"
+    })
+
+    },2000)
 
 
     
@@ -489,7 +510,7 @@ const mouseLeaveAnimation = (work:Element) => {
   color: white;
   padding: 0.2rem 2rem;
   font-family: 'thunder-mediuml';
-  border: 3px solid white;
+  border: none;
   background-color: transparent;
   cursor: pointer;
   transition: color 350ms ease-in-out;
