@@ -129,7 +129,6 @@ onMounted(() => {
 
 const lettersAndSymbols = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '!', '@', '#', '$', '%', '^', '&', '*', '-', '_', '+', '=', ';', ':', '<', '>', ','];
 
-console.log(preloaderText)
 
 preloaderText.forEach((text) => {
     Splitting({
@@ -206,7 +205,7 @@ loaderTl
 watchEffect(() => {
   assetsLoaded.value = isLoaded.value
   if(assetsLoaded.value === true) {
-      console.log("lol")
+      
       loaderTl.to('.preloader__container',  {
       y:'-100%',
       ease:"power3.inOut",

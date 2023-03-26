@@ -136,10 +136,10 @@ gsap.to('#Edu', {
 
 const worksContainer = document.querySelectorAll('.workContainer')
 
-console.log(worksContainer)
+
 
 worksContainer.forEach((workContainer) => {
-    console.log(workContainer.children)
+
 
     const openProject = (work:Element) => {
         (work.children[2] as HTMLLinkElement)?.click()
@@ -214,7 +214,6 @@ const mouseLeaveAnimation = (work:Element) => {
 }
 
     workContainer.addEventListener('mouseenter',() => {
-        console.log(workContainer.children[0])
        mouseEnterAnimation(workContainer)
     })
     workContainer.addEventListener('mouseleave',() => {
@@ -224,73 +223,6 @@ const mouseLeaveAnimation = (work:Element) => {
 
 
 
-// ----Helping hand--- 
-
-const mouseEnterAnimation = (work:Element) => {
-    // workstl.set(work.children[0], {
-    //     opacity:0,
-    //     display:"none"
-    // })
-
-    console.log('you hovered on',work)
-}
-
-const mouseLeaveAnimation = (work:Element) => {
-    // workstl.set(work.children[0], {
-    //     opacity:1,
-    //     display:"flex"
-    // })
-
-    console.log('you unhovered on',work)
-
-}
-
-
-
-// helpingHandContainer?.addEventListener('mouseenter', () => {
-//     mouseEnterAnimation(helpingHandContainer)
-// })
-
-// helpingHandContainer?.addEventListener('mouseleave', () => {
-//     mouseLeaveAnimation(helpingHandContainer)
-// })
-
-
-// NFTcontainer?.addEventListener('mouseenter', () => {
-//     mouseEnterAnimation(NFTcontainer)
-// })
-
-// NFTcontainer?.addEventListener('mouseleave', () => {
-//     mouseLeaveAnimation(NFTcontainer)
-// })
-
-// EduContainer?.addEventListener('mouseenter', () => {
-//     mouseEnterAnimation(EduContainer)
-// })
-
-// EduContainer?.addEventListener('mouseleave', () => {
-//     mouseLeaveAnimation(EduContainer)
-// })
-
-
-
-
-
-
-
-
-// gsap.to('#Edu', {
-//     duration:1.2,
-//     ease:"power3.inOut",
-
-//     scrollTrigger:{
-//         trigger:'.selectedWorkSection',
-//         start: 'top center',
-//       end: 'bottom center',
-//       scrub: true,
-      
-//     }
-// })
 })
 
 </script>
