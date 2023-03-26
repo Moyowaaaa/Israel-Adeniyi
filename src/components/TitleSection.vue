@@ -199,7 +199,7 @@ const removeHoldToExplore = () => {
     @media screen and (max-width:485px) {
         padding: 0 5rem;
         max-height: 100vh;
-        border: 2px solid green;
+       
     
      
 }

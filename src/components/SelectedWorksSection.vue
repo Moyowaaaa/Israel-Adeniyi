@@ -314,6 +314,22 @@ const mouseLeaveAnimation = (work:Element) => {
         font-family: 'thunder-boldl';
     }
     
+
+    @media screen and (max-width:485px) {
+        &--top-container{
+            flex-direction: column;
+            align-items: start;
+            
+        }
+
+        h1{
+             font-size:12rem;
+        }
+
+        h2{
+            font-family: 'thunder-lightl';
+        }
+    }
 }
 
 .mask, .desc{
@@ -325,7 +341,7 @@ const mouseLeaveAnimation = (work:Element) => {
             height: 35rem;
             width: 20rem;
             cursor: pointer;
-            border: 2px solid red;;
+         
           
         }
 
@@ -334,7 +350,7 @@ const mouseLeaveAnimation = (work:Element) => {
             background-image: url('../assets/images/helping.png');
             background-size:cover;
             background-repeat: no-repeat;
-            border: 2px solid green;;
+     
 
 
             #helpinghanddesc{
@@ -365,7 +381,7 @@ const mouseLeaveAnimation = (work:Element) => {
             opacity: 0.2;
 
             img{
-                border: 2px solid red;;
+              
                 position: absolute;
                 height: 100%;
                 width: 100%;
@@ -381,7 +397,6 @@ const mouseLeaveAnimation = (work:Element) => {
             background-repeat: no-repeat;
             box-shadow: 2px 2px   whitesmoke;
 
-            border: 2px solid purple;
 
             #NFTdesc{
             position:absolute;
@@ -412,7 +427,7 @@ const mouseLeaveAnimation = (work:Element) => {
             opacity:0.8 ;
 
             img{
-                border: 2px solid green;;
+           
                 position: absolute;
                 height: 100%;
                 width: 100%;
@@ -428,7 +443,7 @@ const mouseLeaveAnimation = (work:Element) => {
             background-position-x:-9rem ;
             background-size:cover;
             background-repeat: no-repeat;
-            border: 2px solid teal;
+          
 
             #Edudesc{
             position:absolute;
@@ -456,11 +471,11 @@ const mouseLeaveAnimation = (work:Element) => {
 
             .mask{
             position:absolute;
-            border:2px solid red;
+       
             opacity: 0.1;
 
             img{
-                border: 2px solid blue;;
+              
                 position: absolute;
                 height: 100%;
                 width: 100%;
@@ -517,6 +532,10 @@ const mouseLeaveAnimation = (work:Element) => {
 
 
         @media screen and (max-width: 485px) {
+
+            .btn{
+                padding: 0 8rem;
+            }
   .selectedWorkSection {
     padding: 5rem;
   }
@@ -528,10 +547,14 @@ const mouseLeaveAnimation = (work:Element) => {
     flex-direction: column;
   }
 
+  .mask{
+    display: none;
+  }
+
   .workContainer{
-            height: 35rem;
-            width: 100%;
-            border:2px solid purple
+            height: 80rem;
+            width: 95%;
+         
         }
 
 
@@ -540,6 +563,7 @@ const mouseLeaveAnimation = (work:Element) => {
             background-image: url('../assets/images/helping.png');
             background-size:cover;
             background-repeat: no-repeat;
+            // background-position-x: 2rem;
 
 
            
@@ -553,6 +577,7 @@ const mouseLeaveAnimation = (work:Element) => {
             background-image: url('../assets/images/nft.png');
             background-size:cover;
             background-repeat: no-repeat;
+            background-position-x: -5rem;
         }
 
         .workContainer:nth-child(3){
@@ -560,7 +585,7 @@ const mouseLeaveAnimation = (work:Element) => {
             background-image: url('../assets/images/rebank.png');
             // background-position-x:-9rem ;
             background-position: center;
-            background-size:cover;
+            background-size:contain cover;
             background-repeat: no-repeat;
         }
 
