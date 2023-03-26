@@ -12,6 +12,8 @@
 
         <div class="selectedWorkSection--works-container">
 
+            
+
             <div class="workContainer" id="helping" data-filter="1">
                 <div class="mask">
                     <img src="../assets/images/darkNoise.png" />
@@ -22,9 +24,11 @@
                     </h1>
                     <p>View</p>
                 </div>
+                <a href="https://www.behance.net/gallery/143565927/Helping-hand-Case-Study" target="_blank"></a>
+
             </div>
 
-            <div class="workContainer" id="NFT" data-filter="2">
+            <div class="workContainer" id="NFT" data-filter="2" >
                 <div class="mask">
                     <img src="../assets/images/LightNoise.png" />
                 </div>
@@ -32,6 +36,9 @@
                     <h1>Super Rare NFT</h1>
                     <p>View</p> 
                 </div>
+
+                <a href="https://www.behance.net/gallery/163889507/NFT-Landing-page" target="_blank"> </a>
+
             </div>
 
              <div class="workContainer" id="Edu" data-filter="3">
@@ -40,9 +47,11 @@
                 </div>
                
                 <div class="desc" id="Edudesc">
-                    <h1>E-learning Platform</h1>
+                    <h1>Relume</h1>
                     <p>View</p> 
                 </div>
+
+                    <a href="https://www.behance.net/gallery/156098055/REBANK-landing-page-Relume-design-challenge" target="_blank"></a>
             </div>
 
         </div>
@@ -88,7 +97,7 @@ onMounted(() => {
         start: 'top center',
       end: 'bottom center',
       scrub: true,
-      markers:true
+   
    
     }
 })
@@ -132,22 +141,55 @@ console.log(worksContainer)
 worksContainer.forEach((workContainer) => {
     console.log(workContainer.children)
 
+    const openProject = (work:any) => {
+        work.children[2]?.click()
+    }
+    
+    workContainer.addEventListener('click', () => openProject(workContainer))
     const workstl = gsap.timeline()
 
     const mouseEnterAnimation = (work:Element) => {
     workstl.to(work.children[0], {
-        duration:0.2,
+        duration:0.1,
         opacity:0,
         display:"none",
+        ease:"power3.inOut",
+        
+    })
+    .to(work.children[1], {
+        opacity:1,
+        display:"flex",
         ease:"power3.inOut"
     })
+    .to(work.children[1].lastChild, {
+        textDecoration:"line-through",
+        ease:"power3.inOut",
+        duration:1.2,
+    })
+
 }
 
 const mouseLeaveAnimation = (work:Element) => {
-     workstl.to(work.children[0], {
+     gsap.set(work.children[1].lastChild, {
+        textDecoration:"none",
+        ease:"power3.inOut",
+        // duration:0.2,
+    })
+    gsap.set(work.children[1], {
+        opacity:0,
+        display:"none",
+        ease:"power3.inOut",
+        
+    })
+    gsap.set(work.children[0], {
         opacity:0.3,
         display:"flex"
     })
+
+
+    
+    
+
 }
 
     workContainer.addEventListener('mouseenter',() => {
