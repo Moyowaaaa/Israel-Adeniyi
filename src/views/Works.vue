@@ -31,7 +31,8 @@
                     </h1>
                     <p>View</p>
                 </div>
-         
+    
+                <a href="https://www.behance.net/gallery/143565927/Helping-hand-Case-Study" target="_blank"></a>
 
                 </div>
 
@@ -47,6 +48,8 @@
                     </h1>
                     <p>View</p>
                 </div>
+
+                <a href="https://www.behance.net/gallery/159529897/E-learning-Platform" target="_blank"></a>
          
                     
 </div>
@@ -66,6 +69,8 @@
                     </h1>
                     <p>View</p>
                 </div>
+
+                <a href="https://www.behance.net/gallery/163889507/NFT-Landing-page" target="_blank"> </a>
          
                     
 </div>
@@ -82,6 +87,8 @@
                     </h1>
                     <p>View</p>
                 </div>
+
+                <a href="https://www.behance.net/gallery/152468943/Pixel-Wears" target="_blank"></a>
          
                     
 </div>
@@ -103,6 +110,9 @@
                     </h1>
                     <p>View</p>
                 </div>
+
+
+                <a href="https://www.behance.net/gallery/156098055/REBANK-landing-page-Relume-design-challenge" target="_blank"></a>
          
                     
 </div>
@@ -174,6 +184,14 @@ onMounted(() => {
     const workstl = gsap.timeline()
 
     worksContainer.forEach((workContainer) => {
+        const openProject = (work:Element) => {
+        (work.children[2] as HTMLLinkElement)?.click()
+    }
+    
+
+    workContainer.addEventListener('click', () => openProject(workContainer))
+
+
          const mouseEnterAnimation = (work:Element) => {
     workstl.to(work.children[0], {
         duration:0.1,
@@ -287,6 +305,8 @@ const mouseLeaveAnimation = (work:Element) => {
         gap:2rem;
             margin-top:5rem;
     }
+
+   
 }
 
 .work-container{
@@ -317,7 +337,7 @@ const mouseLeaveAnimation = (work:Element) => {
 .mask{
             position:absolute;
           
-            opacity: 0.2;
+            opacity: 0.1;
 }
 
 .works-showcase__left-column--work-container:nth-child(1){
@@ -484,13 +504,34 @@ const mouseLeaveAnimation = (work:Element) => {
     .workSection{
         flex-direction: column;
         padding: 0 5rem;
-        height: 200rem;
+        height: max-content;
         &--container{
             flex-direction: column;
         }
     }
-  
-    
+
+    .works-showcase{
+
+        flex-direction: column;
+    }
+
+    .work-container{
+        width: 95%;
+        margin:  0 auto;;
+        height: 80rem;
+    }
+    .mask{
+    display: none;
+  }
+
+  .work-container .title{
+    display: none !important;
+  }
+
+  .section-title{
+    font-size: 15rem;
+  }
+
 
  
 }
