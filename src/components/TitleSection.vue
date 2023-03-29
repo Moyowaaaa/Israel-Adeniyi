@@ -20,6 +20,7 @@
         <div class="slide slide13"></div>
         <div class="slide slide14"></div>
         <div class="slide slide15"></div>
+        <div class="slide slide16"></div>
 
 
         </div>
@@ -324,7 +325,7 @@ body{
     left: 0;
     width: 100%;
     height: 100%;
-    animation: singleAnimations 2.2s ease-in-out;
+    animation: singleAnimations 1.9s ease-in-out;
     animation-iteration-count: infinite;
     // animation-play-state: paused
     background-size:cover;
@@ -395,6 +396,10 @@ body{
 .slide15{
     background-image: url('../assets/images/oba.png');
     animation-delay: 1.5s;
+}
+.slide16{
+    background-image: url('../assets/images/educationn.png');
+    animation-delay: 1.6s;
 }
 
 @keyframes singleAnimations {

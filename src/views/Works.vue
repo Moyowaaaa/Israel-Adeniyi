@@ -15,41 +15,102 @@
            Works
           </h1>
 
+          <div class="works-showcase">
 
-          <div class="workSection--container__works-container" id="works-container">
+
+            <div class="works-showcase__left-column">
+
+            <div class="works-showcase__left-column--work-container work-container" id="work">
+                <div class="mask">
+                    <img src="../assets/images/darkNoise.png" /> 
+                </div>
+
+                <div class="title" id="helpingHandTitle">
+                    <h1>
+                        Helping Hand
+                    </h1>
+                    <p>View</p>
+                </div>
+         
+
+                </div>
 
 
-            <div class="left-column">
-                  <div class="work-container helping">
-            <a href="https://www.behance.net/gallery/143565927/Helping-hand-Case-Study" target="_blank">
-            <img src="../assets/images/helpingHand.svg" />
-            <div class="work-container--desc project-desc-text">
-                <h1>Helping hand Case study</h1>
-                <img src="../assets/images/linkArrow.svg" />
+                <div class="works-showcase__left-column--work-container work-container" id="work">
+                    <div class="mask">
+                    <img src="../assets/images/darkNoise.png" /> 
+                </div>
+
+                <div class="title" id="helpingHandTitle">
+                    <h1>
+                        E-learning Platform
+                    </h1>
+                    <p>View</p>
+                </div>
+         
+                    
+</div>
+
+
             </div>
-        </a>
-         </div>
+
+            <div class="works-showcase__center-column">
+                <div class="works-showcase__center-column--work-container work-container" id="work">
+                    <div class="mask">
+                    <img src="../assets/images/darkNoise.png" /> 
+                </div>
+
+                <div class="title" id="helpingHandTitle">
+                    <h1>
+                        Super Rare NFT
+                    </h1>
+                    <p>View</p>
+                </div>
+         
+                    
+</div>
+
+
+<div class="works-showcase__center-column--work-container work-container" id="work">
+                    <div class="mask">
+                    <img src="../assets/images/darkNoise.png" /> 
+                </div>
+
+                <div class="title" id="helpingHandTitle">
+                    <h1>
+                        Pixel Wears
+                    </h1>
+                    <p>View</p>
+                </div>
+         
+                    
+</div>
+
+
+
             </div>
 
+            <div class="works-showcase__right-column">
+                
+                <div class="works-showcase__right-column--work-container work-container" id="work">
+                    <div class="mask">
+                    <img src="../assets/images/darkNoise.png" /> 
+                </div>
 
-            <div class="right-column">
-                <div class="work-container NFT">
-            <a href="https://www.behance.net/gallery/143565927/Helping-hand-Case-Study" target="_blank">
-            <img src="../assets/images/Nft.svg" />
-            <div class="work-container--desc project-desc-text">
-                <h1>NFT UI Relume Challenge</h1>
-                <img src="../assets/images/linkArrow.svg" />
+                <div class="title" id="helpingHandTitle">
+                    <h1>
+                        Relume
+                    </h1>
+                    <p>View</p>
+                </div>
+         
+                    
+</div>
+
+
             </div>
-        </a>
-         </div>
-            </div>
 
-       
-
-
-
-            </div>
-
+          </div>
 
 
             </div>
@@ -109,38 +170,57 @@ onMounted(() => {
     },"<0.5")
 
     
-    
-    setTimeout(() => {
-        loading.value = false
-    },2400)
+    const worksContainer = document.querySelectorAll('#work')
+    const workstl = gsap.timeline()
 
-    gsap.to('.helping', {
-    y:-50,
-    duration:12,
-    ease:"power3.inOut",
-    
-    scrollTrigger:{
-        trigger:'.workSection',
-        start: 'top +=500',
-      end: 'bottom center',
-      scrub: true,
-      
-   
-    }
-})
+    worksContainer.forEach((workContainer) => {
+         const mouseEnterAnimation = (work:Element) => {
+    workstl.to(work.children[0], {
+        duration:0.1,
+        opacity:0,
+        display:"none",
+        ease:"power3.inOut",
+        
+    })
+    .to(work.children[1], {
+        opacity:1,
+        display:"flex",
+        ease:"power3.inOut"
+    })
+    .to(work.children[1].lastChild, {
+        textDecoration:"line-through",
+        ease:"power3.inOut",
+        duration:1.2,
+    })
 
-gsap.to('.NFT', {
-    y:50,
-    duration:1.2,
-    ease:"power3.inOut",
+}
 
-    scrollTrigger:{
-        trigger:'.workSection',
-        start: 'top center',
-      end: 'bottom center',
-      scrub: true,
-      
-    }
+const mouseLeaveAnimation = (work:Element) => {
+     gsap.set(work.children[1].lastChild, {
+        textDecoration:"none",
+        ease:"power3.inOut",
+        // duration:0.2,
+    })
+    gsap.set(work.children[1], {
+        opacity:0,
+        display:"none",
+        ease:"power3.inOut",
+        
+    })
+    gsap.set(work.children[0], {
+        opacity:0.3,
+        display:"flex"
+    })
+
+}
+
+    workContainer.addEventListener('mouseenter',() => {
+       mouseEnterAnimation(workContainer)
+    })
+    workContainer.addEventListener('mouseleave',() => {
+        mouseLeaveAnimation(workContainer)
+    })
+
 })
 
 
@@ -151,7 +231,7 @@ gsap.to('.NFT', {
 .workSection{
     max-width: 100rem;
     
-    height: 100vh;
+    height: auto;
     display: flex;
     flex-direction: column;
     box-sizing: border-box;
@@ -171,56 +251,49 @@ gsap.to('.NFT', {
 
     
 }
+.works-showcase{
+    width: 100%;
+    
+    padding:2rem 0;
+    display: flex;
+    justify-content: space-between;
 
- #works-container{
-        height: 5rem;
-
-        display:flex;
-
-        gap:3rem;
-        justify-content: justify-between;
-
-        
-       
-      }
-
-.work-container{
-    height:22rem;
-    width: 100%;;
-  
-    object-fit: cover;
-
-    img{
-        width: 100%;
-  height: 100%;
-//   object-fit: contain;
-object-fit: fit;
-    }
-    &--desc{
-        width: 100%;
-      
-        margin-top: 0.2rem; 
-        padding: 2px 0;
+    &__left-column{
+        // border:;
+        height: auto;
         display: flex;
-        justify-content: space-between;
-        align-items: center ;
+        flex-direction: column;
+        gap:2rem;
+         
 
-        img{
-            object-fit: fit;
-            width:30px
-        }
-       
-
-        
+           
     }
 
+    &__center-column{
+        
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        gap:2rem;
+         
+            margin-top:8rem;
+    }
+
+    &__right-column{
+      
+        height: max-content;
+        display: flex;
+        flex-direction: column;
+        gap:2rem;
+            margin-top:5rem;
+    }
 }
 
+.work-container{
+    height: 35rem;
+            width: 20rem;
+           
 
-a{
-    width: auto;
-    height: auto;
-    color:white
 }
 
 .page-overlay{
@@ -237,20 +310,174 @@ a{
     z-index:100;
 }
 
-.left-column{
-   
-    width: 50%;
-    height: auto;
-   
+.mask{
+    height: 35rem;
+            width: 20rem;
+}
+.mask{
+            position:absolute;
+          
+            opacity: 0.2;
 }
 
-.right-column{
-   
-    width: 50%;
-    height: auto;
-   
+.works-showcase__left-column--work-container:nth-child(1){
+    background-image: url('../assets/images/helping.png');
+            background-size:cover;
+            background-repeat: no-repeat;
 
+            .title{
+                // z-index: ;
+               
+                display: flex;
+            flex-direction: column;
+            z-index: 500;
+            color: black;
+            margin-top: 25rem;
+            font-family: 'neutra';
+            font-size: 1.5rem;
+            padding: 0 1rem;
+
+            h1{
+                font-size: 2.5rem;
+            }
+            p{
+                margin-top: -1rem;
+            }
+            
+            // display: none;
+            
+            }
+
+          
 }
+
+.works-showcase__left-column--work-container:nth-child(2){
+    background-image: url('../assets/images/educationn.png');
+            background-size:cover;
+            background-repeat: no-repeat;
+            background-position-x: -11rem;
+
+
+            .title{
+                // z-index: ;
+               
+                display: flex;
+            flex-direction: column;
+            z-index: 500;
+            color: black;
+            margin-top: 25rem;
+            font-family: 'neutra';
+            font-size: 1.5rem;
+            padding: 0 1rem;
+
+            h1{
+                font-size: 2.5rem;
+            }
+            p{
+                margin-top: -1rem;
+            }
+            
+            // display: none;
+            
+            }
+}
+
+
+
+.works-showcase__center-column--work-container:nth-child(1){
+            // margin-top: 4rem;
+            background-image: url('../assets/images/nft.png');
+            background-size:cover;
+            background-repeat: no-repeat;
+            box-shadow: 2px 2px   whitesmoke;
+
+
+        .title{
+            position:absolute;
+            display: flex;
+            flex-direction: column;
+            z-index: 500;
+            color: white;
+            margin-top: 25rem;
+            font-family: 'neutra';
+            font-size: 1.5rem;
+            margin-left:1rem;
+
+            h1{
+                font-size: 2.5rem;
+            }
+            p{
+                margin-top: -1rem;
+            }
+            
+
+        }
+            
+            
+        }
+
+        .works-showcase__center-column--work-container:nth-child(2){
+            // margin-top: 4rem;
+            background-image: url('../assets/images/pixel.png');
+            background-size:cover;
+            background-repeat: no-repeat;
+            background-position-x:-12rem ;
+            
+
+
+        .title{
+            position:absolute;
+            display: flex;
+            flex-direction: column;
+            z-index: 500;
+            color: black;
+            margin-top: 25rem;
+            font-family: 'neutra';
+            font-size: 1.5rem;
+            margin-left:1rem;
+
+            h1{
+                font-size: 2.5rem;
+            }
+            p{
+                margin-top: -1rem;
+            }
+            
+
+        }
+            
+            
+        }
+
+        .works-showcase__right-column--work-container:nth-child(1){
+            background-image: url('../assets/images/rebank.png');
+            background-position-x:-9rem ;
+            background-size:cover;
+            background-repeat: no-repeat;
+
+            .title{
+                position:absolute;
+            display: flex;
+            flex-direction: column;
+            z-index: 500;
+            color: black;
+            margin-top: 25rem;
+            font-family: 'neutra';
+            font-size: 1.5rem;
+            margin-left:1rem;
+
+             h1{
+                font-size: 2.5rem;
+            }
+            p{
+                margin-top: -1rem;
+            }
+            
+            }
+        }
+
+
+ 
 
 @media screen and (max-width:485px) {
 
@@ -262,36 +489,10 @@ a{
             flex-direction: column;
         }
     }
-    #works-container{
-        
-        flex-direction: column;
-    }
-    .left-column, .right-column{
-        width: 100%; 
-    }
-    .project-desc-text{
-        font-size: 5rem;
-        width:100%;
-        line-height: 8rem;
-    }
-    .work-container{
-        height: 70rem;
-        object-fit: none;
-
-        img{
-            object-fit: cover;
-        }
-    }
+  
     
 
-    .title{
-        font-size: 10rem;
-    }
-
-    .section-title{
-        // padding-top: rem;
-        font-size:15rem
-    }
+ 
 }
 
 </style>

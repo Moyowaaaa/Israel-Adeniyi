@@ -1,10 +1,12 @@
 <template>
     <section class="footerSection" id="footer">
         <div class="footerSection--topcontainer">
+            <a href="mailto:adeniyioba2000@gmail.com">
             <div class="footerSection--topcontainer__sub-container" id="subContainer">
             <h1 class="footer-alt alte">Get in touch</h1>
             <img src="../assets/images/inTouch.svg"/>
             </div>  
+            </a>
         </div>
 
         <div class="footerSection--bottomcontainer">
