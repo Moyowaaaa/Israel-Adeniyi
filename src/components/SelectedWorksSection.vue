@@ -146,81 +146,10 @@ worksContainer.forEach((workContainer) => {
     }
     
     workContainer.addEventListener('click', () => openProject(workContainer))
-    const workstl = gsap.timeline()
-
-    const mouseEnterAnimation = (work:Element) => {
-    workstl.to(work.children[0], {
-        duration:0.1,
-        opacity:0,
-        display:"none",
-        ease:"power3.inOut",
-        
-    })
-    .to(work.children[1], {
-        opacity:1,
-        display:"flex",
-        ease:"power3.inOut"
-    })
-    .to(work.children[1].lastChild, {
-        textDecoration:"line-through",
-        ease:"power3.inOut",
-        duration:1.2,
-    })
-
-}
-
-const mouseLeaveAnimation = (work:Element) => {
-     gsap.set(work.children[1].lastChild, {
-        textDecoration:"none",
-        ease:"power3.inOut",
-        // duration:0.2,
-    })
-    gsap.set(work.children[1], {
-        opacity:0,
-        display:"none",
-        ease:"power3.inOut",
-        
-    })
-    gsap.set(work.children[0], {
-        opacity:0.3,
-        display:"flex"
-    })
-
-    
-
-    setTimeout(() => {
-        gsap.set(work.children[1].lastChild, {
-        textDecoration:"none",
-        ease:"power3.inOut",
-        // duration:0.2,
-    })
-    gsap.set(work.children[1], {
-        opacity:0,
-        display:"none",
-        ease:"power3.inOut",
-        
-    })
-    gsap.set(work.children[0], {
-        opacity:0.3,
-        display:"flex"
-    })
-
-    },2000)
 
 
-    
-    
 
-}
-
-    workContainer.addEventListener('mouseenter',() => {
-       mouseEnterAnimation(workContainer)
-    })
-    workContainer.addEventListener('mouseleave',() => {
-        mouseLeaveAnimation(workContainer)
-    })
 })
-
 
 
 })

@@ -117,6 +117,25 @@
                     
 </div>
 
+<div class="works-showcase__right-column--work-container work-container" id="work">
+                    <div class="mask">
+                    <img src="../assets/images/darkNoise.png" /> 
+                </div>
+
+                <div class="title" id="helpingHandTitle">
+                    <h1>
+                        Mobile Payment App
+                    </h1>
+                    <p>View</p>
+                </div>
+
+
+                <a href="https://www.behance.net/gallery/138676173/Mobile-Payment-App" target="_blank"></a>
+         
+                    
+</div>
+
+
 
             </div>
 
@@ -312,6 +331,7 @@ const mouseLeaveAnimation = (work:Element) => {
 .work-container{
     height: 35rem;
             width: 20rem;
+            cursor: pointer;
            
 
 }
@@ -345,6 +365,13 @@ const mouseLeaveAnimation = (work:Element) => {
             background-size:cover;
             background-repeat: no-repeat;
 
+
+            .mask{
+    height: 35rem;
+            width: 20rem;
+            position: absolute;
+}
+
             .title{
                 // z-index: ;
                
@@ -376,6 +403,13 @@ const mouseLeaveAnimation = (work:Element) => {
             background-size:cover;
             background-repeat: no-repeat;
             background-position-x: -11rem;
+
+            .mask{
+    height: 35rem;
+            width: 20rem;
+            position: absolute;
+}
+
 
 
             .title{
@@ -412,6 +446,13 @@ const mouseLeaveAnimation = (work:Element) => {
             box-shadow: 2px 2px   whitesmoke;
 
 
+            .mask{
+    height: 35rem;
+            width: 20rem;
+            position: absolute;
+}
+
+
         .title{
             position:absolute;
             display: flex;
@@ -443,6 +484,12 @@ const mouseLeaveAnimation = (work:Element) => {
             background-repeat: no-repeat;
             background-position-x:-12rem ;
             
+            .mask{
+    height: 35rem;
+            width: 20rem;
+            position: absolute;
+}
+
 
 
         .title{
@@ -475,6 +522,12 @@ const mouseLeaveAnimation = (work:Element) => {
             background-size:cover;
             background-repeat: no-repeat;
 
+            .mask{
+    height: 35rem;
+            width: 20rem;
+            position: absolute;
+}
+
             .title{
                 position:absolute;
             display: flex;
@@ -495,6 +548,42 @@ const mouseLeaveAnimation = (work:Element) => {
             
             }
         }
+
+        .works-showcase__right-column--work-container:nth-child(2){
+            background-image: url('../assets/images/payment.png');
+            background-position-x:-8rem ;
+            background-size:cover;
+            background-repeat: no-repeat;
+
+
+            .mask{
+    height: 35rem;
+            width: 20rem;
+            position: absolute;
+}
+
+
+            .title{
+                position:absolute;
+            display: flex;
+            flex-direction: column;
+            z-index: 500;
+            color: black;
+            margin-top: 25rem;
+            font-family: 'neutra';
+            font-size: 1.5rem;
+            margin-left:1rem;
+
+             h1{
+                font-size: 2.1  rem;
+            }
+            p{
+                margin-top: -1rem;
+            }
+            
+            }
+        }
+
 
 
  

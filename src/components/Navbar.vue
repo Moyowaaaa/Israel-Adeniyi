@@ -42,9 +42,9 @@
            
             <router-link to="/">
             <div class="fullScreenNav--logocontainer"  id="logo">
-                
-                <h1 class="nav-menu-logo">ADENIYI</h1>
-                
+                <router-link to="/">
+                <h1 class="nav-menu-logo">ADENIYI</h1></router-link>
+
             </div>
             </router-link>
        
@@ -128,11 +128,12 @@ import { useRouter } from 'vue-router';
 const router = useRouter()
 const menuIsOpen = ref<boolean>(false)
 
-const navigateToHome = async() => {
-    await menuTl.reverse()
-    await router.push('/')
+const navigateToHome = () => {
+    console.log('hola')
+    // await menuTl.reverse()
+    // await router.push('/')
   
-    document.querySelector('#titleSection')?.scrollIntoView()
+    // document.querySelector('#titleSection')?.scrollIntoView()
 }
 
 const navigateToFooter = () => {
@@ -249,7 +250,7 @@ menuBodyTl.to('.fullScreenNav', {
     ease:"power3.inOut"
 }, "<0.1")
 .fromTo('.nav-menu-logo',  {y: 0, opacity: 0, }, { opacity:1,duration:0.8, clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)"}, "<0.1")
-menuBodyTl.from('.contacts',{opacity:0,duration:.8,ease:"power3.inOut"})
+menuBodyTl.from('.contacts',{opacity:0,duration:.8,ease:"power3.inOut"},"<0.1")
 
 menuBodyTl.reverse()
 
@@ -522,6 +523,12 @@ display: none;
     width: 40px;
 }
 
+.nav-menu-logo{
+    font-size: 5rem;;
+    // z-index: 9999;
+    border:2px solid red
+}
+
 
 
 
@@ -562,6 +569,7 @@ display: none;
         }
         .nav-menu-logo{
     font-size: 5rem;;
+  
 }
 .fullscreen-social-container{
         display:none
