@@ -19,124 +19,129 @@
 
 
             <div class="works-showcase__left-column">
-
-            <div class="works-showcase__left-column--work-container work-container" id="work">
-                <div class="mask">
-                    <img src="../assets/images/darkNoise.png" /> 
-                </div>
-
-                <div class="title" id="helpingHandTitle">
-                    <h1>
-                        Helping Hand
-                    </h1>
-                    <p>View</p>
-                </div>
-    
-                <a href="https://www.behance.net/gallery/143565927/Helping-hand-Case-Study" target="_blank"></a>
-
-                </div>
-
-
-                <div class="works-showcase__left-column--work-container work-container" id="work">
+                <div class="workContainer" id="work">
                     <div class="mask">
-                    <img src="../assets/images/darkNoise.png" /> 
+                        <img src="../assets/images/darkNoise.png" />
+                    </div>
+                    <div class="details">
+                        <h1>Helping Hand Case Study</h1>
+                    </div>
+                    <div class="view">
+                        <p>View</p>
+
+                        
+                    </div>
+                    <a href="https://www.behance.net/gallery/143565927/Helping-hand-Case-Study" target="_blank"></a>
+
                 </div>
 
-                <div class="title" id="helpingHandTitle">
-                    <h1>
-                        E-learning Platform
-                    </h1>
-                    <p>View</p>
-                </div>
+                <div class="workContainer" id="work">
+                    <div class="mask">
+                        <img src="../assets/images/darkNoise.png" />
+                    </div>
+                    <div class="details">
+                        <h1>E-learning Platform</h1>
+                    </div>
+                    <div class="view">
+                        <p>View</p>
+
+                        
+                    </div>
 
                 <a href="https://www.behance.net/gallery/159529897/E-learning-Platform" target="_blank"></a>
-         
-                    
-</div>
 
 
+                </div>
+
+                
             </div>
+
 
             <div class="works-showcase__center-column">
-                <div class="works-showcase__center-column--work-container work-container" id="work">
+                <div class="center-workContainer workContainer" id="work">
                     <div class="mask">
-                    <img src="../assets/images/darkNoise.png" /> 
-                </div>
-
-                <div class="title" id="helpingHandTitle">
-                    <h1>
+                        <img src="../assets/images/darkNoise.png" />
+                    </div>
+                    <div class="details">
+                        <h1>
                         Super Rare NFT
-                    </h1>
-                    <p>View</p>
-                </div>
 
+                        </h1>
+                    </div>
+                    <div class="view">
+                        <p>View</p>
+
+                        
+                    </div>
                 <a href="https://www.behance.net/gallery/163889507/NFT-Landing-page" target="_blank"> </a>
-         
-                    
-</div>
 
 
-<div class="works-showcase__center-column--work-container work-container" id="work">
+                </div>
+
+                <div class="center-workContainer workContainer" id="work">
                     <div class="mask">
-                    <img src="../assets/images/darkNoise.png" /> 
-                </div>
-
-                <div class="title" id="helpingHandTitle">
-                    <h1>
+                        <img src="../assets/images/darkNoise.png" />
+                    </div>
+                    <div class="details">
+                        <h1>
                         Pixel Wears
-                    </h1>
-                    <p>View</p>
-                </div>
 
+                        </h1>
+                    </div>
+                    <div class="view">
+                        <p>View</p>
+
+                        
+                    </div>
                 <a href="https://www.behance.net/gallery/152468943/Pixel-Wears" target="_blank"></a>
-         
-                    
-</div>
 
 
-
+                </div>
+                
             </div>
 
+
+
             <div class="works-showcase__right-column">
-                
-                <div class="works-showcase__right-column--work-container work-container" id="work">
+
+                     <div class="right-workContainer workContainer" id="work">
                     <div class="mask">
-                    <img src="../assets/images/darkNoise.png" /> 
-                </div>
+                        <img src="../assets/images/darkNoise.png" />
+                    </div>
+                    <div class="details">
+                        <h1>
+                            Rebank
+                        </h1>
+                    </div>
+                    <div class="view">
+                        <p>View</p>
 
-                <div class="title" id="helpingHandTitle">
-                    <h1>
-                        Relume
-                    </h1>
-                    <p>View</p>
-                </div>
-
-
+                        
+                    </div>
                 <a href="https://www.behance.net/gallery/156098055/REBANK-landing-page-Relume-design-challenge" target="_blank"></a>
-         
-                    
-</div>
 
-<div class="works-showcase__right-column--work-container work-container" id="work">
+
+                </div>
+
+                <div class="right-workContainer workContainer" id="work">
                     <div class="mask">
-                    <img src="../assets/images/darkNoise.png" /> 
-                </div>
+                        <img src="../assets/images/darkNoise.png" />
+                    </div>
+                    <div class="details">
+                        <h1>
+                        Pixel Wears
 
-                <div class="title" id="helpingHandTitle">
-                    <h1>
-                        Mobile Payment App
-                    </h1>
-                    <p>View</p>
-                </div>
+                        </h1>
+                    </div>
+                    <div class="view">
+                        <p>View</p>
 
-
+                        
+                    </div>
                 <a href="https://www.behance.net/gallery/138676173/Mobile-Payment-App" target="_blank"></a>
-         
-                    
-</div>
 
 
-
+                </div>
             </div>
 
           </div>
@@ -204,58 +209,63 @@ onMounted(() => {
 
     worksContainer.forEach((workContainer) => {
         const openProject = (work:Element) => {
-        (work.children[2] as HTMLLinkElement)?.click()
+        (work.children[3] as HTMLLinkElement)?.click()
     }
     
 
     workContainer.addEventListener('click', () => openProject(workContainer))
 
-
-         const mouseEnterAnimation = (work:Element) => {
-    workstl.to(work.children[0], {
-        duration:0.1,
+    const mouseEnterAnimation = (work:Element) => {
+        gsap.set(work.children[0],{
+           
         opacity:0,
-        display:"none",
+        // display:"none",
         ease:"power3.inOut",
+        })
+        workstl.to(work.children[1],{
+            marginTop:"-13rem",
+            duration:0.6,
+            ease:"power4.inOut",
+            textDecoration:"underline"
+           })
+           .to(work.children[2],{
+            display:"flex",
+           })
+    }
+
+    const mouseLeaveAnimation = (work:Element) => {
+       
+           workstl.to(work.children[2],{
+            display:"none",
+           },"<0.5")
+           workstl.to(work.children[1],{
+            marginTop:"-10rem",
+            duration:0.8,
+            ease:"power4.inOut",
+            textDecoration:"none"
+           })
+           workstl.to(work.children[0],{
+           opacity:0.2,
+           // display:"none",
+           ease:"power3.inOut",
+           })
+          
+        //    .to(work.children[2],{
+        //     display:"none",
+        //     marginTop:"5rem"
+        //    })
+          
+    }
+
         
-    })
-    .to(work.children[1], {
-        opacity:1,
-        display:"flex",
-        ease:"power3.inOut"
-    })
-    .to(work.children[1].lastChild, {
-        textDecoration:"line-through",
-        ease:"power3.inOut",
-        duration:1.2,
-    })
-
-}
-
-const mouseLeaveAnimation = (work:Element) => {
-     gsap.set(work.children[1].lastChild, {
-        textDecoration:"none",
-        ease:"power3.inOut",
-        // duration:0.2,
-    })
-    gsap.set(work.children[1], {
-        opacity:0,
-        display:"none",
-        ease:"power3.inOut",
-        
-    })
-    gsap.set(work.children[0], {
-        opacity:0.3,
-        display:"flex"
-    })
-
-}
-
     workContainer.addEventListener('mouseenter',() => {
        mouseEnterAnimation(workContainer)
+    console.log(workContainer)
+    console.log('hovered')
     })
     workContainer.addEventListener('mouseleave',() => {
         mouseLeaveAnimation(workContainer)
+        console.log('unhoveres')
     })
 
 })
@@ -297,10 +307,12 @@ const mouseLeaveAnimation = (work:Element) => {
 
     &__left-column{
         // border:;
-        height: auto;
+        height: max-content;
+        width: max-content;
         display: flex;
         flex-direction: column;
         gap:2rem;
+  
          
 
            
@@ -308,10 +320,13 @@ const mouseLeaveAnimation = (work:Element) => {
 
     &__center-column{
         
-        height: auto;
+        height: max-content;
+        width: max-content;
         display: flex;
         flex-direction: column;
         gap:2rem;
+    
+        
          
             margin-top:8rem;
     }
@@ -320,7 +335,10 @@ const mouseLeaveAnimation = (work:Element) => {
       
         height: max-content;
         display: flex;
+        width: max-content;
+
         flex-direction: column;
+    
         gap:2rem;
             margin-top:5rem;
     }
@@ -328,13 +346,7 @@ const mouseLeaveAnimation = (work:Element) => {
    
 }
 
-.work-container{
-    height: 35rem;
-            width: 20rem;
-            cursor: pointer;
-           
 
-}
 
 .page-overlay{
     height: 100vh;
@@ -350,239 +362,396 @@ const mouseLeaveAnimation = (work:Element) => {
     z-index:100;
 }
 
-.mask{
-    height: 35rem;
-            width: 20rem;
-}
-.mask{
-            position:absolute;
-          
-            opacity: 0.1;
-}
 
-.works-showcase__left-column--work-container:nth-child(1){
+
+.workContainer:nth-child(1){
     background-image: url('../assets/images/helping.png');
             background-size:cover;
             background-repeat: no-repeat;
-
+            // border: 2px solid blue;
+            height: 35rem;
+            width: 20rem;
+            cursor: pointer;
+     
+          
 
             .mask{
-    height: 35rem;
-            width: 20rem;
-            position: absolute;
-}
+                height: 100%;
+                width: 100%;
+         
+                opacity: 0.2;
+                object-fit: cover;
 
-            .title{
-                // z-index: ;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .details{
+                width: 20rem;
+                
+                position: absolute;
+                // bottom: 50rem;
+                margin-top: -10rem;
+                color: black;
+                font-family: 'neutra';
+                font-size: 30px;
+                padding-left: 1rem;
+            }
+
+            .view{
+                width: 20rem;
                
-                display: flex;
-            flex-direction: column;
-            z-index: 500;
-            color: black;
-            margin-top: 25rem;
-            font-family: 'neutra';
-            font-size: 1.5rem;
-            padding: 0 1rem;
+                position: absolute;
+                margin-top: -5rem;
+                color: black;
+                font-family: 'neutra';
+                font-size: 20px;
+                display: none;
+                justify-content: space-between;
+                align-items: center;
+                padding-left: 1rem;
 
-            h1{
-                font-size: 2.5rem;
             }
-            p{
-                margin-top: -1rem;
-            }
-            
-            // display: none;
-            
-            }
-
           
 }
 
-.works-showcase__left-column--work-container:nth-child(2){
+.workContainer:nth-child(2){
     background-image: url('../assets/images/educationn.png');
             background-size:cover;
             background-repeat: no-repeat;
-            background-position-x: -11rem;
+            // border: 2px solid blue;
+            height: 35rem;
+            width: 20rem;
+            cursor: pointer;
+         
+            background-position-x:-10rem ;
+          
 
             .mask{
-    height: 35rem;
+                height: 100%;
+                width: 100%;
+             
+                opacity: 0.2;
+                object-fit: cover;
+
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .details{
+                width: 20rem;
+                
+                position: absolute;
+                // bottom: 50rem;
+                margin-top: -10rem;
+                color: black;
+                font-family: 'neutra';
+                font-size: 30px;
+                padding-left: 1rem;
+            }
+
+            .view{
+                width: 20rem;
+             
+                position: absolute;
+                margin-top: -5rem;
+                color: black;
+                font-family: 'neutra';
+                font-size: 20px;
+                display: none;
+                justify-content: space-between;
+                align-items: center;
+                padding-left: 1rem;
+
+            }
+          
+}
+
+.workContainer:nth-child(2){
+    // background-image: url('../assets/images/educationn.png') !important;
+    background-color: red;
+            background-size:cover;
+            background-repeat: no-repeat;
+           
+            height: 35rem;
             width: 20rem;
-            position: absolute;
-}
+            cursor: pointer;
+            
+            background-position-x:-10rem ;
+          
 
+            .mask{
+                height: 100%;
+                width: 100%;
+              
+                opacity: 0.2;
+                object-fit: cover;
 
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .details{
+                width: 20rem;
+                
+                position: absolute;
+                // bottom: 50rem;
+                margin-top: -10rem;
+                color: black;
+                font-family: 'neutra';
+                font-size: 30px;
+                padding-left: 1rem;
+            }
 
-            .title{
-                // z-index: ;
+            .view{
+                width: 20rem;
                
-                display: flex;
-            flex-direction: column;
-            z-index: 500;
-            color: black;
-            margin-top: 25rem;
-            font-family: 'neutra';
-            font-size: 1.5rem;
-            padding: 0 1rem;
+                position: absolute;
+                margin-top: -5rem;
+                color: black;
+                font-family: 'neutra';
+                font-size: 20px;
+                display: none;
+                justify-content: space-between;
+                align-items: center;
+                padding-left: 1rem;
 
-            h1{
-                font-size: 2.5rem;
             }
-            p{
-                margin-top: -1rem;
-            }
-            
-            // display: none;
-            
-            }
+          
 }
 
 
 
-.works-showcase__center-column--work-container:nth-child(1){
+
+
+
+.center-workContainer:nth-child(1){
             // margin-top: 4rem;
             background-image: url('../assets/images/nft.png');
             background-size:cover;
             background-repeat: no-repeat;
             box-shadow: 2px 2px   whitesmoke;
-
-
-            .mask{
-    height: 35rem;
+            height: 35rem;
             width: 20rem;
-            position: absolute;
-}
 
 
-        .title{
-            position:absolute;
-            display: flex;
-            flex-direction: column;
-            z-index: 500;
-            color: white;
-            margin-top: 25rem;
-            font-family: 'neutra';
-            font-size: 1.5rem;
-            margin-left:1rem;
+         
+            .mask{
+                height: 100%;
+                width: 100%;
+               
+                opacity: 0.2;
+                object-fit: cover;
 
-            h1{
-                font-size: 2.5rem;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
             }
-            p{
-                margin-top: -1rem;
+            .details{
+                width: 20rem;
+                
+                position: absolute;
+                // bottom: 50rem;
+                margin-top: -10rem;
+                color: whitesmoke;
+                font-family: 'neutra';
+                font-size: 30px;
+                padding-left: 1rem;
             }
-            
 
-        }
+            .view{
+                width: 20rem;
+            
+                position: absolute;
+                margin-top: -5rem;
+                color: white;
+                font-family: 'neutra';
+                font-size: 20px;
+                display: none;
+                justify-content: space-between;
+                align-items: center;
+                padding-left: 1rem;
+
+            }
+
             
             
         }
 
-        .works-showcase__center-column--work-container:nth-child(2){
+
+        
+.center-workContainer:nth-child(2){
             // margin-top: 4rem;
             background-image: url('../assets/images/pixel.png');
             background-size:cover;
             background-repeat: no-repeat;
-            background-position-x:-12rem ;
-            
-            .mask{
-    height: 35rem;
+            box-shadow: 2px 2px   whitesmoke;
+            height: 35rem;
             width: 20rem;
-            position: absolute;
-}
 
 
+         
+            .mask{
+                height: 100%;
+                width: 100%;
+                
+                opacity: 0.2;
+                object-fit: cover;
 
-        .title{
-            position:absolute;
-            display: flex;
-            flex-direction: column;
-            z-index: 500;
-            color: black;
-            margin-top: 25rem;
-            font-family: 'neutra';
-            font-size: 1.5rem;
-            margin-left:1rem;
-
-            h1{
-                font-size: 2.5rem;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
             }
-            p{
-                margin-top: -1rem;
+            .details{
+                width: 20rem;
+                
+                position: absolute;
+                // bottom: 50rem;
+                margin-top: -10rem;
+                color: whitesmoke;
+                font-family: 'neutra';
+                font-size: 30px;
+                padding-left: 1rem;
             }
-            
 
-        }
+            .view{
+                width: 20rem;
+            
+                position: absolute;
+                margin-top: -5rem;
+                color: white;
+                font-family: 'neutra';
+                font-size: 20px;
+                display: none;
+                justify-content: space-between;
+                align-items: center;
+                padding-left: 1rem;
+
+            }
+
             
             
         }
 
-        .works-showcase__right-column--work-container:nth-child(1){
+
+
+
+        .right-workContainer:nth-child(1){
+            // margin-top: 4rem;
             background-image: url('../assets/images/rebank.png');
+            background-size:cover;
+            background-repeat: no-repeat;
+            box-shadow: 2px 2px   whitesmoke;
+            height: 35rem;
+            width: 20rem;
             background-position-x:-9rem ;
-            background-size:cover;
-            background-repeat: no-repeat;
 
+
+         
             .mask{
-    height: 35rem;
-            width: 20rem;
-            position: absolute;
-}
+                height: 100%;
+                width: 100%;
+  
+                opacity: 0.2;
+                object-fit: cover;
 
-            .title{
-                position:absolute;
-            display: flex;
-            flex-direction: column;
-            z-index: 500;
-            color: black;
-            margin-top: 25rem;
-            font-family: 'neutra';
-            font-size: 1.5rem;
-            margin-left:1rem;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+            .details{
+                width: 20rem;
+                
+                position: absolute;
+                // bottom: 50rem;
+                margin-top: -10rem;
+                color: black;
+                font-family: 'neutra';
+                font-size: 30px;
+                padding-left: 1rem;
+            }
 
-             h1{
-                font-size: 2.5rem;
-            }
-            p{
-                margin-top: -1rem;
-            }
+            .view{
+                width: 20rem;
             
+                position: absolute;
+                margin-top: -5rem;
+                color: black;
+                font-family: 'neutra';
+                font-size: 20px;
+                display: none;
+                justify-content: space-between;
+                align-items: center;
+                padding-left: 1rem;
+
             }
+
+            
+            
         }
 
-        .works-showcase__right-column--work-container:nth-child(2){
+        .right-workContainer:nth-child(2){
+            // margin-top: 4rem;
             background-image: url('../assets/images/payment.png');
-            background-position-x:-8rem ;
             background-size:cover;
             background-repeat: no-repeat;
-
-
-            .mask{
-    height: 35rem;
+            box-shadow: 2px 2px   whitesmoke;
+            height: 35rem;
             width: 20rem;
-            position: absolute;
-}
+            background-position-x:-8rem ;
 
 
-            .title{
-                position:absolute;
-            display: flex;
-            flex-direction: column;
-            z-index: 500;
-            color: black;
-            margin-top: 25rem;
-            font-family: 'neutra';
-            font-size: 1.5rem;
-            margin-left:1rem;
+         
+            .mask{
+                height: 100%;
+                width: 100%;
+           
+                opacity: 0.2;
+                object-fit: cover;
 
-             h1{
-                font-size: 2.1  rem;
+                img{
+                    width: 100%;
+                    height: 100%;
+                }
             }
-            p{
-                margin-top: -1rem;
+            .details{
+                width: 20rem;
+                
+                position: absolute;
+                // bottom: 50rem;
+                margin-top: -10rem;
+                color: black;
+                font-family: 'neutra';
+                font-size: 30px;
+                padding-left: 1rem;
             }
+
+            .view{
+                width: 20rem;
             
+                position: absolute;
+                margin-top: -5rem;
+                color: black;
+                font-family: 'neutra';
+                font-size: 20px;
+                display: none;
+                justify-content: space-between;
+                align-items: center;
+                padding-left: 1rem;
+
             }
+
+            
+            
         }
+
+
 
 
 
@@ -600,16 +769,17 @@ const mouseLeaveAnimation = (work:Element) => {
     }
 
     .works-showcase{
-
+        width: 100%;
         flex-direction: column;
+        // background-color: red;
     }
 
-    .work-container{
+    .workContainer{
         width: 95%;
         margin:  0 auto;;
         height: 80rem;
     }
-    .mask{
+    .mask, .view, .details{
     display: none;
   }
 
@@ -619,6 +789,12 @@ const mouseLeaveAnimation = (work:Element) => {
 
   .section-title{
     font-size: 15rem;
+  }
+
+  .workContainer{
+    width:55rem !important;
+    height:90rem !important
+
   }
 
 
