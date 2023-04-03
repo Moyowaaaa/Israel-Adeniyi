@@ -9,7 +9,7 @@
       <Main  id="workSection">
    
 
-        <section class="workSection">
+        <section class="workSection" id="works">
             <div class="workSection--container">
                 <h1 class="section-title title content__title" >
            Works
@@ -250,11 +250,7 @@ onMounted(() => {
            ease:"power3.inOut",
            })
           
-        //    .to(work.children[2],{
-        //     display:"none",
-        //     marginTop:"5rem"
-        //    })
-          
+  
     }
 
         

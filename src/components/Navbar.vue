@@ -152,10 +152,9 @@ const openResume = () => {
 
 const navigateToWorks = async() => {
    await router.push('/works')
-  if (window.scrollY > 0) {
-   window.scrollTo(0,0)
-   }
-
+   await document.querySelector('#workSection')?.scrollIntoView({
+            behavior: 'smooth'
+       });
 }
 
 const navigateToAbout = async() => {

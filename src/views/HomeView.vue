@@ -12,14 +12,13 @@ import Main from '../layouts/Main.vue'
 
 
 
-
 </script>
 
 <template>
   <div class="app">
     
   <Main>
-    <Preloader />
+    <!-- <Preloader /> -->
     <TitleSection />
   <HeroSection />
   <SelectedWorksSection />

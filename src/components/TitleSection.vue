@@ -29,7 +29,7 @@
         <div class="titleSection--mainContainer">
             
             <div class="titleSection--mainContainer__titlecontainer" id="titleContainer">
-                <h1 class="main-header header content__title" data-splitting data-effect-5 id="mainTitle">USER EXPERIENCE</h1>
+                <h1 class="main-header header content__title" data-splitting data-effect-5 id="mainTitle" data-animation="header">USER EXPERIENCE</h1>
                <div class="header-sub-container">
                 <h1 class="main-header sub-header">designer based</h1>
                 <h1  class="main-header sub-header"> in Lagos</h1>
