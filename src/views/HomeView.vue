@@ -18,7 +18,7 @@ import Main from '../layouts/Main.vue'
   <div class="app">
     
   <Main>
-    <!-- <Preloader /> -->
+    <Preloader />
     <TitleSection />
   <HeroSection />
   <SelectedWorksSection />

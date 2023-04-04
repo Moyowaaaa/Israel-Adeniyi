@@ -767,17 +767,15 @@ onMounted(() => {
     .works-showcase{
         width: 100%;
         flex-direction: column;
+        align-items: center;
         // background-color: red;
     }
 
-    .workContainer{
-        width: 95%;
-        margin:  0 auto;;
-        height: 80rem;
-    }
-    .mask, .view, .details{
+ 
+    .mask, .view{
     display: none;
   }
+
 
   .work-container .title{
     display: none !important;
@@ -788,8 +786,15 @@ onMounted(() => {
   }
 
   .workContainer{
-    width:55rem !important;
-    height:90rem !important
+    width:60rem !important;
+    height:90rem !important;
+
+    .details{
+        position: relative !important;
+        bottom: -70rem !important;
+       font-size: 20px !important;
+       width: 100% !important;
+    }
 
   }
 
