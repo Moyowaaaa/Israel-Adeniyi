@@ -218,7 +218,7 @@ const removeHoldToExplore = () => {
 }
 .sub-header{
     color:#F8F8F8;
-    width: 40rem;
+    width: 100%;
     font-family: "thunder-boldl";
 
     font-size: 8rem;
