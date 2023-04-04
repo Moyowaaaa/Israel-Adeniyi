@@ -237,28 +237,7 @@ watchEffect(() => {
 
 
 
-    // .fromTo(
-    //   ".reveal",
-    //   { y: 0, opacity: 0 },
-    //   {
-        
-    //     opacity: 1,
-    //     duration: 0.8,
-    //     clipPath: "polygon(0 100%, 100% 100%, 100% 0, 0 0)",
-    //   },
-    //   "<0.1"
-    // )
-    
-
-
-
-  // loaderTl.eventCallback("onComplete", () => {
-    // loaderTl.kill();
-    // gsap.set(".preloader", { zIndex:-1,display:"none",opacity:"0" });
-  // });
-
-
-// });
+  
 </script>
 
 <style scoped lang="scss">

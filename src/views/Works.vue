@@ -388,7 +388,7 @@ onMounted(() => {
                 width: 20rem;
                 
                 position: absolute;
-                // bottom: 50rem;
+         
                 margin-top: -10rem;
                 color: black;
                 font-family: 'neutra';

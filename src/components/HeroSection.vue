@@ -58,11 +58,11 @@ gsap.registerPlugin(ScrollTrigger)
   align-items: center;
   justify-content: center;
   margin: 0 auto;
-  //  padding: 0 11.8rem;
+  
 
   &--contentcontainer {
     width: 100%;
-    // border:2px solid;
+
     display: flex;
     justify-content: space-between;
   }
@@ -93,7 +93,7 @@ gsap.registerPlugin(ScrollTrigger)
 
   @media screen and (max-width:485px) {
     width: 100%;
-    // border:2px soid salmon
+  
     
   }
 }

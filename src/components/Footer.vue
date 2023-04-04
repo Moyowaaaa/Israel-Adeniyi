@@ -110,32 +110,7 @@ let currentYear = ref<number | null>()
 
 onMounted(() => {
 
-    // const links = document.querySelectorAll('.social')
-
-    // console.log(links)
-
-    //  links.forEach((link) => {
-        
-
-    //     link.addEventListener('mouseenter', () => {
-    //         gsap.to(link, {
-    //             scale:'1.2',
-    //             textDecoration:'line-through',
-    //             duration:1.2,
-    //             textDecorationColor:"linear-gradient( #F89623,#F89623);"
-
-              
-    //         })
-    //     })
-
-    //     link.addEventListener('mouseleave',() => {
-    //         gsap.to(link, {
-    //             scale:'1',
-    //             textDecoration:'none',
-    //             duration:1.2
-    //         })
-    //     })
-    //  })
+   
 
     const date = new Date();
    currentYear.value = date.getFullYear()
@@ -159,11 +134,11 @@ onMounted(() => {
     height: auto; 
     display: flex;
     flex-direction: column;
-    // box-sizing: border-box;
+  
     padding-top:5rem;
     padding-bottom: 2rem;
     color: white;
-    // font-size: calc(100vw / 1368 * 10);
+   
     max-width: 100rem;
     margin:0 auto;
     
@@ -247,7 +222,7 @@ onMounted(() => {
 
 a{
         color:#f8f8f8; 
-        // text-
+
         text-decoration: none;
     }
 

@@ -179,11 +179,7 @@ onMounted(() => {
     });
   }
 
-  //    if(window.innerHeight < 800 && window.innerHeight) {
-  //     console.log('a pc')
-  //    }else {
-  //     console.log('a phone')
-  //    }
+
 
   menuTl.to(
     ".bar-1",
