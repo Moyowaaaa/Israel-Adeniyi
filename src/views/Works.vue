@@ -129,7 +129,7 @@
                     </div>
                     <div class="details">
                         <h1>
-                        Pixel Wears
+                       Mobile Payment App
 
                         </h1>
                     </div>
@@ -222,29 +222,30 @@ onMounted(() => {
         // display:"none",
         ease:"power3.inOut",
         })
-        workstl.to(work.children[1],{
+        gsap.to(work.children[1],{
             marginTop:"-13rem",
             duration:0.6,
             ease:"power4.inOut",
             textDecoration:"underline"
            })
-           .to(work.children[2],{
+           gsap.to(work.children[2],{
             display:"flex",
+            delay:0.5
            })
     }
 
     const mouseLeaveAnimation = (work:Element) => {
        
-           workstl.to(work.children[2],{
+           gsap.to(work.children[2],{
             display:"none",
-           },"<0.5")
-           workstl.to(work.children[1],{
+           })
+           gsap.to(work.children[1],{
             marginTop:"-10rem",
             duration:0.8,
             ease:"power4.inOut",
             textDecoration:"none"
            })
-           workstl.to(work.children[0],{
+           gsap.to(work.children[0],{
            opacity:0.2,
            // display:"none",
            ease:"power3.inOut",
