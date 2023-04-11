@@ -20,7 +20,7 @@
             testing, I focus on designing interfaces that meet the needs and
             expectations of users.
           </p>
-          <a href="https://drive.google.com/file/d/1qaEKj067bS9Sfx66SyHU7bXM6z2O1TzE/view" target="_blank">
+          <a href="https://drive.google.com/file/d/1RsFaNgjBi8FAS8Kz3DusV85hXYL_PYE9/view?usp=drivesdk" target="_blank">
           <p class="section-text-bold resume" id="resume-btn">View Resume</p>
           </a>
         </div>

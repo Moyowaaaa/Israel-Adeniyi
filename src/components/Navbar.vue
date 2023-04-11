@@ -11,7 +11,7 @@
           <div class="link" @click="navigateToAbout">ABOUT</div>
 
           <a
-            href="https://drive.google.com/file/d/1qaEKj067bS9Sfx66SyHU7bXM6z2O1TzE/view"
+            href="https://drive.google.com/file/d/1RsFaNgjBi8FAS8Kz3DusV85hXYL_PYE9/view?usp=drivesdk"
             target="_blank"
           >
             <div class="link">RESUME</div>
@@ -57,7 +57,7 @@
             </div>
 
             <a
-              href="https://drive.google.com/file/d/1qaEKj067bS9Sfx66SyHU7bXM6z2O1TzE/view"
+              href="https://drive.google.com/file/d/1RsFaNgjBi8FAS8Kz3DusV85hXYL_PYE9/view?usp=drivesdk"
               target="_blank"
               id="resume"
             ></a>
